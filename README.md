@@ -2,7 +2,7 @@
 
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
 
-![Node.js CI](https://github.com/dipakparmar/docs-diary/workflows/Node.js%20CI/badge.svg)
+![Github Pages Build](https://github.com/dipakparmar/docs-diary/workflows/Github%20Pages%20Build/badge.svg)
 
 ### Installation
 
