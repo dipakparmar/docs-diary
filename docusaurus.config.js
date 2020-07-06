@@ -14,12 +14,6 @@ module.exports = {
         src: 'img/logo.svg',
       },
       links: [
-        {
-          to: 'docs/',
-          activeBasePath: 'docs',
-          label: 'Docs',
-          position: 'left',
-        },
       
         {
           href: 'https://github.com/dipakparmar/docs-diary',
@@ -44,7 +38,7 @@ module.exports = {
       {
         docs: {
           // It is recommended to set document id as docs home page (`docs/` path).
-          homePageId: 'git-reset',
+          homePageId: 'git-basic',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
