@@ -1,7 +1,7 @@
 ---
-id: react-js
-title: React
-sidebar_label: React
+id: react-basic
+title: React Basic
+sidebar_label: Basic
 ---
 
 ## Create clean project

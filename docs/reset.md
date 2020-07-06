@@ -14,7 +14,3 @@ sidebar_label: Git Reset
  git push -f origin master
  ```
 
-#### Auto-sign all commits globaly
- ```
-git config --global commit.gpgsign true
-```
