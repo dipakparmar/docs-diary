@@ -1,6 +1,6 @@
 module.exports = {
   someSidebar: {
-    Git: ['git-reset'],
-    React: ['react-js']
+    Git: ['git-basic','git-gpg','git-reset'],
+    React: ['react-basic']
   },
 };
