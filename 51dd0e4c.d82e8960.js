@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{108:function(e){e.exports=JSON.parse('{"docsSidebars":{"someSidebar":[{"collapsed":true,"type":"category","label":"Git","items":[{"type":"link","label":"Git Reset","href":"/docs-diary/docs/"}]}]},"permalinkToSidebar":{"/docs-diary/docs/":"someSidebar"}}')}}]);
