@@ -1,7 +1,7 @@
 ---
 id: git-reset
 title: Git Reset
-sidebar_label: Git Reset
+sidebar_label: Reset
 ---
 
 ## Git Reset/Rollback to specific commit
