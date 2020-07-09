@@ -60,7 +60,7 @@ Host [example.com] //server-name here
 
 ```
 
-#### Store passphrase to your keyching ( optional)
+#### Store passphrase to your keychain ( optional)
   if you don't want to input passpharse everytime
 
   ```bash
