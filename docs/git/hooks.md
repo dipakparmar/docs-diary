@@ -1,5 +1,5 @@
 ---
-id: git-hooks
+id: hooks
 title: Git Hooks
 sidebar_label: Hooks
 ---

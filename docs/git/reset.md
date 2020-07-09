@@ -1,5 +1,5 @@
 ---
-id: git-reset
+id: reset
 title: Git Reset
 sidebar_label: Reset
 ---

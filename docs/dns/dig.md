@@ -1,5 +1,5 @@
 ---
-id: dns-dig
+id: dig
 title: DNS Dig
 sidebar_label: Dig
 ---

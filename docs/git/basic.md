@@ -1,5 +1,5 @@
 ---
-id: git-basic
+id: basic
 title: Git Basic
 sidebar_label: Basic
 ---

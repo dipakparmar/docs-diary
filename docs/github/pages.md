@@ -1,5 +1,5 @@
 ---
-id: github-pages
+id: pages
 title: Github Pages
 sidebar_label: Pages
 ---

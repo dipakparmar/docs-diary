@@ -1,5 +1,5 @@
 ---
-id: git-gpg
+id: gpg
 title: Git GPG
 sidebar_label: GPG
 ---

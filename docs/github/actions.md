@@ -1,5 +1,5 @@
 ---
-id: github-actions
+id: actions
 title: Github Actions
 sidebar_label: Actions
 ---

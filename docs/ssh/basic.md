@@ -1,5 +1,5 @@
 ---
-id: ssh-basic
+id: basic
 title: SSH Basic
 sidebar_label: Basic
 ---
