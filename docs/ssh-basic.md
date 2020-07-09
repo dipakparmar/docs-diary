@@ -1,0 +1,74 @@
+---
+id: ssh-basic
+title: SSH Basic
+sidebar_label: Basic
+---
+
+## Installing SSH Agent
+
+Install openssh with homebrew 
+
+```bash
+brew install openssh
+```
+
+## Generating & Setting up
+
+### Mac
+
+Open Terminal & paste this with your email
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+
+Start ssh-agent if not running
+
+```bash
+eval "$(ssh-agent -s)"
+```
+
+Open to ssh config file  (woks on **macOS Sierra 10.12.2** or **later**)
+
+```bash
+open ~/.ssh/config
+```
+
+Update the `config` with this (add at bottom)
+
+#### paste this if you want to use key for all server
+
+```bash
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
+
+```
+
+#### paste this if you want to use key for specific server
+
+```bash
+
+Host [example.com] //server-name here
+	HostName git.example.com //actual server address
+	User sshuser //username
+	IdentityFile ~/.ssh/id_rsa //file location
+	UseKeychain yes
+	AddKeysToAgent yes
+	ForwardAgent yes
+
+```
+
+#### Store passphrase to your keyching ( optional)
+  if you don't want to input passpharse everytime
+
+  ```bash
+  ssh-add -K ~/.ssh/id_rsa
+  ```
+
+  ## Copy public key to clipboard
+
+  ```bash
+  pbcopy < ~/.ssh/id_rsa.pub
+  ```
