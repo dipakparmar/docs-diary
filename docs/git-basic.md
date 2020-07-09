@@ -16,7 +16,7 @@ Download from [git-scm](https://git-scm.com/download/win) and Install.
 
 Install with homebrew package manager
 
-```
+```bash
 brew install git
 ```
 
@@ -24,13 +24,13 @@ brew install git
 
 For RPM based os like fedora or cent-os
 
-```
+```bash
 sudo dnf install git-all
 ```
 
 For debian based like ubuntu
 
-```
+```bash
 sudo apt install git-all
 ```
 
@@ -38,7 +38,7 @@ sudo apt install git-all
 
 create a new folder and then 
 
-```
+```bash
 git init
 ```
 
@@ -46,13 +46,13 @@ git init
 
 ### https method
 
-```
+```bash
 git clone [url of repo] ./
 ```
 
 ### ssh method
 
-```
+```bash
 git clone username@host:user/reponame ./
 ```
 
@@ -61,20 +61,20 @@ git clone username@host:user/reponame ./
 ### Add sepecifc file/s 
 to change index
 
-```
+```bash
 git add [filename]
 ```
 ### Add all changed files
 to change index
 
-```
+```bash
 git add .
 ```
 
 ### Commit the message
 for changes in files
 
-```
+```bash
 git commit -m "Commit message"
 ```
 
@@ -83,13 +83,13 @@ git commit -m "Commit message"
 ### Push local head changes
 to remote master 
 
-```
+```bash
 git push origin master
 ```
 
 ### Add remote server to repo
 
-```
+```bash
 git remote add origin [repo url]
 
 ```
@@ -99,27 +99,27 @@ git remote add origin [repo url]
 ### Create
 new branch from local head  (current state of changes)
 
-```
+```bash
 git checkout -b [new branch name]
 ```
 
 ### Switch
 back to master or other branch
 
-```
+```bash
 git checkout master
 ```
 
 ### Delete
 the branch 
 
-```
+```bash
 git checkout -b [branch name]
 ```
 
 ### Push changes
 
-```
+```bash
 git push origin [branch name]
 
 ```
@@ -130,21 +130,21 @@ git push origin [branch name]
 ### Update
 the local repo to latest commit from remote
 
-```
+```bash
 git pull
 ```
  
 ### Merge 
 other branch into current branch
 
-```
+```bash
 git merge [branch name]
 ```
 
 ### Check diff 
 between two branches
 
-```
+```bash
 git diff [source branch] [target branch]
 ```
 
@@ -152,19 +152,19 @@ git diff [source branch] [target branch]
 
 ### All log
 
-```
+```bash
 git log
 ```
 
 ### Commit log by author
 
-```
+```bash
 git log --author=[username]
 ```
 
 ### Log for changed files
 
-```
+```bash
 git log --name-status
 ```
 
@@ -174,27 +174,27 @@ git log --name-status
 ### Add tag (locally)
 to specific commit 
 
-```
+```bash
 git tag [tag name] [commmit]
 ```
 
 ### Delete tag (locally)
 
-```
+```bash
 git tag --delete [tag name]
 ```
 
 ### Push specific tag 
 to remote
 
-```
+```bash
 git push origin [tag name]
 ```
 
 ### Push all local tags 
 to remote
 
-```
+```bash
 git push origin --tags
 ```
 
@@ -203,7 +203,7 @@ git push origin --tags
 ### Showing colorful output 
 of command results (works only in local repo.)
 
-```
+```bash
 git config color.ui true
 ```
 
