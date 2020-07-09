@@ -1,7 +1,7 @@
 ---
 id: github-pages
 title: Github Pages
-sidebar_label: GH Pages
+sidebar_label: Pages
 ---
 
 ## Setting apex/root domain with github pages
