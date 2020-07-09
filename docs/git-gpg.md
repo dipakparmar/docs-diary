@@ -4,7 +4,15 @@ title: Git GPG
 sidebar_label: GPG
 ---
 
+## Installing gpg client
 
+### mac
+
+Installing with HomeBrew Client 
+
+```
+brew install gpg
+```
 
 ## Setting up default GPG Client
 
