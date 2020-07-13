@@ -1,0 +1,5 @@
+---
+id: single-node-installation
+title: Rancher Single Node Installation
+sidebar_label: Single Node Installation
+---

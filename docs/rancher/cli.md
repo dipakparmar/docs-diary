@@ -1,10 +1,10 @@
 ---
 id: cli
-title: CLI
+title: Rancher CLI
 sidebar_label: CLI
 ---
 
-## Installing Rancher ClI
+## Installing Rancher CLI
 
 ### Linux
 
