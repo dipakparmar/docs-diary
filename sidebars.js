@@ -4,8 +4,9 @@ module.exports = {
     Github: ["github/pages","github/actions"],
     DNS: ["dns/dig"],
     SSH: ["ssh/basic"],
+    Docker: ["docker/basics"],
     Linux: ["linux/resync","linux/disk-management"],
-    Rancher: ["rancher/cli"],
+    Rancher: ["rancher/cli","rancher/host-installation", "rancher/single-node-installation"],
     React: ["react/basic"],
     "Awesome Lists": ["awesome-lists"]
   },
