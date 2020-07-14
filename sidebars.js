@@ -6,7 +6,7 @@ module.exports = {
     "🔐 SSH": ["ssh/basic"],
     "🐳 Docker": ["docker/basics"],
     "🐧 Linux": ["linux/resync","linux/disk-management"],
-    "🐮 Rancher": ["rancher/cli","rancher/host-installation", "rancher/single-node-installation"],
+    "🐮 Rancher": ["rancher/cli","rancher/host-installation", "rancher/single-node-installation", "rancher/references"],
     " ⚛️ React": ["react/basic"],
     "Awesome Lists": ["awesome/awesome-lists", "awesome/graphics-tools"]
   },
