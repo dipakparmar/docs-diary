@@ -1,7 +1,7 @@
 module.exports = {
   someSidebar: {
     Git: ["git/basic", "git/gpg", "git/reset", "git/hooks"],
-    "🐙 Github": ["github/pages","github/actions"],
+    "🐙 Github": ["github/pages","github/actions","github/references"],
     "🔗 DNS": ["dns/dig"],
     "🔐 SSH": ["ssh/basic"],
     "🐳 Docker": ["docker/basics"],
