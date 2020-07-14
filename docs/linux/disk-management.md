@@ -75,3 +75,48 @@ echo UUID=`sudo blkid -s UUID -o value /dev/sdb` /folder/directory ext4 discard,
 ```bash
 cat /etc/fstab
 ```
+
+
+
+## Unmounting a File System 
+
+This section doc is from (Reference: [Linuxize](https://linuxize.com/post/how-to-mount-and-unmount-file-systems-in-linux/#unmounting-a-file-system))
+
+To detach a mounted file system, use the umount command followed by either the directory where it has been mounted (mount point) or the device name:
+
+```bash
+umount DIRECTORY
+```
+
+```bash
+umount DEVICE_NAME
+```
+
+
+If the file system is in use the umount command will fail to detach the file system. In those situations, you can use the fuser command to find out which processes are accessing the file system:
+
+```bash
+fuser -m DIRECTORY
+```
+
+
+Once you determine the processes you can stop them and unmount the file system.
+Lazy unmount
+
+Use the `-l (--lazy)` option to unmount a busy file system as soon as it is not busy anymore.
+
+```bash
+umount -l DIRECTORY
+```
+
+
+Force unmount
+
+Use the `-f (--force)` option to force an unmount. This option is usually used to unmount an unreachable NFS system.
+
+```bash
+umount -f DIRECTORY
+```
+
+
+Generally not a good idea to force unmount as it may corrupt the data on the file system.
