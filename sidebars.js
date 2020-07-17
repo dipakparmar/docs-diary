@@ -8,6 +8,7 @@ module.exports = {
     "🐧 Linux": ["linux/resync","linux/disk-management"],
     "🐮 Rancher": ["rancher/cli","rancher/host-installation", "rancher/single-node-installation", "rancher/references"],
     " ⚛️ React": ["react/basic"],
+    " 🐛 Customization/Fixes": ["custom-fixes/mac-os"],
     "Awesome Lists": ["awesome/awesome-lists", "awesome/graphics-tools"]
   },
 };
