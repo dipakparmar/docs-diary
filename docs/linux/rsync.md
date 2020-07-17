@@ -1,7 +1,7 @@
 ---
-id: resync
-title: Resync
-sidebar_label: resync
+id: rsync
+title: Rsync
+sidebar_label: rsync
 ---
 ## Syntax
 
