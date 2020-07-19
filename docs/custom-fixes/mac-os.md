@@ -1,7 +1,7 @@
 ---
 id: mac-os
 title: mac OS
-sidebar_label: mac OS
+sidebar_label: 💻 mac OS
 ---
 
 ### Dock changes position on two screens 🖥
@@ -28,3 +28,11 @@ Found interesting reply by [SputnikTechnologies](https://discussions.apple.com/t
 
 
 Orignal Discussion: https://discussions.apple.com/thread/5527972?answerId=23674095022#23674095022
+
+### Reseting mac OS Dock 
+
+copy and paste this on terminal 
+
+```bash
+defaults delete com.apple.dock; killall Dock
+```
