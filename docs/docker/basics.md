@@ -50,4 +50,9 @@ docker rm $(docker ps -aq)
 docker rmi $(docker images -q)
 ```
 
+### Checking logs of container
 
+```bash
+docker logs <container id>
+```
+for live log pass `-f` or `--follow` eg. `docker logs -f <container id>`
