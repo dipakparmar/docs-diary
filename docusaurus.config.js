@@ -1,8 +1,8 @@
 module.exports = {
   title: `Dipak's Docs Diary`,
   tagline: '',
-  url: 'https://dipak.tech/docs-diary/',
-  baseUrl: '/docs-diary/',
+  url: 'https://docs.dipak.tech',
+  baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'dipakparmar', // Usually your GitHub org/user name.
   projectName: 'docs-diary', // Usually your repo name.
