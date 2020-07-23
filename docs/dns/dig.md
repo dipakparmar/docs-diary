@@ -10,5 +10,11 @@ sidebar_label: Dig
  dig EXAMPLE.COM +noall +answer
 ```
 
+## Get NS Records / Nameservers of Domain
+
+```bash
+dig @8.8.8.8 +short NS domain.com
+```
+
 
 
