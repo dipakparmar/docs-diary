@@ -61,3 +61,5 @@ jobs:
           npm i
           fi
           npx docusaurus deploy
+          touch CNAME
+          echo "docs.dipak.tech" >> CNAME
