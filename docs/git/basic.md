@@ -206,4 +206,7 @@ of command results (works only in local repo.)
 ```bash
 git config color.ui true
 ```
+### .gitignore
+
+[Generate .gitignore with gitingnore.io](http://gitignore.io/)
 
