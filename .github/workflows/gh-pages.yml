@@ -62,5 +62,7 @@ jobs:
           fi
           touch CNAME
           echo "docs.dipak.tech" >> CNAME
+          git add CNAME
+          git commit -m "Added CNAME"
           npx docusaurus deploy
           
