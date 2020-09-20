@@ -13,7 +13,7 @@ module.exports = {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
       },
-      links: [
+      items: [
       
         {
           href: 'https://github.com/dipakparmar/docs-diary',
