@@ -2,6 +2,7 @@
 id: basic
 title: Git Basic
 sidebar_label: Basic
+slug: /
 ---
 
 Just quick and simple guide for daily used commands!
