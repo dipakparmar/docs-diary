@@ -1,4 +1,3 @@
-
 ---
 id: cleaning-node
 title: Cleaning the Node
