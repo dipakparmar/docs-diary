@@ -10,7 +10,7 @@ module.exports = {
     navbar: {
       title: `Dipak's Docs Diary`,
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Docs Diary',
         src: 'img/logo.svg',
       },
       items: [
