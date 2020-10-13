@@ -10,6 +10,13 @@ sidebar_label: Reset
  git reset --hard <commit-hash>
 ```
 
+or
+
+```
+git reset --hard HEAD~n
+``
+replace n with last n commits
+
 ```
  git push -f origin master
  ```
