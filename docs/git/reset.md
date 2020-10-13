@@ -14,7 +14,7 @@ or
 
 ```
 git reset --hard HEAD~n
-``
+```
 replace n with last n commits
 
 ```
