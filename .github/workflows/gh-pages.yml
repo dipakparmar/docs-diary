@@ -60,9 +60,6 @@ jobs:
           else
           npm i
           fi
-          touch CNAME
-          echo "docs.dipak.tech" >> CNAME
-          git add CNAME
-          git commit -m "Added CNAME"
+          echo docs.dipak.tech > CNAME
           npx docusaurus deploy
           
