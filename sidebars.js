@@ -5,7 +5,7 @@ module.exports = {
     "🔗 DNS": ["dns/dig"],
     "🔐 SSH": ["ssh/basic"],
     "🐳 Docker": ["docker/basics"],
-    "🐧 Linux": ["linux/system-info","linux/rsync","linux/helm","linux/kubectl","linux/disk-management"],
+    "🐧 Linux": ["linux/system-info","linux/user-permission-management","linux/rsync","linux/helm","linux/kubectl","linux/disk-management"],
     "🐮 Rancher": ["rancher/cli","rancher/host-installation", "rancher/single-node-installation","rancher/cleaning-node", "rancher/references"],
     "🐘 php": ["php/troubleshooting"],
     "⚛️ React": ["react/basic"],

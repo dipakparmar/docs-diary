@@ -1,0 +1,73 @@
+---
+id: user-permission-management
+title: User Permission Management in Linux/Ubuntu
+sidebar_label: User-Permission Management
+---
+
+## To list
+### To list all local users you can use:
+```bash
+cut -d: -f1 /etc/passwd
+```
+
+## To add
+### To add a new user you can use:
+```bash
+sudo adduser new_username
+```
+or:
+```bash
+sudo useradd new_username
+```
+
+
+## To remove/delete
+### To remove/delete a user, first you can use:
+```bash
+sudo userdel username
+```
+Then you may want to delete the home directory for the deleted user account :
+```bash
+sudo rm -r /home/username
+```
+
+### add new user in linux
+
+```bash
+sudo adduser new_username
+```
+
+## To modify
+
+### To modify the username of a user:
+
+```bash
+usermod -l new_username old_username
+```
+
+### To change the password for a user:
+```bash
+sudo passwd username
+```
+
+### To change the shell for a user:
+```bash
+sudo chsh username
+```
+
+### To change the details for a user (for example real name):
+```bash
+sudo chfn username
+```
+
+### To add a user to the sudo group:
+```bash
+adduser username sudo
+```
+
+or
+```bash
+usermod -aG sudo username
+```
+
+And, of course, see also: ```man adduser```, ```man useradd```, ```man userdel```... and so on.
