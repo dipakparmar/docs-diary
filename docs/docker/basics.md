@@ -3,7 +3,12 @@ id: basics
 title: Docker Basic
 sidebar_label: Basics
 ---
+### Install docker with script
 
+```bash
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+```
 ### Manage Docker as a non-root user
 
 > The docker group grants privileges equivalent to the root user.
