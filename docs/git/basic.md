@@ -37,7 +37,7 @@ sudo apt install git-all
 
 ## Create a new repository
 
-create a new folder and then 
+create a new folder and then
 
 ```bash
 git init
@@ -59,13 +59,16 @@ git clone username@host:user/reponame ./
 
 ## Add & Commit
 
-### Add sepecifc file/s 
+### Add sepecifc file/s
+
 to change index
 
 ```bash
 git add [filename]
 ```
+
 ### Add all changed files
+
 to change index
 
 ```bash
@@ -73,16 +76,18 @@ git add .
 ```
 
 ### Commit the message
+
 for changes in files
 
 ```bash
 git commit -m "Commit message"
 ```
 
-## Pushing changes 
+## Pushing changes
 
 ### Push local head changes
-to remote master 
+
+to remote master
 
 ```bash
 git push origin master
@@ -98,13 +103,15 @@ git remote add origin [repo url]
 ## Branching
 
 ### Create
-new branch from local head  (current state of changes)
+
+new branch from local head (current state of changes)
 
 ```bash
 git checkout -b [new branch name]
 ```
 
 ### Switch
+
 back to master or other branch
 
 ```bash
@@ -112,7 +119,8 @@ git checkout master
 ```
 
 ### Delete
-the branch 
+
+the branch
 
 ```bash
 git checkout -b [branch name]
@@ -125,24 +133,26 @@ git push origin [branch name]
 
 ```
 
-
 ## Merge and update
 
 ### Update
+
 the local repo to latest commit from remote
 
 ```bash
 git pull
 ```
- 
-### Merge 
+
+### Merge
+
 other branch into current branch
 
 ```bash
 git merge [branch name]
 ```
 
-### Check diff 
+### Check diff
+
 between two branches
 
 ```bash
@@ -169,11 +179,11 @@ git log --author=[username]
 git log --name-status
 ```
 
-
 ## Tags
 
 ### Add tag (locally)
-to specific commit 
+
+to specific commit
 
 ```bash
 git tag [tag name] [commmit]
@@ -185,29 +195,36 @@ git tag [tag name] [commmit]
 git tag --delete [tag name]
 ```
 
-### Push specific tag 
-to remote
+### Push specific tag to remote
 
 ```bash
 git push origin [tag name]
 ```
 
-### Push all local tags 
+### Push all local tags
+
 to remote
 
 ```bash
 git push origin --tags
 ```
 
+### Create empty branch without history (no previous commits)
+
+```bash
+git checkout --orphan [new branch name]
+```
+
 ## Tweaks
 
-### Showing colorful output 
+### Showing colorful output
+
 of command results (works only in local repo.)
 
 ```bash
 git config color.ui true
 ```
+
 ### .gitignore
 
 [Generate .gitignore with gitingnore.io](http://gitignore.io/)
-
