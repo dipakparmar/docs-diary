@@ -24,6 +24,7 @@ module.exports = {
       "rancher/references",
     ],
     "🐘 php": ["php/troubleshooting"],
+    "⚙️ WordPress": ["wordpress/clear-database"],
     "⚛️ React": ["react/basic"],
     " 🐛 Customization/Fixes": [
       "custom-fixes/mac-os",
