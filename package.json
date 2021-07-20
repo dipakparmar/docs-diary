@@ -11,9 +11,9 @@
   "dependencies": {
     "@aldridged/docusaurus-plugin-lunr": "^1.0.0-alpha.8",
     "@cmfcmf/docusaurus-search-local": "^0.2.0",
-    "@docusaurus/core": "^2.0.0-alpha.58",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.58",
-    "@docusaurus/theme-live-codeblock": "^2.0.0-alpha.64",
+    "@docusaurus/core": "^2.0.0-beta.ff31de0ff",
+    "@docusaurus/preset-classic": "^2.0.0-beta.ff31de0ff",
+    "@docusaurus/theme-live-codeblock": "^2.0.0-beta.ff31de0ff",
     "clsx": "^1.1.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
