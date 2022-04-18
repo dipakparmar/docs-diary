@@ -14,7 +14,12 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
-      
+        {
+          type: 'doc',
+          docId: 'git/basic',
+          position: 'left',
+          label: 'Docs',
+        },
         {
           href: 'https://github.com/dipakparmar/docs-diary',
           label: 'GitHub',
@@ -27,10 +32,8 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} Dipak's Docs Diary. Built with Docusaurus.`,
     },
   },
-  themes: ['@docusaurus/theme-live-codeblock'],
+  themes: [],
   plugins: [
-    // ...
-    require.resolve('@cmfcmf/docusaurus-search-local') 
   ],
   presets: [
     [
@@ -44,7 +47,7 @@ module.exports = {
           editUrl:
             'https://github.com/dipakparmar/docs-diary/edit/master/',
         },
-      
+
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
