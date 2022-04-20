@@ -8,6 +8,7 @@ module.exports = {
       "☸️ Containerization": ["containerization/docker-basics", "containerization/helm/helm", "containerization/helm/helm-commands", "containerization/kubectl"],
       "🐧 Linux": [
         "linux/system-info",
+        "linux/networking",
         "linux/certbot",
         "linux/curl",
         "linux/user-permission-management",
