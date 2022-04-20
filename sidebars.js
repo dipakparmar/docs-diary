@@ -31,10 +31,5 @@ module.exports = {
       ],
       "Awesome Lists": ["awesome/awesome-lists", "awesome/graphics-tools"],
     },
-    {
-      type: 'link',
-      label: 'Learn more',
-      href: 'https://example.com',
-    },
   ]
 };
