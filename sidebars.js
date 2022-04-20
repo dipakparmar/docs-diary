@@ -5,7 +5,7 @@ module.exports = {
       "🐙 Github": ["github/pages", "github/actions", "github/references"],
       "🔗 DNS": ["dns/dig"],
       "🔐 SSH": ["ssh/basic"],
-      "☸️ Containerization": ["containerization/docker-basics", "containerization/helm/helm", "containerization/kubectl"],
+      "☸️ Containerization": ["containerization/docker-basics", "containerization/helm/helm", "containerization/helm/helm-commands", "containerization/kubectl"],
       "🐧 Linux": [
         "linux/system-info",
         "linux/certbot",
