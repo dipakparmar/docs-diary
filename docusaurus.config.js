@@ -46,11 +46,15 @@ module.exports = {
           editUrl:
             'https://github.com/dipakparmar/docs-diary/edit/master/',
         },
-
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        gtag: {
+          trackingID: 'G-JZLBQHD1EC',
+          anonymizeIP: false,
+        },
       },
+
     ],
   ],
 };
