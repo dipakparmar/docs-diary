@@ -1,14 +1,16 @@
 ---
-id: basics
-title: Docker Basic
-sidebar_label: Basics
+id: docker-basics
+title: Docker Basics
+sidebar_label: Docker Basics
 ---
+
 ### Install docker with script
 
 ```bash
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
+
 ### Manage Docker as a non-root user
 
 > The docker group grants privileges equivalent to the root user.
@@ -27,8 +29,6 @@ sudo usermod -aG docker $USER
 
 3. Log out and log back in so that your group membership is re-evaluated.
 
-
-
 ### Configure Docker to start on boot
 
 ```bash
@@ -36,21 +36,25 @@ sudo systemctl enable docker
 ```
 
 ### List all containers (only IDs)
+
 ```bash
 docker ps -aq
 ```
 
 ### Stop all running containers
+
 ```bash
 docker stop $(docker ps -aq)
 ```
 
 ### Remove all containers
+
 ```bash
 docker rm $(docker ps -aq)
 ```
 
 ### Remove all images
+
 ```bash
 docker rmi $(docker images -q)
 ```
@@ -60,4 +64,5 @@ docker rmi $(docker images -q)
 ```bash
 docker logs <container id>
 ```
+
 for live log pass `-f` or `--follow` eg. `docker logs -f <container id>`
