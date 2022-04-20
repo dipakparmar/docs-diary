@@ -31,6 +31,7 @@ module.exports = {
         "custom-fixes/global-protect-vpn",
       ],
       "Awesome Lists": ["awesome/awesome-lists", "awesome/graphics-tools"],
+      "💰 Finances": ["finance/bc/bc-tax-info"],
     },
   ]
 };

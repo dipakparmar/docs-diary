@@ -1,0 +1,44 @@
+---
+id: bc-tax-info
+title: BC Tax Info
+sidebar_label: 💰 BC Tax Info
+---
+
+## Calculation of British Columbia Tax
+
+The following explanation simplifies the calculation of the tax by displaying only the final result of the Net Income.
+
+### For an employee
+
+`Net Income = Taxable Income - Federal Tax - British Columbia Tax - CPP - EI`
+
+### For self-employed workers
+
+The same calculation must be made for the self-employed worker. Individuals are resident in the CPP. The self-employed must pay more than an employee.
+
+## Formula for Calculating Net Salary In BC
+
+The annual net income is calculated by subtracting the amounts related to the tax (Canada Tax and British Columbia Tax), the Canadian Pension Plan, the Employment Insurance.
+
+`Gross annual income - Taxes - CPP - EI = Net annual salary`
+
+`Net annual salary / Weeks of work per year = Net weekly income`
+
+`Net weekly income / Hours of work per week = Net hourly wage`
+
+### CPP calculation
+
+For and employee or employer
+
+`CPP contribution = (The smallest number between: Gross revenue and: Year's maximum pensionable earnings YMPE in 2021 - Basic exemption) x (Employee or Employer rate / 100)`
+
+## Frequency Or Periods Of Payment
+
+In British Columbia, the frequency or pay cycle is usually every 2 weeks. However, it is quite possible that you need to know the other pay periods that may be following them (based on an entire year of 52 weeks):
+
+Annual (year-round, only once a year)
+Monthly (a month, 12 periods per year)
+Semimonthly (2 x per month, 24 periods per year)
+Biweekly (every 2 weeks, 26 periods a year)
+weekly (once per week, 52 periods a year)
+Schedule (per hour, 52 weeks x number of hours per week)
