@@ -6,6 +6,7 @@ module.exports = {
       "🔗 DNS": ["dns/dig"],
       "🔐 SSH": ["ssh/basic"],
       "☸️ Containerization": ["containerization/docker-basics", "containerization/helm/helm", "containerization/helm/helm-commands", "containerization/kubectl"],
+      "🖲 Virtulization": ["virtulization/vmware/esxi-troubleshooting"],
       "🐧 Linux": [
         "linux/system-info",
         "linux/networking",
