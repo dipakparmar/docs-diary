@@ -31,9 +31,32 @@ module.exports = {
       style: 'dark',
       copyright: `Copyright © ${new Date().getFullYear()} Dipak's Docs Diary. Built with Docusaurus.`,
     },
+    algolia: {
+      // The application ID provided by Algolia
+      appId: '811JRMR9J0',
+
+      // Public API key: it is safe to commit it
+      apiKey: '9a7fa11a20e907755db4dd6f7134fdff',
+
+      indexName: 'prod_docs_dipak_tech',
+
+      // Optional: see doc section below
+      contextualSearch: true,
+
+      // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+      // externalUrlRegex: 'external\\.com|domain\\.com',
+
+      // Optional: Algolia search parameters
+      // searchParameters: {},
+
+      // Optional: path for search page that enabled by default (`false` to disable it)
+      // searchPagePath: 'search',
+
+      //... other Algolia params
+    },
   },
   themes: [],
-  plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
+  plugins: [],
   presets: [
     [
       '@docusaurus/preset-classic',
