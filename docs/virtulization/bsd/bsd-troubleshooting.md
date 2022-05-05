@@ -1,0 +1,42 @@
+---
+id: bsd-troubleshooting
+title: BSD Troubleshooting
+sidebar_label: 👹 BSD Troubleshooting
+---
+
+## Installing qemu-guest-agent on BSD
+
+
+### Install qemu-guest-agent package <sup>1</sup>
+
+```bash
+pkg install -y qemu-guest-agent
+echo 'qemu_guest_agent_enable="yes"' >> /etc/rc.conf.local
+echo 'qemu_guest_agent_flags="-d -v -l /var/log/qemu-ga.log"' >> /etc/rc.conf.local
+```
+
+### Create a script to start the qemu-guest-agent service on boot <sup>1</sup>
+
+```bash
+echo 'service qemu-guest-agent start' > /usr/local/etc/rc.d/qemu-guest-agent.sh
+chmod +x /usr/local/etc/rc.d/qemu-guest-agent.sh
+```
+
+#### Alternatively, run following remote script with curl <sup>1</sup>
+
+:::caution
+**Always verify before running remote scripts!**
+:::
+
+
+```bash
+curl -s https://gist.githubusercontent.com/dipakparmar/2736f1952a3b3d46526d857b5452e58d/raw/965903e32e63c219d44197254aca56162d5c06a2/1-Install-setup-qemu-guest-agent.sh | sh
+```
+
+#### Reference: 
+
+1. https://forum.netgate.com/topic/162083/pfsense-vm-on-proxmox-qemu-agent-installation/15
+2. https://pve.proxmox.com/wiki/Qemu-guest-agent
+3. https://docs.netgate.com/pfsense/en/latest/development/boot-commands.html
+4. https://www.explorelinux.com/start-stop-or-restart-a-service-in-freebsd/
+
