@@ -50,7 +50,7 @@ module.exports = {
           customCss: require.resolve('./src/css/custom.css'),
         },
         gtag: {
-          trackingID: 'G-JZLBQHD1EC',
+          trackingID: 'G-EZ7C3BQQ3J',
           anonymizeIP: false,
         },
       },
