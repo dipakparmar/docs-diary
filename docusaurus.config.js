@@ -10,20 +10,20 @@ module.exports = {
   organizationName: 'dipakparmar', // Usually your GitHub org/user name.
   projectName: 'docs-diary', // Usually your repo name.
   themeConfig: ({
-      liveCodeBlock: {
-        playgroundPosition: 'bottom',
+    liveCodeBlock: {
+      playgroundPosition: 'bottom',
+    },
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true,
       },
-      docs: {
-        sidebar: {
-          hideable: true,
-          autoCollapseCategories: true,
-        },
-      },
-      colorMode: {
-        defaultMode: 'light',
-        disableSwitch: false,
-        respectPrefersColorScheme: true,
-      },
+    },
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
     navbar: {
       title: `Dipak's Docs Diary`,
       hideOnScroll: true,
@@ -66,6 +66,8 @@ module.exports = {
           // Please change this to your repo.
           editUrl:
             'https://github.com/dipakparmar/docs-diary/edit/main/',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
