@@ -6,7 +6,10 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'dipakparmar', // Usually your GitHub org/user name.
   projectName: 'docs-diary', // Usually your repo name.
-  themeConfig: {
+  themeConfig: ({
+      liveCodeBlock: {
+        playgroundPosition: 'bottom',
+      },
     navbar: {
       title: `Dipak's Docs Diary`,
       logo: {
@@ -31,7 +34,7 @@ module.exports = {
       style: 'dark',
       copyright: `Copyright © ${new Date().getFullYear()} Dipak's Docs Diary. Built with Docusaurus.`,
     },
-  },
+  }),
   themes: [],
   plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
   presets: [
