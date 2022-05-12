@@ -38,7 +38,7 @@ module.exports = {
         },
         // Right Navbar items
         {
-          href: 'https://github.com/dipakparmar/docs-diary',
+          href: 'https://github.com/dipakparmar/docs-diary?utm_source=docs.dipak.tech&utm_medium=nav_link',
           position: 'right',
           className: 'header-github-link',
           'aria-label': 'GitHub repository',
