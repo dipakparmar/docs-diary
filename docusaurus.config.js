@@ -53,6 +53,11 @@ module.exports = {
           trackingID: 'G-EZ7C3BQQ3J',
           anonymizeIP: false,
         },
+        sitemap: {
+          changefreq: 'daily',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+        },
       },
 
     ],
