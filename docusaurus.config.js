@@ -23,6 +23,7 @@ module.exports = {
       },
     navbar: {
       title: `Dipak's Docs Diary`,
+      hideOnScroll: true,
       logo: {
         alt: 'Docs Diary',
         src: 'img/logo.svg',
