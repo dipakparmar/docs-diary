@@ -10,6 +10,12 @@ module.exports = {
       liveCodeBlock: {
         playgroundPosition: 'bottom',
       },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
     navbar: {
       title: `Dipak's Docs Diary`,
       logo: {
