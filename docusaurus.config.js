@@ -16,6 +16,11 @@ module.exports = {
           autoCollapseCategories: true,
         },
       },
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
     navbar: {
       title: `Dipak's Docs Diary`,
       logo: {
