@@ -137,5 +137,18 @@ module.exports = {
         }
       ],
     },
+    {
+      type: 'category',
+      label: '🧮 Database',
+      items: [
+        {
+          type: 'category',
+          label: '📚 Postgres',
+          items: [
+            "database/postgres/migrate-from-mysql-to-postgres",
+          ],
+        },
+      ],
+    }
   ],
 };
