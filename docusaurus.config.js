@@ -29,16 +29,19 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
+        // Left Navbar items
         {
           type: 'doc',
           docId: 'git/basic',
           position: 'left',
           label: 'Docs',
         },
+        // Right Navbar items
         {
           href: 'https://github.com/dipakparmar/docs-diary',
-          label: 'GitHub',
           position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
