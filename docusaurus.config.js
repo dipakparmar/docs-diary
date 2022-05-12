@@ -1,3 +1,6 @@
+const isDeployPreview =
+  !!process.env.VERCEL_ENV === 'development' || !!process.env.VERCEL_ENV === 'preview';
+
 module.exports = {
   title: `Dipak's Docs Diary`,
   tagline: '',
@@ -67,10 +70,12 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-        gtag: {
+        gtag: !isDeployPreview
+        ? {
           trackingID: 'G-EZ7C3BQQ3J',
           anonymizeIP: false,
-        },
+        } 
+        : undefined,
         sitemap: {
           changefreq: 'daily',
           priority: 0.5,
