@@ -143,9 +143,9 @@ module.exports = {
       items: [
         {
           type: 'category',
-          label: '📚 Postgres',
+          label: '📚 PostgresSQL',
           items: [
-            "database/postgres/migrate-from-mysql-to-postgres",
+            "database/postgres/postgres-migration",
           ],
         },
         {
