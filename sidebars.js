@@ -148,6 +148,13 @@ module.exports = {
             "database/postgres/migrate-from-mysql-to-postgres",
           ],
         },
+        {
+          type: 'category',
+          label: '💾 MySQL',
+          items: [
+            "database/mysql/mysql-backup",
+          ],
+        },
       ],
     }
   ],
