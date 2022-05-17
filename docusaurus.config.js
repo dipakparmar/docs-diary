@@ -66,7 +66,11 @@ module.exports = {
     },
   }),
   themes: [],
-  plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
+  plugins: [[require.resolve("@cmfcmf/docusaurus-search-local"), {
+    indexDocs: true,
+    indexDocSidebarParentCategories: 2,
+    language: "en"
+  }]],
   presets: [
     [
       '@docusaurus/preset-classic',
