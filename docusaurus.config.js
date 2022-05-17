@@ -7,8 +7,14 @@ module.exports = {
   url: 'https://docs.dipak.tech',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
-  organizationName: 'dipakparmar', // Usually your GitHub org/user name.
-  projectName: 'docs-diary', // Usually your repo name.
+  organizationName: 'dipakparmar', 
+  projectName: 'docs-diary', 
+  scripts: [
+    {
+      src: 'https://cdn.splitbee.io/sb.js',
+      async: true,
+    },
+  ],
   themeConfig: ({
     liveCodeBlock: {
       playgroundPosition: 'bottom',
