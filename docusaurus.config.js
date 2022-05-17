@@ -47,6 +47,12 @@ module.exports = {
         },
         // Right Navbar items
         {
+          href: 'https://dipak.to/twitter?utm_source=docs.dipak.tech&utm_medium=nav_link&utm_campaign=dipaks_docs_diary',
+          position: 'right',
+          className: 'header-twitter-link',
+          'aria-label': 'Twitter',
+        },
+        {
           href: 'https://github.com/dipakparmar/docs-diary?utm_source=docs.dipak.tech&utm_medium=nav_link',
           position: 'right',
           className: 'header-github-link',
