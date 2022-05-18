@@ -6,9 +6,10 @@ module.exports = {
   tagline: '',
   url: 'https://docs.dipak.tech',
   baseUrl: '/',
+  trailingSlash: false,
   favicon: 'img/favicon.ico',
-  organizationName: 'dipakparmar', 
-  projectName: 'docs-diary', 
+  organizationName: 'dipakparmar',
+  projectName: 'docs-diary',
   scripts: [
     {
       src: 'https://cdn.splitbee.io/sb.js',
@@ -88,11 +89,11 @@ module.exports = {
           customCss: require.resolve('./src/css/custom.css'),
         },
         gtag: !isDeployPreview
-        ? {
-          trackingID: 'G-EZ7C3BQQ3J',
-          anonymizeIP: false,
-        } 
-        : undefined,
+          ? {
+            trackingID: 'G-EZ7C3BQQ3J',
+            anonymizeIP: false,
+          }
+          : undefined,
         sitemap: {
           changefreq: 'daily',
           priority: 0.5,
