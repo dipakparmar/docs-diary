@@ -47,10 +47,9 @@ module.exports = {
       items: [
         // Left Navbar items
         {
-          type: 'doc',
-          docId: 'git/basic',
+          to: '/tags',
+          label: 'Tags',
           position: 'left',
-          label: 'Docs',
         },
         // Right Navbar items
         {
