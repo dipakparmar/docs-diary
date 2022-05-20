@@ -15,6 +15,12 @@ module.exports = {
       src: 'https://cdn.splitbee.io/sb.js',
       async: true,
     },
+    {
+      src: 'https://analytics.dipak.io/umami.js',
+      async: true,
+      defer: true,
+      "data-website-id":"c401b94a-f278-46e3-bc17-72e9494f1375",
+    }
   ],
   themeConfig: ({
     liveCodeBlock: {
