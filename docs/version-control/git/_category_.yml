@@ -1,0 +1,6 @@
+label: 'Git'
+collapsible: true 
+collapsed: true 
+link:
+  type: generated-index
+  title: Version Control with Git
