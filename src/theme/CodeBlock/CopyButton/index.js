@@ -9,6 +9,9 @@ export default function CopyButton({ code, className }) {
   const handleCopyCode = useCallback(() => {
     copy(code);
     setIsCopied(true);
+    if (umami && process.env.NODE_ENV === 'production') {
+      umami.trackEvent(code.toString(), 'copy_codeblock');
+    }
     copyTimeout.current = window.setTimeout(() => {
       setIsCopied(false);
     }, 1000);
