@@ -16,6 +16,7 @@ import {
 } from '@docusaurus/theme-common';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import MDXContent from '@theme/MDXContent';
+import Giscus from '@giscus/react';
 
 function DocItemMetadata(props) {
   const { content: DocContent } = props;
@@ -96,6 +97,21 @@ function DocItemContent(props) {
             <DocItemFooter {...props} />
           </article>
           <DocPaginator previous={metadata.previous} next={metadata.next} />
+          <br></br>
+          <Giscus
+            id="comments"
+            repo="dipakparmar/docs-diary"
+            repoId="MDEwOlJlcG9zaXRvcnkyNzM4NTUzOTk="
+            category="Comments"
+            categoryId="DIC_kwDOEFKzp84CPOcp"
+            mapping="pathname"
+            reactionsEnabled="1"
+            emitMetadata="0"
+            inputPosition="top"
+            theme="light"
+            lang="en"
+            loading="lazy"
+          />
         </div>
       </div>
       {renderTocDesktop && (
