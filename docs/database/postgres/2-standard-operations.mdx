@@ -85,6 +85,18 @@ FROM pg_catalog.pg_user
 ORDER BY role_name desc;
 ```
 
+### Creating user
+
+```sql
+CREATE USER <username> WITH ENCRYPTED PASSWORD <password>;
+```
+
+### Giving all permission to a user on a specific database
+
+```sql
+GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <user_name>;
+```
+
 ### Changing the owner of the PostgresSQL Database
 
 ```sql
