@@ -102,3 +102,17 @@ GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <user_name>;
 ```sql
 ALTER DATABASE <database> OWNER TO <username>;
 ```
+
+### Checking active connections to postgresql server
+
+```sql
+select pid as process_id, 
+       usename as username, 
+       datname as database_name, 
+       client_addr as client_address, 
+       application_name,
+       backend_start,
+       state,
+       state_change
+from pg_stat_activity;
+```
