@@ -1,0 +1,29 @@
+---
+id: clear-database
+title: Clear WordPress Records
+sidebar_label: Clear WordPress Records
+---
+
+## Delete Media Files Data
+
+Sometime you want to delete only the database records
+
+Each file in your media library has one row in the `wp_posts` table and two rows in the `wp_postmeta` table.
+
+```sql
+DELETE FROM `wp_posts` WHERE `post_type` = "attachment";
+```
+
+```sql
+DELETE FROM `wp_postmeta` WHERE `meta_key` = "_wp_attached_file";
+```
+
+```sql
+DELETE FROM `wp_postmeta` WHERE `meta_key` = "_wp_attachment_metadata";
+```
+
+## Delete MainWP Records
+
+```sql
+DELETE FROM `wp_options` where option_name like '%mainwp_%'
+```

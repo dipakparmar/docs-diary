@@ -1,0 +1,6 @@
+label: 'MySQL'
+collapsible: true 
+collapsed: true 
+link:
+  type: generated-index
+  title: MySQL

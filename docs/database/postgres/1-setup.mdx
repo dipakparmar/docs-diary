@@ -1,0 +1,105 @@
+---
+id: setup
+title: PostgresSQL Setup 
+sidebar_label: Setup
+keywords: [PostgresSQL, libpq, psql, pg_dump, postgres, install postgres, install postgress client, install psql, install pgdump]
+description: Learn how to install and setup PostgresSQL, and the libpq client library seperately for PostgresSQL, giving you access to utilities such as psql and pg_dump.
+---
+## Installing the PostgresSQL 
+
+To install PostgresSQL using homebrew, run the following command:
+
+:::info
+
+Make sure you have homebrew installed and updated. if not run the following command to update:
+
+```bash
+brew update
+```
+
+:::
+
+```bash
+brew install postgresql
+```
+
+### Installing the libpq client library <sup>[1](#references)</sup>
+
+:::warning
+You do not need to install `libpq` if you already have PostgresSQL installed using above command. Ony install libpq if you do not have postgresql installed and want to use psql and pg_dump clients.
+:::
+
+To install **libpq** using homebrew, use the following command:
+
+```bash
+brew install libpq
+```
+
+This will give you access to utilities such as __psql__ and __pg_dump__ without having to install the full Postgres package. 
+
+However, since homebrew provides some of the same utilities as Postgres, it is installed as `"keg-only"` by default. This means that it is not in the `PATH` by default. Homebrew will provide instructions on how to add it to the PATH after installation. 
+
+In my case, it was this:
+
+```bash
+echo 'export PATH="/usr/local/opt/libpq/bin:$PATH"' >> ~/.zshrc
+```
+
+Alternatively, you can create symlinks for the utilities you need, for example:
+
+```bash
+ln -s /usr/local/Cellar/libpq/14.3/bin/psql /usr/local/bin/psql
+```
+:::note
+
+replace 14.3 with the version of libpq that is installed.
+
+:::
+
+Alternatively, you could instruct homebrew to "link all of its binaries to the PATH anyway"
+
+```bash
+brew link --force libpq
+```
+
+but then __you would not be able to install the Postgres package later__.
+
+## Managing the PostgresSQL
+
+As we have installed postgresql with homebrew, we will use homebrew to start and stop the service.
+
+### Start the postgres service
+
+```bash
+brew services start postgresql
+```
+
+### Stop the postgres service
+
+```bash
+brew services stop postgresql
+```
+
+Once it is up and running, you can create a new user to log in and interact with the database.
+
+```bash
+psql postgres
+```
+
+After you have logged in, you can create a new user and database:
+
+```sql
+CREATE USER <username> WITH PASSWORD '<password>';
+```
+
+Add `CREATE DATABASE` permission to the user
+
+```sql
+ALTER ROLE <username> WITH CREATEDB;
+```
+
+#### References:
+
+1. [Stackoverflow](https://stackoverflow.com/questions/44654216/correct-way-to-install-psql-without-full-postgres-on-macos)
+2. [Homebrew - PostgresSQL wiki](https://wiki.postgresql.org/wiki/Homebrew)
+3. [ Homebrew Formulae](https://formulae.brew.sh/formula/postgresql)
