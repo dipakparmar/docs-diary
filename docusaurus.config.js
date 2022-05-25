@@ -76,6 +76,16 @@ module.exports = {
     indexDocs: true,
     indexDocSidebarParentCategories: 2,
     language: "en"
+  }], [require.resolve("@docusaurus/plugin-client-redirects"), { 
+    createRedirects(existingPath) {
+      if (existingPath.includes('/')) {
+        // Redirect from /docs/X to /X 
+        return [
+          existingPath.replace('/', '/docs/'),
+        ];
+      }
+      return undefined; // Return a falsy value: no redirect created
+    },
   }]],
   presets: [
     [
