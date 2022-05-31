@@ -1,11 +1,11 @@
 ---
 id: basic-operations
 position: 0
-title: PostgresSQL Basic Operations
+title: PostgreSQL Basic Operations
 sidebar_label: Basic Operations
 keywords:
   [
-    PostgresSQL,
+    PostgreSQL,
     libpq,
     psql,
     pg_dump,
@@ -14,7 +14,7 @@ keywords:
     postgres basic operations,
     update user role in postgres,
   ]
-description: Learn how to install and setup PostgresSQL, and the libpq client library seperately for PostgresSQL, giving you access to utilities such as psql and pg_dump.
+description: Learn how to install and setup PostgreSQL, and the libpq client library seperately for PostgreSQL, giving you access to utilities such as psql and pg_dump.
 ---
 
 ### Create a new database
@@ -55,7 +55,7 @@ To list all tables in your current database, use the `\dt` meta-command.
 
 ### Listing all users
 
-Use `\du` to list all users accounts (or roles) in the connected PostgresSQL server.
+Use `\du` to list all users accounts (or roles) in the connected PostgreSQL server.
 
 ```sql
 \du
@@ -97,7 +97,7 @@ CREATE USER <username> WITH ENCRYPTED PASSWORD <password>;
 GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <user_name>;
 ```
 
-### Changing the owner of the PostgresSQL Database
+### Changing the owner of the PostgreSQL Database
 
 ```sql
 ALTER DATABASE <database> OWNER TO <username>;
