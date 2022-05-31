@@ -1,13 +1,13 @@
 ---
 id: setup
-title: PostgresSQL Setup 
+title: PostgreSQL Setup 
 sidebar_label: Setup
-keywords: [PostgresSQL, libpq, psql, pg_dump, postgres, install postgres, install postgress client, install psql, install pgdump]
-description: Learn how to install and setup PostgresSQL, and the libpq client library seperately for PostgresSQL, giving you access to utilities such as psql and pg_dump.
+keywords: [PostgreSQL, libpq, psql, pg_dump, postgres, install postgres, install postgres client, install psql, install pgdump]
+description: Learn how to install and setup PostgreSQL, and the libpq client library seperately for PostgreSQL, giving you access to utilities such as psql and pg_dump.
 ---
-## Installing the PostgresSQL 
+## Installing the PostgreSQL 
 
-To install PostgresSQL using homebrew, run the following command:
+To install PostgreSQL using homebrew, run the following command:
 
 :::info
 
@@ -26,7 +26,7 @@ brew install postgresql
 ### Installing the libpq client library <sup>[1](#references)</sup>
 
 :::warning
-You do not need to install `libpq` if you already have PostgresSQL installed using above command. Ony install libpq if you do not have postgresql installed and want to use psql and pg_dump clients.
+You do not need to install `libpq` if you already have PostgreSQL installed using above command. Ony install libpq if you do not have postgresql installed and want to use psql and pg_dump clients.
 :::
 
 To install **libpq** using homebrew, use the following command:
@@ -64,7 +64,7 @@ brew link --force libpq
 
 but then __you would not be able to install the Postgres package later__.
 
-## Managing the PostgresSQL
+## Managing the PostgreSQL
 
 As we have installed postgresql with homebrew, we will use homebrew to start and stop the service.
 
@@ -101,5 +101,5 @@ ALTER ROLE <username> WITH CREATEDB;
 #### References:
 
 1. [Stackoverflow](https://stackoverflow.com/questions/44654216/correct-way-to-install-psql-without-full-postgres-on-macos)
-2. [Homebrew - PostgresSQL wiki](https://wiki.postgresql.org/wiki/Homebrew)
+2. [Homebrew - PostgreSQL wiki](https://wiki.postgresql.org/wiki/Homebrew)
 3. [ Homebrew Formulae](https://formulae.brew.sh/formula/postgresql)

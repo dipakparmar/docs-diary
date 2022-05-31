@@ -15,12 +15,6 @@ module.exports = {
       src: 'https://cdn.splitbee.io/sb.js',
       async: true,
     },
-    {
-      src: 'https://analytics.dipak.io/umami.js',
-      async: true,
-      defer: true,
-      "data-website-id":"c401b94a-f278-46e3-bc17-72e9494f1375",
-    }
   ],
   themeConfig: ({
     image: 'https://opengraph.githubassets.com/5f64176affcb4de799b0eb3903e8e71e35d89e9022c4953e88f9b879302bead0/dipakparmar/docs-diary',
@@ -77,7 +71,7 @@ module.exports = {
     indexDocs: true,
     indexDocSidebarParentCategories: 2,
     language: "en"
-  }], [require.resolve("@docusaurus/plugin-client-redirects"), { 
+  }], [require.resolve("@docusaurus/plugin-client-redirects"), {
     createRedirects(existingPath) {
       if (existingPath.includes('/')) {
         // Redirect from /docs/X to /X 
@@ -87,6 +81,12 @@ module.exports = {
       }
       return undefined; // Return a falsy value: no redirect created
     },
+  }], [require.resolve("@dipakparmar/docusaurus-plugin-umami"), {
+    websiteID: 'c401b94a-f278-46e3-bc17-72e9494f1375',
+    analyticsDomain: 'analytics.dipak.io',
+    scriptName: "ua.js",
+    dataDoNoTrack: true,
+    dataDomains: "docs.dipak.tech"
   }]],
   presets: [
     [
