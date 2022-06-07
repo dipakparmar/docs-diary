@@ -1,0 +1,17 @@
+---
+id: mysql-backup
+title: How to Import/Export MySQL Database
+sidebar_label: Import/Export MySQL Database
+---
+
+## Exporting MySQL Database
+
+```bash
+mysqldump -u username -p database_name > database_dump_name.sql
+```
+
+## Importing MySQL Database
+
+```bash
+mysql -u username -p database_name < database_dump_name.sql
+```

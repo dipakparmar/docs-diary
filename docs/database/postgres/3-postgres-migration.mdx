@@ -1,0 +1,53 @@
+---
+id: postgres-migration
+title: How to migrate from MySQL Database to PostgreSQL Database
+sidebar_label: Migrate from MySQL to Postgres
+---
+
+## Using pgloader
+
+```bash
+pgloader mysql://user:password@mysql:3306/database postgresql://postgres:root@postgres:5432/postgres
+```
+
+### with docker-compose
+
+```yaml
+version: '3.6'
+
+services:
+  postgres:
+    image: postgres:9.6
+    container_name: postgres.db
+    ports:
+      - '5432:5432'
+    restart: always
+    volumes:
+      - 'postgres_db_data:/var/lib/postgresql/data'
+    environment:
+      POSTGRES_PASSWORD: postgres
+
+  mysql:
+    image: mysql
+    container_name: mysql.db
+    ports:
+      - '3306:3306'
+    volumes:
+      - /var/lib/mysql
+      - './your-db-sql-folder-or-file.sql:/docker-entrypoint-initdb.d'
+    environment:
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: secretpassword
+
+  pgloader:
+    image: dimitri/pgloader
+    container_name: pgloader
+    depends_on: [ 'postgres', 'mysql' ]
+    command: >
+      pgloader mysql://user:password@mysql:3306/database postgresql://postgres:root@postgres:5432/postgres 
+
+volumes:
+  postgres_db_data:
+```

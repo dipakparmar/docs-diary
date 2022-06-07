@@ -1,0 +1,6 @@
+label: 'Web Development'
+collapsible: true 
+collapsed: true 
+link:
+  type: generated-index
+  title: Web Development

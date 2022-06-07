@@ -1,0 +1,118 @@
+---
+id: basic-operations
+position: 0
+title: PostgreSQL Basic Operations
+sidebar_label: Basic Operations
+keywords:
+  [
+    PostgreSQL,
+    libpq,
+    psql,
+    pg_dump,
+    postgres,
+    postgresql basic operations,
+    postgres basic operations,
+    update user role in postgres,
+  ]
+description: Learn how to install and setup PostgreSQL, and the libpq client library seperately for PostgreSQL, giving you access to utilities such as psql and pg_dump.
+---
+
+### Create a new database
+
+```sql
+CREATE DATABASE <database_name>;
+```
+
+### Rename a database
+
+```sql
+ALTER DATABASE <database_name> RENAME TO <new_database_name>;
+```
+
+### Listing databases
+
+A single Postgres server process can manage multiple databases at the same time. You can view all of the defined databases on the server by using the `\list` meta-command or its shortcut `\l`.
+
+```sql
+\l
+```
+
+### Switch to a specific database
+
+To swtich to different database in postgresql, use the `\connect` meta-command or its shortcut `\c`.
+
+```sql
+\c <database>
+```
+
+### Listing tables
+
+To list all tables in your current database, use the `\dt` meta-command.
+
+```sql
+\dt
+```
+
+### Listing all users
+
+Use `\du` to list all users accounts (or roles) in the connected PostgreSQL server.
+
+```sql
+\du
+```
+
+To get more information in all users, use `\du+`.
+
+```sql
+\du+
+```
+
+#### Listing users using SQL Statement
+
+```sql
+SELECT usename AS role_name,
+  CASE
+     WHEN usesuper AND usecreatedb THEN
+	   CAST('superuser, create database' AS pg_catalog.text)
+     WHEN usesuper THEN
+	    CAST('superuser' AS pg_catalog.text)
+     WHEN usecreatedb THEN
+	    CAST('create database' AS pg_catalog.text)
+     ELSE
+	    CAST('' AS pg_catalog.text)
+  END role_attributes
+FROM pg_catalog.pg_user
+ORDER BY role_name desc;
+```
+
+### Creating user
+
+```sql
+CREATE USER <username> WITH ENCRYPTED PASSWORD <password>;
+```
+
+### Giving all permission to a user on a specific database
+
+```sql
+GRANT ALL PRIVILEGES ON DATABASE <database_name> TO <user_name>;
+```
+
+### Changing the owner of the PostgreSQL Database
+
+```sql
+ALTER DATABASE <database> OWNER TO <username>;
+```
+
+### Checking active connections to postgresql server
+
+```sql
+select pid as process_id, 
+       usename as username, 
+       datname as database_name, 
+       client_addr as client_address, 
+       application_name,
+       backend_start,
+       state,
+       state_change
+from pg_stat_activity;
+```
