@@ -65,16 +65,10 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} Dipak's Docs Diary. Built with Docusaurus.`,
     },
     algolia: {
-      // The application ID provided by Algolia
       appId: 'NOKG2EH40V',
-
-      // Public API key: it is safe to commit it
       apiKey: '6711f63fe1e318da1f4bb8b811d59df3',
-
       indexName: 'dipak',
-
-      // Optional: see doc section below
-      contextualSearch: true,
+      contextualSearch: false,
     },
   }),
   themes: [],
