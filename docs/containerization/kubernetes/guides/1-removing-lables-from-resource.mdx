@@ -1,0 +1,53 @@
+---
+id: removing-labels-from-kubernetes-resource
+title: How to remove labels from Kubernetes Resource
+sidebar_label: Removing Labels from Kubernetes Resource
+description: This guide is about how to remove labels from Kubernetes Resource. In some cases when you're rearchitecting the label naming convention in your Kubernetes, you may come up with this issue where you want to clear up the old labels in bulk, but there are very few docs that have examples of how to do it with CLI or API.
+keywords: [remove labels from Kubernetes Resource, kubernetes labels, kubernetes resource, kubernetes]
+tags: [kubectl, Kubernetes, Python]
+---
+import Gist from "react-gist";
+
+This guide is about how to remove labels from Kubernetes Resource. In some cases, when you're rearchitecting the label naming convention in your Kubernetes, you may come up with this issue where you want to clear up the old labels in bulk, but very few docs have examples of how to do it with CLI or API.
+
+In this guide, I'm using [kubectl](../kubectl) CLI and python [Kubernetes SDK](https://kubernetes.io/docs/reference/using-api/client-libraries/) to remove labels from Kubernetes Resource, but you can choose any supported SDK or even directly use API.
+
+For example, you have deployments with the following labels:
+
+```json
+{
+  "app": "nginx",
+  "env": "production"
+}
+```
+
+and you want to update all the deployments to have the following new labels:
+
+```json
+{
+  "app.yourdomain.com/name": "nginx",
+  "app.yourdomain.com/env": "production"
+}
+```
+
+## Add New Labels to Kubernetes Resource
+
+For this you can easily use the kubectl patch api add new labels to the resource
+
+```bash 
+kubectl patch deployment -n default -l app=nginx -p '{"metadata":{"labels":{"app.yourdomain.com/name":"nginx","app.yourdomain.com/env":"production"}}}'
+```
+
+But this only adds new labels or updates existing ones with the same key in the deployment, not removing the old ones.
+
+## Remove Old Labels from Kubernetes Resource
+
+To remove the old labels, you can use the kubectl patch api:
+
+```bash
+kubectl patch deployment -n default -l app.yourdomain.com/name=nginx -p '{"metadata":{"labels":{"app": None,"env": None}}}'
+```
+
+## Using Python Script
+
+<Gist id="b278e14820bd548744c950376675b9bf" />
