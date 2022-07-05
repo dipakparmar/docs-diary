@@ -14,3 +14,8 @@ curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s ht
 ```bash
 chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl
 ```
+### Delete all the failed pods
+
+```bash
+ kubectl delete pods -A --field-selector=status.phase=Failed
+```
