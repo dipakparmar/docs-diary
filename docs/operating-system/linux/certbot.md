@@ -15,3 +15,9 @@ certbot register -m abc@example.com --work-dir ./ --logs-dir=./logs/
 ```shell
 certonly -d "*.xyz.com" -d "www.xyz.com" --manual
 ```
+
+### generate a ssl cert with certbot (let's encrypt) with dns challenge
+
+```sh
+certonly --preferred-challenges dns --manual -d "*.xyz."
+```
