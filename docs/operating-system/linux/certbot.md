@@ -2,6 +2,7 @@
 id: certbot
 title: certbot
 sidebar_label: certbot
+tags: [Certificates, SSL/TLS, Private Key]
 ---
 
 ### certbot register a email
