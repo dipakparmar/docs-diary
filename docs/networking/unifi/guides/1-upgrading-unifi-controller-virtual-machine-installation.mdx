@@ -1,0 +1,101 @@
+---
+id: upgrading-unifi-controller-virtual-machine-installation
+title: How to upgrade the Unifi Controller Virtual Machine Installation
+sidebar_label: Upgrading the Unifi Controller in the Virtual Machine
+description: This guide is about how to upgrade the Unifi Controller in the Virtual Machine.
+keywords:
+  [
+    upgrading,
+    unifi,
+    controller,
+    virtual machine,
+    upgrading unifi controller,
+    upgrading unifi controller in the virtual machine. upgrading Ubiquiti network controller,
+  ]
+tags: [Unifi, Ubiquiti, Unifi Network Controller]
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+## Prerequisites
+
+- Access to Virtual Machine via SSH or Console
+- Read [release notes](https://community.ui.com/releases) for any active bugs and issues.
+
+:::caution
+
+It's recommended to take the any form of backup, either snapshot of the vm or full backup.
+:::
+
+## Downloading the new version
+
+You can download the new version from Ubiquiti's website [here](https://ui.com/download/).
+
+1. In there switch tab to **Unifi**.
+2. Look for **Unifi Network Application** (Previously Unifi Network Controller) in Software section.
+3. Click **Download** and accepts the terms of download.
+4. Download the file or copy the file url.
+
+### Download URL
+
+URL Replace the https://dl.ui.com/unifi/<kbd>version</kbd>/<kbd>filename</kbd> with the version you want to download.
+
+<Tabs groupId="operating-systems">
+  <TabItem value="win" label="Windows">
+    <CodeBlock language="bash">
+      https://dl.ui.com/unifi/7.1.65/UniFi-installer.exe
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="mac" label="macOS">
+    <CodeBlock language="bash">
+      https://dl.ui.com/unifi/7.1.65/UniFi.pkg
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="linux" label="Linux">
+    <CodeBlock language="bash">
+      https://dl.ui.com/unifi/7.1.65/unifi_sysvinit_all.deb
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+## Upgrade
+
+1.  SSH or Console to the Virtual Machine.
+2.  Upload the file or download the file into the Virtual Machine.
+
+<Tabs groupId="operating-systems">
+  <TabItem value="win" label="Windows">
+    In PowerShell, type the following command:
+    <CodeBlock language="powershell">
+      Invoke-WebRequest -OutFile UniFi-installer.exe -Uri
+      https://dl.ui.com/unifi/7.1.65/UniFi-installer.exe
+    </CodeBlock>
+    Or you can use the browser to download the file.
+  </TabItem>
+  <TabItem value="mac" label="macOS">
+    <CodeBlock language="bash">
+      wget https://dl.ui.com/unifi/7.1.65/UniFi.pkg
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="linux" label="Linux">
+    <CodeBlock language="bash">
+      wget https://dl.ui.com/unifi/7.1.65/unifi_sysvinit_all.deb
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+3.  Run the file.
+
+<Tabs groupId="operating-systems">
+  <TabItem value="win" label="Windows">
+    Open the file from explorer.
+  </TabItem>
+  <TabItem value="mac" label="macOS">
+    Open the file from finder.
+  </TabItem>
+  <TabItem value="linux" label="Linux">
+    <CodeBlock language="bash">sudo dpkg -i unifi_sysvinit_all.deb</CodeBlock>
+  </TabItem>
+</Tabs>
