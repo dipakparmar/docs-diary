@@ -1,0 +1,70 @@
+---
+id: certificates-and-keys
+title: Certificates and Keys
+sidebar_label: Certificates and Keys
+keywords: [certificates, keys, private key, public key, convert certificate, convert crt to pem, convert pem to crt, convert key to crt]
+tags: [Certificates, SSL/TLS, Private Key, Public Key]
+---
+
+## Convert .pem key to RSA private key
+
+The PEM format is the most common format that Certificate Authorities issue certificates in. PEM certificates usually have extensions such as .pem, .crt, .cer, and .key. They are Base64 encoded ASCII files and contain `"-----BEGIN CERTIFICATE-----"` and `"-----END CERTIFICATE-----"` statements. Server certificates, intermediate certificates, and private keys can all be put into the PEM format.
+
+Apache and other similar servers use PEM format certificates. Several PEM certificates, and even the private key, can be included in one file, one below the other, but most platforms, such as Apache, expect the certificates and private key to be in separate files.
+
+```sh
+openssl rsa -in key.pem -out id_rsa
+```
+
+## Convert x509 formatted files
+
+### Convert x509 .crt certificate file to PEM format
+
+```sh
+openssl x509 -in cert.pem -out cert.pem
+```
+
+### Convert x509 .cer certificate file to PEM format
+
+```sh
+openssl x509 -in cert.cer -out cert.pem
+```
+
+### Convert x509 .der certificate file to PEM format
+
+The DER format is simply a binary form of a certificate instead of the ASCII PEM format. It sometimes has a file extension of .der but it often has a file extension of .cer so the only way to tell the difference between a DER .cer file and a PEM .cer file is to open it in a text editor and look for the BEGIN/END statements. All types of certificates and private keys can be encoded in DER format. DER is typically used with Java platforms.
+
+```sh
+openssl x509 -inform der -in cert.der -out cert.pem
+```
+
+## Convert P7B 
+
+The PKCS#7 or P7B format is usually stored in Base64 ASCII format and has a file extension of .p7b or .p7c. P7B certificates contain `"-----BEGIN PKCS7-----"` and `"-----END PKCS7-----"` statements. A P7B file only contains certificates and chain certificates, not the private key. Several platforms support P7B files including Microsoft Windows and Java Tomcat.
+
+### Convert P7B to PEM format
+
+```sh
+openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
+```
+### Convert P7B to PFX format
+
+```sh
+openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
+```
+
+```sh
+openssl pkcs12 -export -in certificate.cer -inkey privateKey.key -out certificate.pfx -certfile CACert.cer
+```
+
+## Convert the certificate and private key to a PFX file
+
+The PKCS#12 or PFX format is a binary format for storing the server certificate, any intermediate certificates, and the private key in one encryptable file. PFX files usually have extensions such as .pfx and .p12. PFX files are typically used on Windows machines to import and export certificates and private keys.
+
+```sh
+openssl pkcs12 -export -in cert.pem -inkey key.pem -out cert.pfx
+```
+
+You will be asked for the pass-phrase for the private key if needed, and also to set a pass-phrase for the newly created .pfx file too.
+
+When converting a PFX file to PEM format, OpenSSL will put all the certificates and the private key into a single file. You will need to open the file in a text editor and copy each certificate and private key (including the BEGIN/END statements) to its own individual text file and save them as certificate.cer, CACert.cer, and privateKey.key respectively.
