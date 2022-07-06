@@ -19,3 +19,15 @@ chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl
 ```bash
  kubectl delete pods -A --field-selector=status.phase=Failed
 ```
+
+### Apply label to Kubernetes Resources
+
+```bash
+kubectl label [resourcetype] [resourcename] -n [namespace] mylabel=myvalue mylabel2=myvalue2
+```
+
+### Remove label from Kubernetes Resources
+
+```bash
+kubectl label [resourcetype] [resourcename] -n [namespace] mylabel-
+```
