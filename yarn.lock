@@ -1369,7 +1369,7 @@
     "@docsearch/css" "3.1.1"
     algoliasearch "^4.0.0"
 
-"@docusaurus/core@2.0.0-rc.1", "@docusaurus/core@^2.0.0-beta.22":
+"@docusaurus/core@2.0.0-rc.1", "@docusaurus/core@^2.0.0-rc.1":
   version "2.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/core/-/core-2.0.0-rc.1.tgz#828d93d241171565d8947a9ab404091e04759141"
   integrity sha512-b9FX0Z+EddfQ6wAiNh+Wx4fysKfcvEcWJrZ5USROn3C+EVU5P4luaa8mwWK//O+hTwD9ur7/A44IZ/tWCTAoLQ==
@@ -1619,7 +1619,7 @@
     react-helmet-async "*"
     react-loadable "npm:@docusaurus/react-loadable@5.5.2"
 
-"@docusaurus/plugin-client-redirects@^2.0.0-beta.22":
+"@docusaurus/plugin-client-redirects@^2.0.0-rc.1":
   version "2.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/plugin-client-redirects/-/plugin-client-redirects-2.0.0-rc.1.tgz#ce71d9f73bfbb4b2e159ee3a22f5517b3480c83c"
   integrity sha512-uGiK7kzQeJ+gChzIgazKMlHEonOwlmK6NEJvr44aWS6DbauVXOs/aolXZCHx8ZdKPETOpZEzSRYjU5e+QIN+HA==
@@ -1739,7 +1739,7 @@
     sitemap "^7.1.1"
     tslib "^2.4.0"
 
-"@docusaurus/preset-classic@^2.0.0-beta.22":
+"@docusaurus/preset-classic@^2.0.0-rc.1":
   version "2.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/preset-classic/-/preset-classic-2.0.0-rc.1.tgz#5e5b1cf80b3dd4e2c3f824c78a111f105858d853"
   integrity sha512-5jjTVZkhArjyoNHwCI9x4PSG0zPmBJILjZLVrxPcHpm/K0ltkYcp6J3GxYpf5EbMuOh5+yCWM63cSshGcNOo3Q==
@@ -4412,10 +4412,10 @@ eslint-visitor-keys@^3.3.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-3.3.0.tgz#f6480fa6b1f30efe2d1968aa8ac745b862469826"
   integrity sha512-mQ+suqKJVyeuwGYHAdjMFqjCyfl8+Ldnxuyp3ldiMBFKkvytrXUZWaiPCEav8qDHKty44bD+qV1IP4T+w+xXRA==
 
-eslint@^8.19.0:
-  version "8.19.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.19.0.tgz#7342a3cbc4fbc5c106a1eefe0fd0b50b6b1a7d28"
-  integrity sha512-SXOPj3x9VKvPe81TjjUJCYlV4oJjQw68Uek+AM0X4p+33dj2HY5bpTZOgnQHcG2eAm1mtCU9uNMnJi7exU/kYw==
+eslint@^8.20.0:
+  version "8.20.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.20.0.tgz#048ac56aa18529967da8354a478be4ec0a2bc81b"
+  integrity sha512-d4ixhz5SKCa1D6SCPrivP7yYVi7nyD6A4vs6HIAul9ujBzcEmZVM3/0NN/yu5nKhmO1wjp5xQ46iRfmDGlOviA==
   dependencies:
     "@eslint/eslintrc" "^1.3.0"
     "@humanwhocodes/config-array" "^0.9.2"
