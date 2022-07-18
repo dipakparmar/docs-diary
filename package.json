@@ -29,7 +29,7 @@
     "react-gist": "^1.2.4"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.17.0",
+    "@babel/eslint-parser": "^7.18.9",
     "@giscus/react": "^2.0.6",
     "eslint": "^8.20.0",
     "eslint-config-airbnb": "^19.0.4",
