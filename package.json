@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.9",
-    "@giscus/react": "^2.0.6",
+    "@giscus/react": "^2.1.1",
     "eslint": "^8.20.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
