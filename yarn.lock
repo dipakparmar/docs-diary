@@ -1946,12 +1946,12 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@giscus/react@^2.1.1":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@giscus/react/-/react-2.1.1.tgz#8f0e07d1db5b7b1b9106c1c5c8b6f0a334d8b138"
-  integrity sha512-YTZBbOILVKkWg0kUy+SRlkM6InSRWG7mefVEDcHQmC2saD1Voci16hT7cUqZPie3O1IG9M4yXIU4LxKWvxxE5g==
+"@giscus/react@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@giscus/react/-/react-2.2.0.tgz#b5fcec12ea19ecbf832d44996346f21a0ae50621"
+  integrity sha512-MXjKAQyO85ZdC8OVApNQsJhPvTJcuUf5GmQw2KdvNcBVivUpVrA+NUppdwsrI+lK6jEX4ZMVOCnbJ5GaQddaAA==
   dependencies:
-    giscus "^1.1.1"
+    giscus "^1.2.0"
 
 "@hapi/hoek@^9.0.0":
   version "9.3.0"
@@ -4944,10 +4944,10 @@ get-symbol-description@^1.0.0:
     call-bind "^1.0.2"
     get-intrinsic "^1.1.1"
 
-giscus@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/giscus/-/giscus-1.1.1.tgz#32e4d6a8d76b0a0eb312b8c9b1fe476115483a65"
-  integrity sha512-WE0cjvf/OZ58EpYzdX8c1minxroSIXRSUy6APNQeaSwQBHwL6DjLH0Cn9n/D/LPlE8d3jxzy3sBFE6A00q586g==
+giscus@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/giscus/-/giscus-1.2.0.tgz#c94477a1c571abc4ac6dca656da7be46f880a708"
+  integrity sha512-IpfWvU0/hYbMGQKuoPlED8wWmluRYIOjtrBCnL7logsWjMpPRxiAC2pUIC0+SC0pDMOqXrk1onTYMHgwgRpRzg==
   dependencies:
     lit "^2.2.8"
 
