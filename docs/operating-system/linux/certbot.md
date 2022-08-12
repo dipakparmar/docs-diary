@@ -2,6 +2,7 @@
 id: certbot
 title: certbot
 sidebar_label: certbot
+tags: [Certificates, SSL/TLS, Private Key]
 ---
 
 ### certbot register a email
@@ -14,4 +15,10 @@ certbot register -m abc@example.com --work-dir ./ --logs-dir=./logs/
 
 ```shell
 certonly -d "*.xyz.com" -d "www.xyz.com" --manual
+```
+
+### generate a ssl cert with certbot (let's encrypt) with dns challenge
+
+```sh
+certonly --preferred-challenges dns --manual -d "*.xyz."
 ```

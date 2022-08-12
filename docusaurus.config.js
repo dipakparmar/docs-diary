@@ -65,13 +65,15 @@ module.exports = {
       style: 'dark',
       copyright: `Copyright © ${new Date().getFullYear()} Dipak's Docs Diary. Built with Docusaurus.`,
     },
+    algolia: {
+      appId: 'NOKG2EH40V',
+      apiKey: '6711f63fe1e318da1f4bb8b811d59df3',
+      indexName: 'dipak',
+      contextualSearch: false,
+    },
   }),
   themes: [],
-  plugins: [[require.resolve("@cmfcmf/docusaurus-search-local"), {
-    indexDocs: true,
-    indexDocSidebarParentCategories: 2,
-    language: "en"
-  }], [require.resolve("@docusaurus/plugin-client-redirects"), {
+  plugins: [[require.resolve("@docusaurus/plugin-client-redirects"), {
     createRedirects(existingPath) {
       if (existingPath.includes('/')) {
         // Redirect from /docs/X to /X 
