@@ -31,16 +31,16 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.9",
     "@giscus/react": "^2.2.0",
-    "eslint": "^8.21.0",
+    "eslint": "^8.22.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-header": "^3.1.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react": "^7.31.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.7.1",
-    "stylelint": "^14.10.0"
+    "stylelint": "^14.11.0"
   },
   "resolutions": {
     "nth-check": "^2.0.1",
