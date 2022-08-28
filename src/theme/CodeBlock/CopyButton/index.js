@@ -10,7 +10,7 @@ export default function CopyButton({ code, className }) {
     copy(code);
     setIsCopied(true);
     if (umami && process.env.NODE_ENV === 'production') {
-      umami.trackEvent(code.toString(), 'copy_codeblock');
+      umami.trackEvent('copy_codeblock', code.toString());
     }
     copyTimeout.current = window.setTimeout(() => {
       setIsCopied(false);
