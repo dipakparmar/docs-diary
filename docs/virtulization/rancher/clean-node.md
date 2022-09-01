@@ -2,6 +2,9 @@
 id: cleaning-node
 title: Cleaning the Node
 sidebar_label: Cleaning the node
+keywords: [Clean the kubernetes node, clean the rancher node]
+description: 'Scripts and guide to clean up k8s node, specifically rancher provisioned k8s nodes.'
+tags: [Rancher, Kubernetes, Docker, Containerization]
 ---
 
 ## My Script
