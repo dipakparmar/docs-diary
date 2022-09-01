@@ -2,6 +2,9 @@
 id: setup
 title: Helm Setup
 sidebar_label: Setup
+keywords: [helm setup, install helm application ]
+description: 'Learn how to setup and install helm applications'
+tags: [Helm, Kubernetes]
 ---
 
 ## Installation
