@@ -2,6 +2,9 @@
 id: troubleshooting
 title: PHP Troubleshooting
 sidebar_label: Troubleshooting
+keywords: [General PHP Troubleshooting, check if imagic extension is installed]
+description: 'Some usefull troubleshooting guides for php problems.'
+tags: [PHP, Web Development, Backend Development, Troubleshooting]
 ---
 
 #### Checking if php module is installed or not
