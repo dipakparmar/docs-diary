@@ -2,6 +2,9 @@
 id: basics
 title: Helm Basic Commands
 sidebar_label: Basics
+keywords: [Helm Basic Commands, Helm basics, helm install app, helm upgrade, helm rollback, helm hooks, helm charts, helm charts management, helm plugin management, helm repo search]
+description: 'Learn about helm basic commands and their usecase from installing new helm chart to upgrading chart, uninstalling helm chart and building/packing new helm chart'
+tags: [Helm, Kubernetes]
 ---
 
 ## Install and Uninstall Apps

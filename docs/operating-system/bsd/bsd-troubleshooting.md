@@ -2,6 +2,9 @@
 id: bsd-troubleshooting
 title: BSD Troubleshooting
 sidebar_label: 👹 BSD Troubleshooting
+keywords: [bsd troubleshooting, install qemu-guest-agent on bsd, install qemu-guest-agent on pfsense]
+description: 'Some helpful troubleshooting guides from my personal experience of working on BSD.'
+tags: [Operating System, BSD, Troubleshooting]
 ---
 
 ## Installing qemu-guest-agent on BSD

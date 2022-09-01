@@ -2,6 +2,9 @@
 id: cli
 title: Rancher CLI
 sidebar_label: CLI
+keywords: [Rancher CLI, Install Rancher CLI]
+description: 'Steps for installing Rancher CLI'
+tags: [Rancher, Tools, CLI, Containerization]
 ---
 
 ## Installing Rancher CLI

@@ -2,7 +2,9 @@
 id: basic
 title: Git Basic
 sidebar_label: Basic
-tags: [git, Version Control]
+tags: [Git, Version Control]
+keywords: [git basics, merge git branchers, push to diffrent remote git, reset git commit]
+description: 'Learn git basics, incluing branching, resetting the commits, checking status of uncomited changes, merging branches etc.'
 slug: /
 ---
 

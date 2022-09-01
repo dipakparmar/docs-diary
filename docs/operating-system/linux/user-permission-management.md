@@ -2,6 +2,9 @@
 id: user-permission-management
 title: User Permission Management in Linux/Ubuntu
 sidebar_label: User-Permission Management
+keywords: [user permission management, debian user permisson, add new user linux, sudo user linux, change password of linux user]
+description: 'Learn how to manage user permissions in Linux/Ubuntu and debian OS.'
+tags: [Security, Operating System, Linux, Ubuntu]
 ---
 
 ## To list

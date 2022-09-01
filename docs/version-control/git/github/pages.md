@@ -2,6 +2,9 @@
 id: pages
 title: Github Pages
 sidebar_label: Pages
+keywords: [Github Pages, github pages ips, how to set custom 404 page for github pages]
+description: 'Useful tips and guides for Github Pages hosting.'
+tags: [Github, Hosting]
 ---
 
 ## Setting apex/root domain with github pages

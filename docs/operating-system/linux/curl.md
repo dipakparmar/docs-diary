@@ -2,6 +2,9 @@
 id: curl
 title: curl
 sidebar_label: curl
+keywords: [curl basics]
+description: 'Learn some basics of curl cli tool and usefull combination of its options.'
+tags: [Tools]
 ---
 
 ### Curl run remote script

@@ -2,6 +2,9 @@
 id: esxi-troubleshooting
 title: ESXi Troubleshooting
 sidebar_label: ESXi Troubleshooting
+keywords: [VMware ESXi Troubleshooting, ESXi passthrough devices]
+description: 'Some troubleshooting guides and tips for VMware ESXi'
+tags: [Troubleshooting, VMWare, ESXi, Storage]
 ---
 
 ### Changing from passthrough to non-passthrough devices fails to take effect after a reboot

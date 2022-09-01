@@ -2,6 +2,9 @@
 id: dig
 title: dig
 sidebar_label: dig
+keywords: [dig, dig domain dns info tool, get domain dns records, domain dns records in cli]
+description: 'Learn some basics of dig cli - get the A, AAAA, CNAME, MX, NS, TXT etc. records info in cli.'
+tags: [Tools, Network]
 ---
 
 ## Installing Dig util 

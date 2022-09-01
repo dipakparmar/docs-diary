@@ -2,6 +2,9 @@
 id: bc-tax-info
 title: BC Tax Info
 sidebar_label: 💰 BC Tax Info
+keywords: [british columbia tax calculation, bc net salary calculation]
+description: 'Learn how to calculate net salary in BC'
+tags: [Tax, Finance]
 ---
 
 ## Calculation of British Columbia Tax

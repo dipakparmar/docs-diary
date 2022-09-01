@@ -2,8 +2,9 @@
 id: global-protect-vpn
 title: Global Protect VPN
 sidebar_label: 🔑 Global Protect VPN
-tags: [macOS, VPN, Global Protect VPN]
-description: Stop Global Protect VPN from auto starting on boot and auto start after force quiting on macOS.
+tags: [macOS, VPN, Global Protect VPN, Troubleshooting]
+description: Learn how to Stop Global Protect VPN from auto starting on boot and auto start after force quiting on macOS.
+keywords: [Global protect vpn fixes, Prevent global protect vpn from auto starting]
 ---
 
 ### Prevent Auto Starting Global Protect VPN  🌏

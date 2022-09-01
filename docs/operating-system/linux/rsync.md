@@ -2,6 +2,9 @@
 id: rsync
 title: Rsync
 sidebar_label: rsync
+keywords: [rsync, sync files and directories, sync files and directories between servers]
+description: 'Learn basics of rsync cli to sync files and directories.'
+tags: [Files, Tools]
 ---
 ## Syntax
 

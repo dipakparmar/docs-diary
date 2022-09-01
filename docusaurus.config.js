@@ -17,6 +17,7 @@ module.exports = {
     },
   ],
   themeConfig: ({
+    image: 'https://opengraph.githubassets.com/5f64176affcb4de799b0eb3903e8e71e35d89e9022c4953e88f9b879302bead0/dipakparmar/docs-diary',
     liveCodeBlock: {
       playgroundPosition: 'bottom',
     },

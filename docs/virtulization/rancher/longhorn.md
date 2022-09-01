@@ -2,6 +2,9 @@
 id: longhorn
 title: Longhorn
 sidebar_label: Longhorn
+keywords: [Longhorn Setup & Docs, Setup longhorn, setup longhorn in rancher, setup longhorn in kubernetes,longhorn]
+description: 'Guide for installing longhorn on Kubernetes Cluster'
+tags: [Rancher, Storage, Kubernetes, Containerization]
 ---
 
 ## Installing Longhorn Storage Engine in Rancher

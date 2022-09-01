@@ -2,6 +2,9 @@
 id: disk-management
 title: Disk Management
 sidebar_label: Disk Management
+keywords: [Disk management using cli, linux disk management using cli, linux disk partation, mount disk in linux, format disk in linux, unmount disk in linux]
+description: 'Learn how to using system disk management cli utilities to manage disk and perform mount, format, partation and other system disk operations.'
+tags: [Tools, Disk]
 ---
 
 ### Check Partations
