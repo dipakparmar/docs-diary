@@ -2,6 +2,9 @@
 id: gpg
 title: Git GPG
 sidebar_label: GPG
+keywords: [git gpg key sign, sign git commits with gpg key, generate gpg key, generate gpg key for git]
+description: 'Learn about the GPG Key and it uses cases includig setting up gpg signed commits and generating gpg key.'
+tags: [Git, GPG, Public Key, Private Key, Security]
 ---
 
 ## Installing gpg client
