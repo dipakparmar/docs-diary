@@ -2,6 +2,9 @@
 id: basics
 title: Docker Basics
 sidebar_label: Basics
+keywords: [docker basics, run docker as not root user, list all docker containers, remove unused docker images]
+description: 'Learn about the docker basic commands from setting up the docker, start-stopping docker containers and cleaning up unused docker containers'
+tags: [Docker, Containerization]
 ---
 
 ### Install docker with script
