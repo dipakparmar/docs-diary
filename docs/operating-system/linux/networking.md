@@ -2,6 +2,9 @@
 id: networking
 title: Networking
 sidebar_label: Networking
+keywords: [network cli tools, find process using port, listen to active network connections]
+description: 'Learn basic of network cli tools in linux/unix'
+tags: [Network, Tools]
 ---
 
 ### Find the process of service running/using port
