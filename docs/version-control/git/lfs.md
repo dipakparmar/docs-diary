@@ -2,6 +2,9 @@
 id: lfs
 title: Git lfs
 sidebar_label: LFS
+keywords: [Git LFS, Git Large File Storage, LFS]
+description: 'Learn about Git Large File Storage (LFS) and how to setup one.'
+tags: [Git, Files]
 ---
 
 ```bash
