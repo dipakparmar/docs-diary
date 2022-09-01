@@ -9,8 +9,18 @@ export default function CopyButton({ code, className }) {
   const handleCopyCode = useCallback(() => {
     copy(code);
     setIsCopied(true);
+    // umami event tracking
     if (umami && process.env.NODE_ENV === 'production') {
-      umami.trackEvent(code.toString(), 'copy_codeblock');
+      umami.trackEvent('copy_codeblock', code.toString());
+    }
+
+    // google analytics tracking
+    if (gtag && process.env.NODE_ENV === 'production') {
+      gtag('event', 'copy_codeblock', {
+        'event_category': 'engagement',
+        'event_label': 'Copied CodeBlock to Clipboard',
+        'value': code.toString()
+      });
     }
     copyTimeout.current = window.setTimeout(() => {
       setIsCopied(false);
