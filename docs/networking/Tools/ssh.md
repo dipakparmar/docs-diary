@@ -2,6 +2,9 @@
 id: ssh
 title: SSH Basic
 sidebar_label: ssh
+keywords: [ssh, ssh basics, generate ssh key, update ssh config, copy ssh to key to server]
+description: 'Learn SSH basics, how to generate ssh key, how to add ssh key to server.'
+tags: [Tools, Remote Access]
 ---
 
 ## Installing SSH Agent
