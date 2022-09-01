@@ -2,6 +2,9 @@
 id: kubectl
 title: kubectl
 sidebar_label: kubectl
+keywords: [kubectl basics, install kubectl cli, kubectl cli, bulk label kubernetes pods, bulk delete failed kubernetes pods]
+description: 'Learn how to install kubectl cli and some basics commands to bulk apply lables on pods and delete failed pods.'
+tags: [Kubernetes, Containerization]
 ---
 
 ## Installation
