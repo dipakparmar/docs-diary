@@ -89,7 +89,18 @@ module.exports = {
     scriptName: "ua.js",
     dataDoNoTrack: true,
     dataDomains: "docs.dipak.tech"
-  }]],
+  }],
+  async function tailwindcss(context, options) {
+    return {
+      name: 'docusaurus-tailwindcss',
+      configurePostCss(postCssOptions) {
+        // Appends TailwindsCSS and AutoPrefixer
+        postCssOptions.plugins.push(require("tailwindcss"));
+        postCssOptions.plugins.push(require("autoprefixer"));
+        return postCssOptions;
+      }
+    }
+  }],
   presets: [
     [
       '@docusaurus/preset-classic',
