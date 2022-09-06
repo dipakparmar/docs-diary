@@ -34,7 +34,7 @@ function useDocTOC() {
 }
 export default function DocItemLayout({children}) {
   const docTOC = useDocTOC();
-  const {colorMode, setColorMode} = useColorMode();
+  const {colorMode} = useColorMode();
   return (
     <div className="row">
       <div className={clsx('col', !docTOC.hidden && styles.docItemCol)}>
