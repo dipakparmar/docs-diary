@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
-import {useWindowSize} from '@docusaurus/theme-common';
-import {useDoc} from '@docusaurus/theme-common/internal';
+import { useWindowSize } from '@docusaurus/theme-common';
+import { useDoc } from '@docusaurus/theme-common/internal';
 import DocItemPaginator from '@theme/DocItem/Paginator';
 import DocVersionBanner from '@theme/DocVersionBanner';
 import DocVersionBadge from '@theme/DocVersionBadge';
@@ -12,12 +12,15 @@ import DocItemContent from '@theme/DocItem/Content';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import styles from './styles.module.css';
 import Giscus from '@giscus/react';
-import {useColorMode} from '@docusaurus/theme-common';
+import { useColorMode } from '@docusaurus/theme-common';
+import DocItemInfo from './DocItemInfo';
+
+
 /**
  * Decide if the toc should be rendered, on mobile or desktop viewports
  */
 function useDocTOC() {
-  const {frontMatter, toc} = useDoc();
+  const { frontMatter, toc } = useDoc();
   const windowSize = useWindowSize();
   const hidden = frontMatter.hide_table_of_contents;
   const canRender = !hidden && toc.length > 0;
@@ -32,9 +35,11 @@ function useDocTOC() {
     desktop,
   };
 }
-export default function DocItemLayout({children}) {
+export default function DocItemLayout({ children }) {
   const docTOC = useDocTOC();
-  const {colorMode} = useColorMode();
+  const { colorMode } = useColorMode();
+ 
+
   return (
     <div className="row">
       <div className={clsx('col', !docTOC.hidden && styles.docItemCol)}>
@@ -44,26 +49,27 @@ export default function DocItemLayout({children}) {
             <DocBreadcrumbs />
             <DocVersionBadge />
             {docTOC.mobile}
-            <DocItemContent>{children}</DocItemContent>
+
+            <DocItemContent><DocItemInfo />{children}</DocItemContent>
             <DocItemFooter />
           </article>
           <DocItemPaginator />
         </div>
         <br></br>
-          <Giscus
-            id="comments"
-            repo="dipakparmar/docs-diary"
-            repoId="MDEwOlJlcG9zaXRvcnkyNzM4NTUzOTk="
-            category="Comments"
-            categoryId="DIC_kwDOEFKzp84CPOcp"
-            mapping="pathname"
-            reactionsEnabled="1"
-            emitMetadata="0"
-            inputPosition="top"
-            theme={colorMode}
-            lang="en"
-            loading="lazy"
-          />
+        <Giscus
+          id="comments"
+          repo="dipakparmar/docs-diary"
+          repoId="MDEwOlJlcG9zaXRvcnkyNzM4NTUzOTk="
+          category="Comments"
+          categoryId="DIC_kwDOEFKzp84CPOcp"
+          mapping="pathname"
+          reactionsEnabled="1"
+          emitMetadata="0"
+          inputPosition="top"
+          theme={colorMode}
+          lang="en"
+          loading="lazy"
+        />
       </div>
       {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}
     </div>
