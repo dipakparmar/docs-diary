@@ -2,19 +2,64 @@
 id: mysql-backup
 title: How to Import/Export MySQL Database
 sidebar_label: Import/Export MySQL Database
-keywords: [myql backup, export mysql database, dump mysql database, dump mysql db, import mysql db]
-description: 'Learn how to import/export MySQL Database using mysql cli'
+keywords:
+  [
+    myql backup,
+    export mysql database,
+    dump mysql database,
+    dump mysql db,
+    import mysql db,
+  ]
+description: "Learn how to import/export MySQL Database using mysql cli"
 tags: [Database, mySQL]
 ---
 
+import { GeneratedCommand } from "../../../src/components/CodeBlockWithInput.js";
+let export_mysql_command_data = {
+  name: "mysqldump",
+  showTitle: false,
+  language: "bash",
+  description: "Export MySQL Database",
+  command: "mysqldump -u {{username}} -p {{database_name}} > {{dump_name}}",
+  arguments: [
+    { name: "username", title: "Username", default_value: "root" },
+    {
+      name: "database_name",
+      title: "Database name",
+      default_value: "yourdbname",
+    },
+    {
+      name: "dump_name",
+      title: "DB dump file name",
+      default_value: "database_dump_name.sql",
+    },
+  ],
+};
+let import_mysql_command_data = {
+  name: "mysql_import",
+  showTitle: false,
+  language: "bash",
+  description: "Import MySQL Database",
+  command: "mysql -u {{username}} -p {{database_name}} < {{dump_name}}",
+  arguments: [
+    { name: "username", title: "Username", default_value: "root" },
+    {
+      name: "database_name",
+      title: "Database name",
+      default_value: "yourdbname",
+    },
+    {
+      name: "dump_name",
+      title: "DB dump file name",
+      default_value: "database_dump_name.sql",
+    },
+  ],
+};
+
 ## Exporting MySQL Database
 
-```bash
-mysqldump -u username -p database_name > database_dump_name.sql
-```
+<GeneratedCommand commandData={export_mysql_command_data} />
 
 ## Importing MySQL Database
 
-```bash
-mysql -u username -p database_name < database_dump_name.sql
-```
+<GeneratedCommand commandData={import_mysql_command_data} />
