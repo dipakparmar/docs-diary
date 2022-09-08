@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CodeBlock from '@theme/CodeBlock';
+import CodeBlock from "@theme/CodeBlock";
 const TextToken = "TextToken";
 const ArgumentToken = "ArgumentToken";
 const TokenType = {
@@ -10,20 +10,29 @@ const TokenType = {
 let data = {
   name: "mysqldump",
   showTitle: false,
+  hideInput: true,
   language: "bash",
   description: "Export MySQL database.",
-  command: 'mysqldump -u {{username}} -p {{database_name}} > {{dump_name}}',
+  command: "mysqldump -u {{username}} -p {{database_name}} > {{dump_name}}",
   arguments: [
     { name: "username", title: "Username", default_value: "root" },
-    { name: "database_name", title: "Database name", default_value: "yourdbname" },
-    { name: "dump_name", title: "DB dump file name", default_value: "database_dump_name.sql" },
+    {
+      name: "database_name",
+      title: "Database name",
+      default_value: "yourdbname",
+    },
+    {
+      name: "dump_name",
+      title: "DB dump file name",
+      default_value: "database_dump_name.sql",
+    },
   ],
 };
 
 /**
  * Codeblock with inputs to generate Dynamic code snippet.
- * @param {data} commandData 
- * @returns 
+ * @param {data} commandData
+ * @returns
  */
 export function GeneratedCommand({ commandData }) {
   let commandArguments = commandData.arguments;
@@ -85,23 +94,34 @@ export function GeneratedCommand({ commandData }) {
   };
   return (
     <div>
-      {commandArguments.map((argument) => (
-        <div key={argument.name}>
-          <label className="block text-sm font-medium text-gray-700">{argument.title ? argument.title : argument.name} </label>
-          <input
-            value={values[argument.name] ?? ""}
-            onChange={handleInputChange}
-            type="text"
-            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            placeholder={argument.default_value ?? argument.name}
-            name={argument.name}
-            onFocus={() => setFocusedArg(argument.name)}
+      {commandData.hideInput || commandData.hideInput == undefined ? (
+        <details>
+          <summary>
+            click here to generate command snippet with dynamic arguments
+          </summary>
+          <CommandInputs
+            commandArguments={commandArguments}
+            values={values}
+            handleInputChange={handleInputChange}
           />
-        </div>
-      ))}
+        </details>
+      ) : (
+        <CommandInputs
+          commandArguments={commandArguments}
+          values={values}
+          handleInputChange={handleInputChange}
+        />
+      )}
       <div>
-        <br></br>
-        <CodeBlock title={commandData?.showTitle ? commandData?.name : ''} className={"language-" + commandData?.language ? 'language-' + commandData?.language : "bash"}>
+        <br />
+        <CodeBlock
+          title={commandData?.showTitle ? commandData?.name : ""}
+          className={
+            "language-" + commandData?.language
+              ? "language-" + commandData?.language
+              : "bash"
+          }
+        >
           {getTokenizedCommand(commandData.command).map((token, idx) => {
             switch (token.type) {
               case TokenType.ArgumentToken:
@@ -109,8 +129,32 @@ export function GeneratedCommand({ commandData }) {
               case TokenType.TextToken:
                 return token.text;
             }
-          })}</CodeBlock>
+          })}
+        </CodeBlock>
       </div>
     </div>
+  );
+}
+
+function CommandInputs({ commandArguments, values, handleInputChange }) {
+  return (
+    <>
+      {commandArguments.map((argument) => (
+        <div key={argument.name}>
+          <label className="block text-sm font-medium">
+            {argument.title ? argument.title : argument.name}{" "}
+          </label>
+          <input
+            value={values[argument.name] ?? ""}
+            onChange={handleInputChange}
+            type="text"
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-gray-700"
+            placeholder={argument.default_value ?? argument.name}
+            name={argument.name}
+            onFocus={() => setFocusedArg(argument.name)}
+          />
+        </div>
+      ))}
+    </>
   );
 }
