@@ -1,0 +1,61 @@
+---
+id: detect-browser-tab-state
+title: How to Detect browser tab state
+sidebar_label: How to Detect browser tab state
+keywords: [Detect browser tab state, alert when browser tab is switched]
+description: "Learn how to use javascript to detect browser tab state change."
+tags: [Browser, Javascript, Web Development, Front-End Development]
+---
+
+# How to Detect browser tab state
+
+import CodeBlock from "@theme/CodeBlock";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+<Tabs>
+  <TabItem value="method1" label="Using Blur and Focus Events">
+    <CodeBlock language="js">
+      {`window.addEventListener("blur", () => {
+    // your logic for when user leaves the tab
+});
+window.addEventListener("focus", () => {
+    // your logic for when user is back to the tab again
+});`}
+    </CodeBlock>
+
+The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event">blur</a> event fires when an element has lost focus. The main difference between this event and focusout is that focusout bubbles while blur does not.
+
+The opposite of blur is <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/focus_event">focus</a>. The focus event fires when an element has received focus.
+
+  </TabItem>
+  <TabItem value="method2" label="Using visibilitychange Event ">
+    <CodeBlock language="js">
+      {`document.addEventListener("visibilitychange", () => {
+    // your logic to handle visible or hidden elements state 
+});`}
+    </CodeBlock>
+
+The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/visibilitychange_event">visibilitychange</a> event is fired at the document when the contents of its tab have become visible or have been hidden.
+
+<h2> Examples </h2>
+<ol> 
+    <li>
+        <h4>Pausing music on transitioning to hidden </h4>
+        This example begins playing a music track when the document becomes visible, and pauses the music when the document is no longer visible. 
+        <CodeBlock language="js">
+            {`document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === 'visible') {
+        backgroundMusic.play();
+    } if else (document.visibilityState === 'hidden') {
+        backgroundMusic.pause();
+    }
+});
+`}
+</CodeBlock>
+    </li>
+</ol>
+  </TabItem>
+</Tabs>
+
+<span><b>Reference:</b> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document">Document - Web APIs | MDN </a> </span>
