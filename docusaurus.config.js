@@ -97,6 +97,7 @@ module.exports = {
         // Appends TailwindsCSS and AutoPrefixer
         postCssOptions.plugins.push(require("tailwindcss"));
         postCssOptions.plugins.push(require("autoprefixer"));
+        postCssOptions.plugins.push(require('@tailwindcss/forms'));
         return postCssOptions;
       }
     }

@@ -35,6 +35,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.9",
     "@giscus/react": "^2.2.0",
+    "@tailwindcss/forms": "^0.5.3",
     "eslint": "^8.23.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
