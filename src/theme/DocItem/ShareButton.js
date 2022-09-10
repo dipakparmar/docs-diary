@@ -75,6 +75,7 @@ function ShareButton(props) {
               className="dropdown__link icons display-flex"
               href={labels.link}
               target="_blank"
+              rel="noopener noreferrer"
             >
               {colorMode === "light" ? (
                 <img
