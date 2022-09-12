@@ -1,0 +1,6 @@
+label: 'Portainer'
+collapsible: true 
+collapsed: true 
+link:
+  type: generated-index
+  title: 'Portainer'
