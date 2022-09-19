@@ -1196,10 +1196,15 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-2.0.2.tgz#1bfafe4b7ed0f3e4105837e056e0a89b108ebe36"
   integrity sha512-IkpVW/ehM1hWKln4fCA3NzJU8KwD+kIOvPZA4cqxoJHtE21CCzjyp+Kxbu0i5I4tBNOlXPL9mjwnWlL0VEG4Fg==
 
-"@dipakparmar/docusaurus-plugin-umami@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@dipakparmar/docusaurus-plugin-umami/-/docusaurus-plugin-umami-1.0.3.tgz#cadee69981b7ec9249119257a26320bd8e8d82d8"
-  integrity sha512-iJWNNe4xS3on+yImX0EgbzYMvECOb4N4PhTZCT9Yr2IMS1O3I+kD2ZV4Ih3Xy9wWrGXn+ZqBDoa45q28oDrf1w==
+"@dipakparmar/docusaurus-plugin-umami@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@dipakparmar/docusaurus-plugin-umami/-/docusaurus-plugin-umami-2.0.2.tgz#1346708c02b8d51d629be2aa57709676c537b436"
+  integrity sha512-ZDrNGAhZKaazYAiCE5CU8cMXUJW0OXJk5sOfc/c0reM9Dt6kJixWzuofrdWpgo48Pvglb8K+7UdO6KJrUZM52w==
+  dependencies:
+    "@docusaurus/core" "2.1.0"
+    "@docusaurus/types" "2.1.0"
+    "@docusaurus/utils-validation" "2.1.0"
+    tslib "^2.4.0"
 
 "@docsearch/css@3.2.1":
   version "3.2.1"

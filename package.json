@@ -18,7 +18,7 @@
     "format:diff": "prettier --config .prettierrc --list-different \"**/*.{js,jsx,ts,tsx,md,mdx}\""
   },
   "dependencies": {
-    "@dipakparmar/docusaurus-plugin-umami": "^1.0.3",
+    "@dipakparmar/docusaurus-plugin-umami": "^2.0.2",
     "@docusaurus/core": "2.1.0",
     "@docusaurus/plugin-client-redirects": "2.1.0",
     "@docusaurus/preset-classic": "2.1.0",
