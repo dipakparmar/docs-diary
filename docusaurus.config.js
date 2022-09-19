@@ -83,13 +83,16 @@ module.exports = {
       }
       return undefined; // Return a falsy value: no redirect created
     },
-  }], [require.resolve("@dipakparmar/docusaurus-plugin-umami"), {
-    websiteID: 'c401b94a-f278-46e3-bc17-72e9494f1375',
-    analyticsDomain: 'analytics.dipak.io',
-    scriptName: "ua.js",
-    dataDoNoTrack: true,
-    dataDomains: "docs.dipak.tech"
-  }],
+  }], [require.resolve("@dipakparmar/docusaurus-plugin-umami"),
+  /** @type {import('@dipakparmar/docusaurus-plugin-umami').Options} */
+  (
+    {
+      websiteID: "c401b94a-f278-46e3-bc17-72e9494f1375",
+      analyticsDomain: "analytics.dipak.io",
+      scriptName: "ua.js",
+      dataDoNotTrack: true,
+      dataDomains: "docs.dipak.tech",
+    }),],
   async function tailwindcss(context, options) {
     return {
       name: 'docusaurus-tailwindcss',
