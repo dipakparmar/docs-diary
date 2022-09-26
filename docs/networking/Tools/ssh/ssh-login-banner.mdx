@@ -1,0 +1,75 @@
+---
+id: ssh-login-banner
+title: How to add/update SSH Login Banner
+sidebar_label: SSH Login Banner
+description: This guide is on how to add/update SSH Login Banner.
+keywords:
+  [
+    update ssh pre-login banner,
+    update ssh post-login banner,
+    add ssh login banner,
+    setup ssh login banner,
+    setup ssh login message,
+    update ssh login message.
+  ]
+tags: [SSH, Network]
+---
+
+Learn how to setup pre-login and post-login banner for ssh session. 
+
+## Prerequisites
+
+1. You have access to the root shell to the remote system that you're trying to setup message.
+2. You are familiar with a Linux text editor like nano, vim, etc.
+
+## Pre-login Message Banner
+The pre-login message banner sends a message to the remote user who attempts to log in to the system using SSH. The pre-login message banner is useful for enforcing security policy; for example, to inform the remote user all activities are logged.
+
+### Setup pre-login
+
+1. Login to ssh shell of the remote system.
+2. edit the file `/etc/issue.net` using your prefered text editor:
+    ```bash
+    nano /etc/issue.net
+    ```
+3. Add your message to above file to add/update the pre-login message for **Remote/tty** shells. 
+
+    :::info
+
+    Most of the systems requires to use of escape characters in the message instead of return, tabs etc,. Use `\n` , `\t` instead.
+
+    :::
+
+    ```text
+    \nALERT! You are entering into a secured area!\nYour IP, Login Time, Username has been noted and has been sent to the server administrator!This service is restricted to authorized users only. All activities on this system are logged.\nUnauthorized access will be fully investigated and reported to the appropriate law enforcement agencies.\n
+    ```
+
+    Other Examples: [LEGAL Notices for Login/MOTD unix banners](https://gist.github.com/hvmonteiro/7f897cd8ae3993195855040056f87dc6)
+
+4. edit file `/etc/ssh/sshd_config` and enable/uncomment Banner:
+    ```diff
+    -- #Banner /etc/issue.net
+    ++ Banner /etc/issue.net
+    ```
+
+## Post-login Message Banner (Message of the Day)
+The post-login message banner appears after a user successfully authenticates to the advance shell access on the system, either using SSH or the serial console. This message banner is useful to inform your users about the system; for example, to inform users of an upcoming scheduled maintenance.
+
+### Setup post-login
+
+1. Login to ssh shell of the remote system.
+2. edit the file `/etc/motd` using your prefered text editor:
+    ```bash
+    sudo nano /etc/motd
+    ```
+3. Add your message to above file to add/update the post-login message (Message of the Day).
+
+    :::info
+
+    Most of the systems requires to use of escape characters in the message instead of return, tabs etc,. Use `\n` , `\t` instead.
+
+    :::
+
+    ```text
+    \nWelcome to the XYZ Systems.\n
+    ```
