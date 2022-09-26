@@ -9,6 +9,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom font declarations */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #3578e5;
@@ -20,8 +23,6 @@
   --ifm-color-primary-lightest: #80aaef;
   --ifm-code-font-size: 95%;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
 
 h1,
 h2,
