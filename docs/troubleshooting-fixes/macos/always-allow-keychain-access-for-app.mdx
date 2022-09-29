@@ -1,0 +1,80 @@
+---
+id: always-allow-keychain-access-for-app.mdx
+title: Allow app access to the keychain login item manually
+sidebar_label: 🔑 Allow app access to the keychain login item manually
+keywords:
+  [
+    keychain,
+    login item,
+    keychain access,
+    keychain login item,
+    keychain access for app,
+    keychain access for app denied,
+    keychain access for app denied mac,
+    keychain access for app denied macos,
+    keychain access for app denied macos catalina,
+    keychain access for app denied macos big sur,
+    keychain access for app denied macos big sur 11,
+    keychain access for app denied macos big sur 11.0.1,
+    keychain access for app denied macos big sur 11.1,
+    keychain access for app denied macos big sur 11.2,
+    keychain access for app denied macos big sur 11.2.1,
+    keychain access for app denied macos big sur 11.2.2,
+    keychain access for app denied macos big sur 11.2.3,
+    keychain access for app denied macos big sur 11.3,
+    keychain access for app denied macos big sur 11.4,
+    keychain access for app denied macos big sur 11.5,
+    keychain access for app denied macos big sur 11.6,
+    keychain access for app denied macos big sur 11.7,
+    keychain access for app denied macos big sur 11.8,
+    keychain access for app denied macos big sur 11.9,
+    keychain access for app denied macos big sur 11.10,
+    keychain access for app denied macos big sur 11.11,
+    keychain access for app denied macos big sur 11.12,
+    keychain access for app denied macos big sur 11.13,
+    keychain access for app denied macos big sur 11.14,
+    keychain access for app denied macos big sur 11.15,
+    keychain access for app denied macos big sur 11.16,
+    keychain access for app denied macos big sur 11.17,
+    keychain access for app denied macos big sur 11.18,
+    keychain access for app denied macos big sur 11.19,
+    keychain access for app denied macos big sur 11.20,
+    keychain access for app denied macos big sur 11.21,
+    keychain access for app denied macos big sur 11.22,
+    keychain access for app denied macos big sur 11.23,
+  ]
+tags: [macOS, Apple Keychain, Troubleshooting]
+description: How to allow app access to the keychain login item manually
+---
+
+import KeyChainScreenshot from "/img/docs/troubleshooting-fixes/macos/keychain-01.png";
+import KeyChainPromptScreenshot from "/img/docs/troubleshooting-fixes/macos/keychain-prompt-01.png";
+import Admonition from "@theme/Admonition";
+
+<img
+  src={KeyChainPromptScreenshot}
+  style={{ height: "20vh" }}
+  alt="macOS Keychain Prompt"
+/>
+
+1. Open Keychain Access in **Applications > Utilities > Keychain Access**
+2. Highlight **"Login"** Keychain
+   <img
+     src={KeyChainScreenshot}
+     style={{ height: "25vh" }}
+     alt="macOS Keychain"
+   />
+3. Find the key or keys you wish to allow your application to access
+4. Right-click the key item, and select **"Get Info"**
+5. Click on the **"Access Control"** tab
+6. Select **"Allow all application to access this item"** or **"Always Allow"**
+
+   <Admonition type="caution" icon="⚠️" title="Carefull with this option ...">
+     <p>
+       If you select <b>"Allow all application to access this item"</b>, this
+       will allow all applications to access the keychain item.
+     </p>
+   </Admonition>
+
+7. Press **"Save Changes"** to confirm the change
+8. Enter your password you use to login to the server to authenticate.
