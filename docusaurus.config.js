@@ -86,6 +86,12 @@ const isDeployPreview =
       [
         require.resolve("@docusaurus/plugin-client-redirects"),
         {
+          redirects: [
+            {
+            to: "/troubleshooting-fixes/macos/macos-dock-changes-position",
+            from: "/troubleshooting-fixes/macos",
+            },
+          ],
           createRedirects(existingPath) {
             if (existingPath.includes("/")) {
               // Redirect from /docs/X to /X

@@ -1,0 +1,6 @@
+label: 'macOS'
+collapsible: true 
+collapsed: true 
+link:
+  type: generated-index
+  title: macOS Troubleshooting Guides
