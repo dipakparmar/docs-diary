@@ -1,6 +1,12 @@
+// @ts-check
+// Note: type annotations allow type checking and IDEs autocompletion
+
 const isDeployPreview =
-  !!process.env.VERCEL_ENV === "development" ||
-  !!process.env.VERCEL_ENV === "preview";
+  process.env.VERCEL_ENV === "development" ||
+  process.env.VERCEL_ENV === "preview";
+
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 // With JSDoc @type annotations, IDEs can provide config autocompletion
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
@@ -70,6 +76,10 @@ const isDeployPreview =
             },
           ],
         },
+        prism: {
+          theme: lightCodeTheme,
+          darkTheme: darkCodeTheme,
+        },
         footer: {
           style: "dark",
           copyright: `Copyright © ${new Date().getFullYear()} Dipak's Docs Diary. Built with Docusaurus.`,
@@ -88,8 +98,8 @@ const isDeployPreview =
         {
           redirects: [
             {
-            to: "/troubleshooting-fixes/macos/macos-dock-changes-position",
-            from: "/troubleshooting-fixes/macos",
+              to: "/troubleshooting-fixes/macos/macos-dock-changes-position",
+              from: "/troubleshooting-fixes/macos",
             },
           ],
           createRedirects(existingPath) {
