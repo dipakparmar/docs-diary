@@ -11,44 +11,51 @@ keywords:
     flush dns cache on windows,
     flush dns cache on linux,
     dns cache clear,
-    clear dbs cache
+    clear dns cache,
   ]
 tags: [DNS, Cache, Network]
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
 
 ## Clear System DNS cache
 
 <Tabs groupId="operating-systems">
   <TabItem value="win" label="Windows">
-
-1. Click Start.
-2. Type cmd in the search field.
-3. Right-click Command Prompt and select Run as Administrator.
-4. Type the following command:
-   <CodeBlock language="bash">ipconfig /flushdns</CodeBlock>
-5. Press <kbd>Enter</kbd>.
-
-If the command succeeds, the system returns the following message: 'Windows IP configuration successfully flushed the DNS Resolver Cache.
+    <ol>
+    <li>Click Start.</li>
+    <li>Type cmd in the search field.</li>
+    <li>Right-click Command Prompt and select Run as Administrator.</li>
+    <li>
+      Type the following command:
+      <CodeBlock language="bash">ipconfig /flushdns</CodeBlock>{' '}
+    </li>
+    <li>
+      Press <kbd>Enter</kbd>.
+    </li>
+    </ol>
+<p>If the command succeeds, the system returns the following message: 'Windows IP configuration successfully flushed the DNS Resolver Cache. </p>
 
   </TabItem>
   <TabItem value="mac" label="MacOS 10.10.4 and above">
-
-1. Launch the **Terminal App**:
-
-   a. Press <kbd>cmd</kbd> + <kbd>Space</kbd> on your keyboard.
-
-   b. Type **Terminal** and press <kbd>Return</kbd>.
-
-2. Type the following into the terminal:
-   <CodeBlock language="bash">sudo killall -HUP mDNSResponder</CodeBlock>
-3. Press <kbd>Return</kbd>.
-4. Type your administrator password and press <kbd>Return</kbd>.
-5. Quit Terminal by pressing <kbd>cmd</kbd> + <kbd>Q</kbd> on your keyboard.
-
+    <ol>
+  <li>Launch the <b>Terminal App</b>:
+  <ol>
+    <li>
+      Press <kbd>cmd</kbd> + <kbd>Space</kbd> on your keyboard.
+    </li>
+    <li>
+      Type <b>Terminal</b> and press <kbd>Return</kbd>.
+    </li>
+  </ol> </li>
+  <li>Type the following into the terminal:
+    <CodeBlock language="bash">sudo killall -HUP mDNSResponder</CodeBlock> </li>
+  <li>Press <kbd>Return</kbd>.</li>
+  <li>Type your administrator password and press <kbd>Return</kbd>.</li>
+  <li>Quit Terminal by pressing <kbd>cmd</kbd> + <kbd>Q</kbd> on your keyboard.</li>
+  </ol>
 
   </TabItem>
   <TabItem value="linux" label="Linux">
@@ -64,58 +71,117 @@ To find out whether the service is running use the following command:
 
 ## Clear Browser DNS Cache
 
-Most modern Web browsers have a built-in DNS client to prevent repetitive queries each time the website is visited. But sometime this cached results can be issue when you have recently updated the dns as it still serves from the dns cache untill expiry as per ttl.  
+Most modern Web browsers have a built-in DNS client to prevent repetitive queries each time the website is visited. But sometime this cached results can be issue when you have recently updated the dns as it still serves from the dns cache untill expiry as per ttl.
 
 <Tabs groupId="browsers">
   <TabItem value="chrome" label="Google Chrome">
 
 To clear Google Chrome’s DNS cache, perform the following steps:
 
-1. Open a new tab and type `chrome://net-internals/#dns` in Chrome’s address bar.
-2. Click the “**Clear host cache**” button.
+<ol>
+  <li>
+    Open a new tab and type <code>chrome://net-internals/#dns</code> in Chrome’s
+    address bar.
+  </li>
+  <li>
+    Click the “<b>Clear host cache</b>” button.
+  </li>
+</ol>
 
 If that doesn’t work for you, try to clear the cache and cookies.
 
-1. Open the “**Clear browsing data**” dialog window with <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>Del</kbd> in windows or <kbd>cmd</kbd>+<kbd>Shift</kbd>+<kbd>Del</kbd> in mac.
-2. Choose a time range. Select “**All time”** to delete everything.
-3. Check the “**Cookies and other site data**” and “**Cached images and files**” boxes.
-4. Click the “**Clear data**” button.
-
-
+<ol>
+<li>
+  Open the “<b>Clear browsing data</b>” dialog window with <kbd>CTRL</kbd>+
+  <kbd>Shift</kbd>+<kbd>Del</kbd> in windows or <kbd>cmd</kbd>+<kbd>Shift</kbd>+
+  <kbd>Del</kbd> in mac.
+</li>
+<li>Choose a time range</li>
+<li>Select “<b>All time”</b> to delete everything.</li>
+<li>
+  Check the “<b>Cookies and other site data</b>” and “<b>Cached images and files</b>”
+  boxes.
+</li>
+<li>Click the “<b>Clear data</b>” button.</li>
+</ol>
   </TabItem>
   <TabItem value="edge" label="Microsoft Edge">
 
 To clear Microsoft Edge’s DNS cache, perform the following steps:
 
-1. Open a new tab and type `edge://net-internals/#dns` in Edge’s address bar.
-2. Click the “**Clear host cache**” button.
+<ol>
+  <li>
+    Open a new tab and type <code>edge://net-internals/#dns</code> in Edge’s
+    address bar.
+  </li>
+  <li>
+    Click the “<b>Clear host cache</b>” button.
+  </li>
+</ol>
 
 If that doesn’t work for you, try to clear the cache and cookies.
 
-1. Open the “**Clear browsing data**” dialog window with <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>Del</kbd> in windows or <kbd>cmd</kbd>+<kbd>Shift</kbd>+<kbd>Del</kbd> in mac.
-2. Choose a time range. Select “**All time”** to delete everything.
-3. Check the “**Cookies and other site data**” and “**Cached images and files**” boxes.
-4. Click the “**Clear data**” button.
-
+<ol>
+  <li>
+    Open the “<b>Clear browsing data</b>” dialog window with <kbd>CTRL</kbd>+
+    <kbd>Shift</kbd>+<kbd>Del</kbd> in windows or <kbd>cmd</kbd>+
+    <kbd>Shift</kbd>+<kbd>Del</kbd> in mac.
+  </li>
+  <li>
+    Choose a time range. Select “<b>All time”</b> to delete everything.
+  </li>
+  <li>
+    Check the “<b>Cookies and other site data</b>” and “
+    <b>Cached images and files</b>” boxes.
+  </li>
+  <li>
+    Click the “<b>Clear data</b>” button.
+  </li>
+</ol>
 
   </TabItem>
   <TabItem value="firefox" label="Mozilla Firefox">
 
 To clear Firefox’s DNS cache, perform the following steps:
 
-1. In the upper right-hand corner, click on the hamburger icon **☰** to open Firefox’s menu:
-2. Click on the **⚙ Options (Preferences)** link.
-3. Click the **Privacy & Security** or **Privacy tab** on the left.
-4. Scroll down to the History section and click on the **Clear History**... button.
-5. Choose a time range to clear. Select “**Everything**” to delete everything.
-6. Select all boxes and click “**Clear Now**”.
+<ol>
+  <li>
+    In the upper right-hand corner, click on the hamburger icon <b>☰</b> to open
+    Firefox’s menu:
+  </li>
+  <li>
+    Click on the <b>⚙ Options (Preferences)</b> link.
+  </li>
+  <li>
+    Click the <b>Privacy & Security</b> or <b>Privacy tab</b> on the left.
+  </li>
+  <li>
+    Scroll down to the History section and click on the <b>Clear History</b>{' '}
+    button.
+  </li>
+  <li>
+    Choose a time range to clear. Select “<b>Everything</b>” to delete
+    everything.
+  </li>
+  <li>
+    Select all boxes and click “<b>Clear Now</b>”.
+  </li>
+</ol>
 
 If that doesn’t work for you, try the following method and temporally disabled the DNS cache.
 
-1. Open a new tab and type `about:config` in Firefox’s address bar.
-2. Search for `network.dnsCacheExpiration`, temporally set the value to **0 **and click **OK**. Afterward, change back the _default value_ and click OK.
-3. Search for `network.dnsCacheEntries`, temporally set the value to **0** and click **OK**. Afterward, change back the _default value_ and click OK.
+<ol>
 
+<li>Open a new tab and type <code>about:config</code> in Firefox’s address bar.</li>
+<li>
+  Search for <code>network.dnsCacheExpiration</code>, temporally set the value to <b>0 </b>and
+  click <b>OK</b>. Afterward, change back the <i>default value</i> and click OK.
+</li>
+<li>
+  Search for <code>network.dnsCacheEntries</code>, temporally set the value to <b>0</b> and
+  click <b>OK</b>. Afterward, change back the <i>default value</i> and click OK.
+</li>
+</ol>
 
   </TabItem>
 

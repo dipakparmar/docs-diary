@@ -34,4 +34,4 @@ $ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
 
-![Alt](https://repobeats.axiom.co/api/embed/38bd3d5aec7e29ab833432f5b13e99cb04bddc4f.svg "Repobeats analytics image")
+![Alt](https://repobeats.axiom.co/api/embed/38bd3d5aec7e29ab833432f5b13e99cb04bddc4f.svg 'Repobeats analytics image')

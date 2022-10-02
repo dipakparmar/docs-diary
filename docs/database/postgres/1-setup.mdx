@@ -1,12 +1,24 @@
 ---
 id: setup
-title: PostgreSQL Setup 
+title: PostgreSQL Setup
 sidebar_label: Setup
-keywords: [PostgreSQL, libpq, psql, pg_dump, postgres, install postgres, install postgres client, install psql, install pgdump]
+keywords:
+  [
+    PostgreSQL,
+    libpq,
+    psql,
+    pg_dump,
+    postgres,
+    install postgres,
+    install postgres client,
+    install psql,
+    install pgdump,
+  ]
 description: Learn how to install and setup PostgreSQL, and the libpq client library seperately for PostgreSQL, giving you access to utilities such as psql and pg_dump.
 tags: [Database, PostgreSQL]
 ---
-## Installing the PostgreSQL 
+
+## Installing the PostgreSQL
 
 To install PostgreSQL using homebrew, run the following command:
 
@@ -26,9 +38,7 @@ brew install postgresql
 
 ### Installing the libpq client library <sup>[1](#references)</sup>
 
-:::warning
-You do not need to install `libpq` if you already have PostgreSQL installed using above command. Ony install libpq if you do not have postgresql installed and want to use psql and pg_dump clients.
-:::
+:::warning You do not need to install `libpq` if you already have PostgreSQL installed using above command. Ony install libpq if you do not have postgresql installed and want to use psql and pg_dump clients. :::
 
 To install **libpq** using homebrew, use the following command:
 
@@ -36,9 +46,9 @@ To install **libpq** using homebrew, use the following command:
 brew install libpq
 ```
 
-This will give you access to utilities such as __psql__ and __pg_dump__ without having to install the full Postgres package. 
+This will give you access to utilities such as **psql** and **pg_dump** without having to install the full Postgres package.
 
-However, since homebrew provides some of the same utilities as Postgres, it is installed as `"keg-only"` by default. This means that it is not in the `PATH` by default. Homebrew will provide instructions on how to add it to the PATH after installation. 
+However, since homebrew provides some of the same utilities as Postgres, it is installed as `"keg-only"` by default. This means that it is not in the `PATH` by default. Homebrew will provide instructions on how to add it to the PATH after installation.
 
 In my case, it was this:
 
@@ -51,6 +61,7 @@ Alternatively, you can create symlinks for the utilities you need, for example:
 ```bash
 ln -s /usr/local/Cellar/libpq/14.3/bin/psql /usr/local/bin/psql
 ```
+
 :::note
 
 replace 14.3 with the version of libpq that is installed.
@@ -63,7 +74,7 @@ Alternatively, you could instruct homebrew to "link all of its binaries to the P
 brew link --force libpq
 ```
 
-but then __you would not be able to install the Postgres package later__.
+but then **you would not be able to install the Postgres package later**.
 
 ## Managing the PostgreSQL
 

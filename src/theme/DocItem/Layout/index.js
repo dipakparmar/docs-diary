@@ -15,7 +15,6 @@ import Giscus from '@giscus/react';
 import { useColorMode } from '@docusaurus/theme-common';
 import DocItemInfo from './DocItemInfo';
 
-
 /**
  * Decide if the toc should be rendered, on mobile or desktop viewports
  */
@@ -38,7 +37,6 @@ function useDocTOC() {
 export default function DocItemLayout({ children }) {
   const docTOC = useDocTOC();
   const { colorMode } = useColorMode();
- 
 
   return (
     <div className="row">
@@ -49,7 +47,10 @@ export default function DocItemLayout({ children }) {
             <DocBreadcrumbs />
             <DocVersionBadge />
             {docTOC.mobile}
-            <DocItemContent><DocItemInfo />{children}</DocItemContent>
+            <DocItemContent>
+              <DocItemInfo />
+              {children}
+            </DocItemContent>
             <DocItemFooter />
           </article>
           <DocItemPaginator />

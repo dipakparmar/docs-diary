@@ -2,7 +2,19 @@
 id: basics
 title: Helm Basic Commands
 sidebar_label: Basics
-keywords: [Helm Basic Commands, Helm basics, helm install app, helm upgrade, helm rollback, helm hooks, helm charts, helm charts management, helm plugin management, helm repo search]
+keywords:
+  [
+    Helm Basic Commands,
+    Helm basics,
+    helm install app,
+    helm upgrade,
+    helm rollback,
+    helm hooks,
+    helm charts,
+    helm charts management,
+    helm plugin management,
+    helm repo search,
+  ]
 description: 'Learn about helm basic commands and their usecase from installing new helm chart to upgrading chart, uninstalling helm chart and building/packing new helm chart'
 tags: [Helm, Kubernetes]
 ---
@@ -198,8 +210,7 @@ helm status [release]
 
 ### Display the release history
 
-helm history [release]
-See information about the Helm client environment:
+helm history [release] See information about the Helm client environment:
 
 ```bash
 helm env
@@ -285,8 +296,7 @@ Display a list of a chart’s dependencies:
 helm dependency list [chart]
 ```
 
-Get Help and Version Information
-Display the general help output for Helm:
+Get Help and Version Information Display the general help output for Helm:
 
 ```bash
 helm --help

@@ -2,7 +2,8 @@
 id: postgres-migration
 title: How to migrate from MySQL Database to PostgreSQL Database
 sidebar_label: Migrate from MySQL to Postgres
-keywords: [postgres migration, migrate from mysql db to postrgres db, mysql to PSQL]
+keywords:
+  [postgres migration, migrate from mysql db to postrgres db, mysql to PSQL]
 description: 'Learn how to migrate from MySQL to PostgreSQL Database'
 tags: [Database, PostgreSQL]
 ---
@@ -47,9 +48,10 @@ services:
   pgloader:
     image: dimitri/pgloader
     container_name: pgloader
-    depends_on: [ 'postgres', 'mysql' ]
+    depends_on: ['postgres', 'mysql']
     command: >
       pgloader mysql://user:password@mysql:3306/database postgresql://postgres:root@postgres:5432/postgres 
+
 
 volumes:
   postgres_db_data:

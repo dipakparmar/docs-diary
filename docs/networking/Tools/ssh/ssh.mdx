@@ -2,14 +2,21 @@
 id: ssh
 title: SSH Basic
 sidebar_label: ssh
-keywords: [ssh, ssh basics, generate ssh key, update ssh config, copy ssh to key to server]
+keywords:
+  [
+    ssh,
+    ssh basics,
+    generate ssh key,
+    update ssh config,
+    copy ssh to key to server,
+  ]
 description: 'Learn SSH basics, how to generate ssh key, how to add ssh key to server.'
 tags: [Tools, Remote Access]
 ---
 
 ## Installing SSH Agent
 
-Install openssh with homebrew 
+Install openssh with homebrew
 
 ```bash
 brew install openssh
@@ -31,7 +38,7 @@ Start ssh-agent if not running
 eval "$(ssh-agent -s)"
 ```
 
-Open to ssh config file  (woks on **macOS Sierra 10.12.2** or **later**)
+Open to ssh config file (woks on **macOS Sierra 10.12.2** or **later**)
 
 ```bash
 open ~/.ssh/config
@@ -64,14 +71,15 @@ Host [example.com] //server-name here
 ```
 
 #### Store passphrase to your keychain ( optional)
-  if you don't want to input passpharse everytime
 
-  ```bash
-  ssh-add -K ~/.ssh/id_rsa
-  ```
+if you don't want to input passpharse everytime
 
-  ## Copy public key to clipboard
+```bash
+ssh-add -K ~/.ssh/id_rsa
+```
 
-  ```bash
-  pbcopy < ~/.ssh/id_rsa.pub
-  ```
+## Copy public key to clipboard
+
+```bash
+pbcopy < ~/.ssh/id_rsa.pub
+```

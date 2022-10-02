@@ -2,7 +2,17 @@
 id: certificates-and-keys
 title: Certificates and Keys
 sidebar_label: Certificates and Keys
-keywords: [certificates, keys, private key, public key, convert certificate, convert crt to pem, convert pem to crt, convert key to crt]
+keywords:
+  [
+    certificates,
+    keys,
+    private key,
+    public key,
+    convert certificate,
+    convert crt to pem,
+    convert pem to crt,
+    convert key to crt,
+  ]
 description: 'Learn how to convert public/private key and certificates to different formats.'
 tags: [Certificates, SSL/TLS, Private Key, Public Key]
 ---
@@ -39,7 +49,7 @@ The DER format is simply a binary form of a certificate instead of the ASCII PEM
 openssl x509 -inform der -in cert.der -out cert.pem
 ```
 
-## Convert P7B 
+## Convert P7B
 
 The PKCS#7 or P7B format is usually stored in Base64 ASCII format and has a file extension of .p7b or .p7c. P7B certificates contain `"-----BEGIN PKCS7-----"` and `"-----END PKCS7-----"` statements. A P7B file only contains certificates and chain certificates, not the private key. Several platforms support P7B files including Microsoft Windows and Java Tomcat.
 
@@ -48,6 +58,7 @@ The PKCS#7 or P7B format is usually stored in Base64 ASCII format and has a file
 ```sh
 openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
 ```
+
 ### Convert P7B to PFX format
 
 ```sh

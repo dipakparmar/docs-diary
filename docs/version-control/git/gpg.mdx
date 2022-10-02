@@ -2,7 +2,13 @@
 id: gpg
 title: Git GPG
 sidebar_label: GPG
-keywords: [git gpg key sign, sign git commits with gpg key, generate gpg key, generate gpg key for git]
+keywords:
+  [
+    git gpg key sign,
+    sign git commits with gpg key,
+    generate gpg key,
+    generate gpg key for git,
+  ]
 description: 'Learn about the GPG Key and it uses cases includig setting up gpg signed commits and generating gpg key.'
 tags: [Git, GPG, Public Key, Private Key, Security]
 ---
@@ -11,7 +17,7 @@ tags: [Git, GPG, Public Key, Private Key, Security]
 
 ### mac
 
-Installing with HomeBrew Client 
+Installing with HomeBrew Client
 
 ```
 brew install gpg
@@ -27,13 +33,14 @@ git config --global gpg.program gpg2
 
 Better to use gpg2 instead of gpg in all below commands
 
-### Generating a new pgp key 
+### Generating a new pgp key
+
 ```
 
 gpg --gen-key
 ```
 
-maybe you need some random work in your OS to generate a key. so run this command: 
+maybe you need some random work in your OS to generate a key. so run this command:
 
 ```
 find ./* /home/username -type d | xargs grep some_random_string > /dev/null
@@ -49,21 +56,24 @@ gpg --list-secret-keys --keyid-format LONG
 
 ```
 gpg --armor --export YOUR_KEY_ID
-````
+```
 
- **YOUR_KEY_ID** is the hash in front of `sec` in previous command. (for example `sec 4096R/234FAA343232333` => key id is: **234FAA343232333**)
+**YOUR_KEY_ID** is the hash in front of `sec` in previous command. (for example `sec 4096R/234FAA343232333` => key id is: **234FAA343232333**)
 
 ### Set a gpg key for git
+
 ```
 git config --global user.signingkey your_key_id
 ```
 
 ### To sign a single commit
+
 ```
 git commit -S -a -m "Test a signed commit"
 ```
 
 ### Auto-sign all commits globaly
+
 ```
 git config --global commit.gpgsign true
 ```

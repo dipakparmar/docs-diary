@@ -2,29 +2,37 @@
 id: disk-management
 title: Disk Management
 sidebar_label: Disk Management
-keywords: [Disk management using cli, linux disk management using cli, linux disk partation, mount disk in linux, format disk in linux, unmount disk in linux]
+keywords:
+  [
+    Disk management using cli,
+    linux disk management using cli,
+    linux disk partation,
+    mount disk in linux,
+    format disk in linux,
+    unmount disk in linux,
+  ]
 description: 'Learn how to using system disk management cli utilities to manage disk and perform mount, format, partation and other system disk operations.'
 tags: [Tools, Disk]
 ---
 
 ### Check Partations
 
-```bash 
+```bash
 sudo lsblk
 ```
 
-Output 
+Output
 
 ```bash
 Output
 NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
 loop0     7:0    0 91.1M  1 loop /snap/core/6531
 loop1     7:1    0 56.7M  1 loop /snap/google-cloud-sdk/75
-sda       8:0    0   10G  0 disk 
+sda       8:0    0   10G  0 disk
 ├─sda1    8:1    0  9.9G  0 part /
-├─sda14   8:14   0    4M  0 part 
+├─sda14   8:14   0    4M  0 part
 └─sda15   8:15   0  106M  0 part /boot/efi
-sdb       8:16   0   10G  0 disk 
+sdb       8:16   0   10G  0 disk
 ```
 
 ### Format the disk (ext4)
@@ -48,6 +56,7 @@ sudo mount -o discard,defaults /dev/sdb /folder/directory
 ```
 
 Set read write permission
+
 ```bash
 sudo chmod a+w /folder/directory
 ```
@@ -65,6 +74,7 @@ Get the UUID of the disk
 ```bash
 sudo blkid /dev/DEVICE_ID
 ```
+
 Create an entry in /etc/fstab to mount the /dev/sdb persistent disk at /folder/directory using its UUID.
 
 ```bash
@@ -79,9 +89,7 @@ echo UUID=`sudo blkid -s UUID -o value /dev/sdb` /folder/directory ext4 discard,
 cat /etc/fstab
 ```
 
-
-
-## Unmounting a File System 
+## Unmounting a File System
 
 This section doc is from (Reference: [Linuxize](https://linuxize.com/post/how-to-mount-and-unmount-file-systems-in-linux/#unmounting-a-file-system))
 
@@ -95,23 +103,19 @@ umount DIRECTORY
 umount DEVICE_NAME
 ```
 
-
 If the file system is in use the umount command will fail to detach the file system. In those situations, you can use the fuser command to find out which processes are accessing the file system:
 
 ```bash
 fuser -m DIRECTORY
 ```
 
-
-Once you determine the processes you can stop them and unmount the file system.
-Lazy unmount
+Once you determine the processes you can stop them and unmount the file system. Lazy unmount
 
 Use the `-l (--lazy)` option to unmount a busy file system as soon as it is not busy anymore.
 
 ```bash
 umount -l DIRECTORY
 ```
-
 
 Force unmount
 
@@ -120,6 +124,5 @@ Use the `-f (--force)` option to force an unmount. This option is usually used t
 ```bash
 umount -f DIRECTORY
 ```
-
 
 Generally not a good idea to force unmount as it may corrupt the data on the file system.

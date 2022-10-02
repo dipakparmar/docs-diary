@@ -17,9 +17,9 @@ export default function CopyButton({ code, className }) {
     // google analytics tracking
     if (gtag && process.env.NODE_ENV === 'production') {
       gtag('event', 'copy_codeblock', {
-        'event_category': 'engagement',
-        'event_label': 'Copied CodeBlock to Clipboard',
-        'value': code.toString()
+        event_category: 'engagement',
+        event_label: 'Copied CodeBlock to Clipboard',
+        value: code.toString(),
       });
     }
     copyTimeout.current = window.setTimeout(() => {
@@ -33,15 +33,15 @@ export default function CopyButton({ code, className }) {
       aria-label={
         isCopied
           ? translate({
-            id: 'theme.CodeBlock.copied',
-            message: 'Copied',
-            description: 'The copied button label on code blocks',
-          })
+              id: 'theme.CodeBlock.copied',
+              message: 'Copied',
+              description: 'The copied button label on code blocks',
+            })
           : translate({
-            id: 'theme.CodeBlock.copyButtonAriaLabel',
-            message: 'Copy code to clipboard',
-            description: 'The ARIA label for copy code blocks button',
-          })
+              id: 'theme.CodeBlock.copyButtonAriaLabel',
+              message: 'Copy code to clipboard',
+              description: 'The ARIA label for copy code blocks button',
+            })
       }
       title={translate({
         id: 'theme.CodeBlock.copy',

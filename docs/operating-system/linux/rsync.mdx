@@ -2,10 +2,16 @@
 id: rsync
 title: Rsync
 sidebar_label: rsync
-keywords: [rsync, sync files and directories, sync files and directories between servers]
+keywords:
+  [
+    rsync,
+    sync files and directories,
+    sync files and directories between servers,
+  ]
 description: 'Learn basics of rsync cli to sync files and directories.'
 tags: [Files, Tools]
 ---
+
 ## Syntax
 
 ```bash
@@ -15,8 +21,8 @@ rsync [options] source [destination]
 **Options**:
 
 - `-a, --archive` copy all metadata with sync (symbolic links, file permissions, user & group ownership and timestamps etc.)
-- `-v, --verbose` will give you summary of process 
-- `-h, --human-readable format` Outputs in a human readable format. 
+- `-v, --verbose` will give you summary of process
+- `-h, --human-readable format` Outputs in a human readable format.
 - `-z, --compress` compress file data during the transfer
 
 ## Local
@@ -24,7 +30,7 @@ rsync [options] source [destination]
 ### Copy data from `foo` to `bar`
 
 ```bash
-rsync -avh foo/ bar/ 
+rsync -avh foo/ bar/
 ```
 
 ## Remote
