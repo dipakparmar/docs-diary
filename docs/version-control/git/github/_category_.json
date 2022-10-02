@@ -1,0 +1,9 @@
+{
+  "label": "Github",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Github"
+  }
+}

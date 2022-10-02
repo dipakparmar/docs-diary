@@ -1,0 +1,9 @@
+{
+  "label": "Operating System",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Operating System"
+  }
+}

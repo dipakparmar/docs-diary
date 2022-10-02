@@ -15,7 +15,8 @@
     "ci": "yarn lint && yarn format:diff",
     "lint": "eslint --cache \"**/*.js\" && stylelint \"**/*.css\"",
     "format": "prettier --config .prettierrc --write \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
-    "format:diff": "prettier --config .prettierrc --list-different \"**/*.{js,jsx,ts,tsx,md,mdx}\""
+    "format:diff": "prettier --config .prettierrc --list-different \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
+    "yml-to-json": "node scripts/yml-to-json.js"
   },
   "dependencies": {
     "@dipakparmar/docusaurus-plugin-umami": "^2.0.2",
