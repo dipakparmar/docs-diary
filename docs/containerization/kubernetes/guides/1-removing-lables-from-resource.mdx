@@ -3,10 +3,17 @@ id: removing-labels-from-kubernetes-resource
 title: How to remove labels from Kubernetes Resource
 sidebar_label: Removing Labels from Kubernetes Resource
 description: This guide is about how to remove labels from Kubernetes Resource. In some cases when you're rearchitecting the label naming convention in your Kubernetes, you may come up with this issue where you want to clear up the old labels in bulk, but there are very few docs that have examples of how to do it with CLI or API.
-keywords: [remove labels from Kubernetes Resource, kubernetes labels, kubernetes resource, kubernetes]
+keywords:
+  [
+    remove labels from Kubernetes Resource,
+    kubernetes labels,
+    kubernetes resource,
+    kubernetes,
+  ]
 tags: [kubectl, Kubernetes, Python]
 ---
-import Gist from "react-gist";
+
+import Gist from 'react-gist';
 
 This guide is about how to remove labels from Kubernetes Resource. In some cases, when you're rearchitecting the label naming convention in your Kubernetes, you may come up with this issue where you want to clear up the old labels in bulk, but very few docs have examples of how to do it with CLI or API.
 
@@ -34,7 +41,7 @@ and you want to update all the deployments to have the following new labels:
 
 For this you can easily use the kubectl patch api add new labels to the resource
 
-```bash 
+```bash
 kubectl patch deployment -n default -l app=nginx -p '{"metadata":{"labels":{"app.yourdomain.com/name":"nginx","app.yourdomain.com/env":"production"}}}'
 ```
 

@@ -107,10 +107,10 @@ ALTER DATABASE <database> OWNER TO <username>;
 ### Checking active connections to postgresql server
 
 ```sql
-select pid as process_id, 
-       usename as username, 
-       datname as database_name, 
-       client_addr as client_address, 
+select pid as process_id,
+       usename as username,
+       datname as database_name,
+       client_addr as client_address,
        application_name,
        backend_start,
        state,
