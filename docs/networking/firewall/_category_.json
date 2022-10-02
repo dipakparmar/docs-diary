@@ -1,0 +1,9 @@
+{
+  "label": "Firewall",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Firewall"
+  }
+}

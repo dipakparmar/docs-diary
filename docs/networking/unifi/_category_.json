@@ -1,0 +1,9 @@
+{
+  "label": "Unifi",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Unifi"
+  }
+}

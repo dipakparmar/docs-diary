@@ -1,0 +1,10 @@
+{
+  "position": 2.5,
+  "label": "PostgreSQL",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "PostgreSQL"
+  }
+}

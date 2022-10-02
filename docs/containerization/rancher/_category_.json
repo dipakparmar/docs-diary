@@ -1,0 +1,9 @@
+{
+  "label": "SUSE Rancher",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "SUSE Rancher"
+  }
+}

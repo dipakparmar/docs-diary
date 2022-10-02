@@ -1,0 +1,9 @@
+{
+  "label": "Debian",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "title": "Debian"
+  }
+}
