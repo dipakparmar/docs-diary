@@ -1,0 +1,38 @@
+---
+id: generate-sql-from-migration-files
+title: Generate SQL from migration files
+sidebar_label: Generate SQL from migration files
+keywords: [migration, sql, generate sql from laravel migration, sql from laravel migration files]
+description: 'How to generate SQL from Laravel migration files'
+tags: [Database, SQL, PHP, Web Development]
+---
+
+## Use the migrate command
+
+You can add the --pretend flag when you run `php artisan migrate` to output the queries to the terminal:
+
+```bash
+php artisan migrate --pretend
+```
+
+This will look something like this:
+
+```bash
+Migration table created successfully.
+CreateUsersTable: create table "users" ("id" integer not null primary key autoincrement, "name" varchar not null, "email" varchar not null, "password" varchar not null, "remember_token" varchar null, "created_at" datetime not null, "updated_at" datetime not null)
+CreateUsersTable: create unique index users_email_unique on "users" ("email")
+CreatePasswordResetsTable: create table "password_resets" ("email" varchar not null, "token" varchar not null, "created_at" datetime not null)
+CreatePasswordResetsTable: create index password_resets_email_index on "password_resets" ("email")
+CreatePasswordResetsTable: create index password_resets_token_index on "password_resets" ("token")
+```
+
+### To save this to a file, just redirect the output without ansi:
+
+```bash
+php artisan migrate --pretend --no-ansi > migrate.sql
+```
+
+This command only include the migrations that hasn't been migrated yet.
+
+Reference:
+1. https://stackoverflow.com/a/31263746/8374162
