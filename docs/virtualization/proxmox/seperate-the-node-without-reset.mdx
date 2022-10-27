@@ -1,0 +1,69 @@
+---
+id: seperate-the-node-without-reset
+title: Separate the proxmox cluster joined node without resinstall
+sidebar_label: Separate the node without reinstall
+keywords: [Proxmox, cluster, node, separate, reinstall]
+description: 'Steps to separate the proxmox cluster joined node without reinstall'
+tags: [Troubleshooting, Proxmox]
+---
+
+### Separate a Node Without Reinstalling
+
+First, stop the corosync and pve-cluster services on the node:
+
+```bash
+systemctl stop pve-cluster
+systemctl stop corosync
+```
+
+Start the cluster file system again in local mode:
+
+```bash
+pmxcfs -l
+```
+Delete the corosync configuration files:
+
+```bash
+rm /etc/pve/corosync.conf
+rm -r /etc/corosync/*
+```
+You can now start the file system again as a normal service:
+
+```bash
+killall pmxcfs
+systemctl start pve-cluster
+```
+
+The node is now separated from the cluster. You can delete it from any remaining node of the cluster with:
+
+```bash
+pvecm delnode oldnode
+```
+
+And then repeat the `pvecm delnode` command.
+
+Now switch back to the separated node and delete all the remaining cluster files on it. This ensures that the node can be added to another cluster again without problems.
+
+```bash
+rm /var/lib/corosync/*
+```
+As the configuration files from the other nodes are still in the cluster file system, you may want to clean those up too. After making absolutely sure that you have the correct node name, you can simply remove the entire directory recursively from `/etc/pve/nodes/NODENAME`.
+
+```bash
+rm -r /etc/pve/nodes/NODENAME
+```
+:::caution
+
+The node’s SSH keys will remain in the authorized_key file. This means that the nodes can still connect to each other with public key authentication. You should fix this by removing the respective keys from the /etc/pve/priv/authorized_keys file.
+
+```bash
+ssh-keygen -R oldnodeip
+```
+
+:::
+
+🎉 Now you can add the node to another cluster again.
+
+Reference: 
+1. https://forum.proxmox.com/threads/proxmox-ve-6-removing-cluster-configuration.56259/
+2. https://pve.proxmox.com/pve-docs/pve-admin-guide.html#pvecm_separate_node_without_reinstall
