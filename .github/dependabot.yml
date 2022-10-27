@@ -7,6 +7,6 @@ updates:
     # Check the npm registry for updates every day (weekdays)
     schedule:
       interval: "daily"
-    commit-message:
-      # Prefix all commit messages with "npm"
-      prefix: "📦 deps:"
+    # commit-message:
+    #   # Prefix all commit messages with "npm"
+    #   prefix: "📦 deps:"
