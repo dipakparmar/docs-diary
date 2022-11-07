@@ -45,7 +45,7 @@
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.7.1",
-    "stylelint": "^14.14.0"
+    "stylelint": "^14.14.1"
   },
   "resolutions": {
     "nth-check": "^2.0.1",
