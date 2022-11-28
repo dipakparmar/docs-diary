@@ -1,0 +1,76 @@
+---
+id: clear-teams-cache
+title: Clear Microsoft Teams Cache
+sidebar_label: Clear Microsoft Teams Cache
+keywords:
+  [
+    Clear Microsoft Teams Cache,
+    Clear Teams Cache,
+    Clear Teams Cache Windows,
+    Clear Teams Cache Mac,
+    Clear Teams Cache Android,
+    Clear Teams Cache iOS,
+    Clear Teams Cache Linux,
+    Clear Teams Cache on Mac,
+    Clear Teams Cache on Windows,
+    Clear Teams Cache on Android,
+    Clear Teams Cache on iOS,
+    Clear Teams Cache on Linux,
+    Clear Teams Cache on Mac OS,
+    Clear Teams Cache on Windows 10,
+    Clear Teams Cache on Android Phone,
+    Clear Teams Cache on iPhone,
+    Clear Teams Cache on Linux Mint,
+    Clear Teams Cache on Mac OS X,
+    Clear Teams Cache on Windows 11,
+  ]
+tags: [macOS, Windows, Android, iOS, Linux, M365]
+description: How to clear Microsoft Teams cache on Windows, Mac, Android, iOS, and Linux.
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
+import CodeBlock from '@theme/CodeBlock';
+
+<Admonition type="caution" icon="⚠️" title="Carefull with this option ...">
+  <p>
+    If you select <b>"Allow all application to access this item"</b>, this will
+    allow all applications to access the keychain item.
+  </p>
+</Admonition>
+
+<Tabs groupId="operating-systems">
+  <TabItem value="mac" label="Mac" default>
+    <ol>
+    
+    <li>If Teams is still running, right-click the Teams icon in the dock, and then select Quit, or press Command <kbd>⌘</kbd> + <kbd>Q</kbd>.</li>
+    
+    <li>In the Finder, open the <code>/Applications/Utilities</code> folder, and then <b>double-click</b> Terminal.</li>
+    
+    <li>Enter the following command, and then press Return: 
+        <br/>
+        <br/>
+        <CodeBlock language="bash">rm -r ~/Library/Application\ Support/Microsoft/Team</CodeBlock>
+    </li>
+    <li>
+        Navigate to Keychain Access.
+        Search for ‘Microsoft Teams’ and delete the entry.
+        Open Teams and wait for it to download required files.
+    </li>
+    <li>Restart Teams.</li>
+    </ol>
+
+  </TabItem>
+  <TabItem value="windows" label="Windows">
+    <ol>
+        <li>If Teams is still running, right-click the Teams icon in the taskbar, and then select <b>Quit</b>.</li>
+        <li>Open the <b>Run dialog box</b> by pressing the <kbd>Windows</kbd> logo key + <kbd>R</kbd>.</li>
+        <li>In the <b>Run dialog box</b>, enter <code>%appdata%\Microsoft\Teams</code>, and then select <b>OK</b>.</li>
+        <li><b>Delete</b> all files and folders in the <code>%appdata%\Microsoft\Teams</code> directory.</li>
+        <li>Restart Teams.</li>
+    </ol>
+
+  </TabItem>
+  </TabItem>
+</Tabs>
