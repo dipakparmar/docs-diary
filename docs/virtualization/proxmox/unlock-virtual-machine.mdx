@@ -1,0 +1,55 @@
+---
+id: unlock-virtual-machine-in-proxmox
+title: Unlock Virtual Machine in Proxmox
+sidebar_label: Unlock Virtual Machine
+keywords:
+  [
+    Proxmox,
+    Virtual Machine,
+    Unlock,
+    How to unlock virtual machine in Proxmox,
+    unlock virtual machine in Proxmox,
+    unlock vm in Proxmox,
+    how to unlock vm in Proxmox
+  ]
+description: 'Learn three methods for unlocking a Proxmox virtual machine, including using the qm command, the web interface, and manually deleting the lock file.'
+tags: [Troubleshooting, Proxmox]
+---
+
+# How to Unlock a Virtual Machine in Proxmox
+
+## Method 1: Using qm command
+
+1. Log in to Proxmox host using SSH.
+
+2. Identify the VM ID of the VM that needs to be unlocked. You can list all VMs by running `qm list`.
+
+3. Unlock the VM by executing the following command:
+
+    ```bash
+    qm unlock {VM-ID}
+    ```
+
+4. Verify that the VM is unlocked by running the command `qm list`.
+
+## Method 2: Using Web Interface
+
+1. Log in to the Proxmox web interface.
+
+2. Navigate to the page for the VM that needs to be unlocked.
+
+3. Click on the <b>"Unlock"</b> button.
+
+4. Verify that the VM is unlocked by navigating to the same page. The <b>"Unlock"</b> button should be replaced by <b>"Lock"</b> button.
+
+## Method 3: Manually deleting the lock
+
+1. Log in to Proxmox host using SSH.
+
+2. Identify the VM ID of the VM that needs to be unlocked.
+
+3. Navigate to the directory `/var/lock/qemu-server/`.
+
+4. Delete the lock file corresponding to the VM ID. The file will have the same name as the VM ID.
+
+5. Verify that the VM is unlocked by running the command `qm list`.
