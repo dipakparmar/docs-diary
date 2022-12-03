@@ -1,0 +1,30 @@
+---
+id: view-logs-console-bug
+title: Rancher Console - View Logs Bug
+sidebar_label: Rancher Console - View Logs Bug
+keywords: [
+    rancher dashboard logs not showing,
+    rancher dashboard logs not working,
+    empty screen rancher logs,
+    rancher logs not showing,
+    rancher logs not working,
+    rancher logs not loading,
+    rancher logs not showing up,
+    rancher logs not showing anything
+]
+description: '
+Steps to fix the Rancher Console View Logs Bug'
+tags: [Rancher, Containerization, Troubleshooting]
+---
+
+# How to fix the Rancher Console View Logs Bug
+
+1. Log in to the Rancher 
+2. Go to the `<your rancher url>/v3/preferences/logs-range`
+3. Send delete request to the endpoint
+4. Refresh the page
+5. Now you should be able to see the logs
+
+### Reference
+
+- https://github.com/rancher/dashboard/issues/6122#issuecomment-1152394027
