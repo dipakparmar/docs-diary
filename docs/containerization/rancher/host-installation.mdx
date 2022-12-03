@@ -1,18 +1,27 @@
 ---
 id: host-installation
-title: Rancher Host Installation
-sidebar_label: Host Installation
+title: Rancher Manager Installation
+sidebar_label: Manager Installation
 keywords:
-  [Rancher Server Installation, Rancher Host Installation, Rancher Installation]
-description: 'Learn how to setup rancher server aka. rancher host.'
+  [Rancher Server Installation, Rancher Host Installation, Rancher Installation, Rancher Manager Installation]
+description: 'Learn how to setup rancher server aka. rancher manager.'
 tags: [Rancher, Kubernetes, Containerization, Docker]
 ---
+
+### Install Docker
+
+Rancher requires Docker to be installed on the host. You can install Docker by following the script by Rancher or by following the official Docker documentation.
+
+```bash
+curl https://releases.rancher.com/install-docker/20.10.sh | sh
+``` 
 
 ### Rancher - Docker Installation
 
 ```bash
 docker run -d --restart=unless-stopped \
   -p 80:80 -p 443:443 \
+  --privileged \
   rancher/rancher:latest \
   --acme-domain <YOUR.DNS.NAME>
 ```
