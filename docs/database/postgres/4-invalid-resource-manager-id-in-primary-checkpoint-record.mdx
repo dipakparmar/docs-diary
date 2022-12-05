@@ -1,0 +1,68 @@
+---
+id: invalid-resource-manager-id-in-primary-checkpoint-record
+title: Invalid resource manager ID in primary checkpoint record error
+sidebar_label: Invalid resource manager ID in primary checkpoint record error
+keywords:
+  [
+    PostgreSQL,
+    Invalid resource manager ID in primary checkpoint record error,
+    Invalid resource manager ID in primary checkpoint record,   
+    resource manager ID in primary checkpoint record error,
+    could not locate a valid checkpoint record,
+    PANIC could not locate a valid checkpoint record,
+  ]
+description: Troubleshooting to fix Invalid resource manager ID in primary checkpoint record error in PostgreSQL database Container
+tags: [Database, PostgreSQL, Troubleshooting]
+---
+
+:::warning
+
+Be aware there may be data loss if you follow the steps below and your system is heavily corrupted.  Please make sure you have a backup of your data before proceeding.
+
+:::
+
+1. Get access to Container shell using following command:
+    
+    ```bash
+     kubectl exec -it <pod-name> -n <namespace> -- /bin/sh
+    ```
+    In docker container, you can use following command:
+    
+    ```bash
+    docker exec -it <container-id> /bin/sh
+    ```
+
+    If you cannot get access to container shell, because of the crashloop, make following changes in the deployment manifest and apply it again.
+
+    ```yaml 
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:13.2
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do sleep 30; done;"]
+    ```
+2. Run following command to reset WAL log files:
+
+    You will need be run following commands as postgres user.
+
+    ```bash
+    su - postgres
+    ```
+
+    ```bash
+    # dry run 
+    pg_resetwal --dry-run /var/lib/postgresql/data
+    ```
+    
+    ```bash
+    pg_resetwal -f /var/lib/postgresql/data
+    ```
+
+3. Restart the PostgreSQL container and remove the command and args from the deployment manifest if you have made any changes in the previous step.
+
+
+## Reference
+
+- https://stackoverflow.com/questions/71258094/invalid-resource-manager-id-in-primary-checkpoint-record
