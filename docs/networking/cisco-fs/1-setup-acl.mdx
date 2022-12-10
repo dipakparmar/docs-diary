@@ -1,0 +1,174 @@
+---
+id: setting-up-an-access-list-on-a-cisco-fs-switch
+title: Setting Up an Access List on a Cisco - FS Switch
+sidebar_label: Setting Up an Access List on a Cisco - FS Switch
+description: Access lists are a way to control network traffic on a Cisco device, and can be used to specify which IP addresses are allowed to access the switch. In this article, I'll show you how to set up an access list on a Cisco/FS switch.
+keywords:
+  [
+    'how to set up access list on Cisco switch',
+    'how to set up access list on FS switch',
+    'Cisco switch access list tutorial',
+    'FS switch access list tutorial',
+    'secure network traffic with Cisco switch',
+    'secure network traffic with FS switch',
+    'allow/block IP addresses on Cisco switch',
+    'allow/block IP addresses on FS switch',
+    'Cisco switch access list configuration',
+    'FS switch access list configuration',
+    'access list',
+    'network security',
+    'access control list',
+    'cisco',
+    'fs',
+    'Cisco switch access control list',
+    'FS switch access control list',
+    'Cisco switch access list example',
+    'FS switch access list example',
+    'Cisco switch access list tutorial',
+    'FS switch access list tutorial',
+    'Cisco switch access list configuration',
+    'FS switch access list configuration',
+    'Cisco switch access list setup',
+    'FS switch access list setup',
+    'Cisco switch access list setup tutorial',
+    'FS switch access list setup tutorial',
+    'Cisco switch access list troubleshooting',
+    'FS switch access list troubleshooting',
+    'Cisco switch access list best practices',
+    'FS switch access list best practices',
+  ]
+tags: [Network, Security, Access Control List, Cisco, FS]
+---
+
+# Setting Up an Access List on a Cisco/FS Switch
+
+Access lists are a way to control network traffic on a Cisco device, and can be used to specify which IP addresses are allowed to access the switch. In this article, I'll show you how to set up an access list on a Cisco/FS switch.
+
+## Prerequisites
+
+Before you begin, you'll need the following:
+
+- A terminal emulator program, such as PuTTY
+- The IP address and login credentials for your Cisco/FS switch
+- The name of the interface that connects the switch to the internet
+
+## Step 1: Log in to the switch
+
+To log in to the switch, follow these steps:
+
+1. Open your **terminal emulator** program.
+
+2. Enter the IP address of the switch in the **"Host Name"** field.
+
+3. Select the **"SSH"** protocol.
+
+4. Click **"Open"** to connect to the switch.
+
+5. When prompted, enter the username and password for the switch.
+
+## Step 2: Enter privileged mode
+
+To enter privileged mode, follow these steps:
+
+1. At the command prompt, type `enable` and press <kbd>Enter</kbd>.
+
+2. You may be prompted for a password. If so, enter the password and press <kbd>Enter</kbd>.
+
+## Step 3: Enter global configuration mode
+
+To enter global configuration mode, follow these steps:
+
+1. At the command prompt, type `configure` or `configure terminal` and press <kbd>Enter</kbd>.
+    ```bash
+    configure
+    ```
+
+2. You will now be in global configuration mode, and the command prompt will change to reflect this.
+
+## Step 4: Create an access list
+
+To create an access list, follow these steps:
+
+1. At the command prompt, type `ip access-list [type] [name]` and press <kbd>Enter</kbd>. Replace **[name]** with a name for your access list.
+    
+    ```bash
+    ip access-list standard my-access-list
+    ```
+    this will create a standard access list. If you want to create an extended access list, type `ip access-list extended [name]` instead.
+
+2. To add an entry to the access list, type `permit` or `deny` and press <kbd>Enter</kbd>. Replace **[permit/deny]** with either `permit` or `deny` depending on whether you want to allow or block the specified IP address.
+
+    ```bash
+    permit host [ip address]
+    ```
+
+    ```bash
+    deny host [ip address]
+    ```
+
+    Allow/Block IP range by typing `permit` or `deny` and press <kbd>Enter</kbd>. 
+
+    ```bash
+    permit [ip address] [wildcard mask]
+    ```
+    **Example**: to deny `10.10.10.1/29` IP range - [Wildcard Mask List](https://en.wikipedia.org/wiki/Wildcard_mask)
+
+    ```bash
+    deny 10.10.10.1 0.0.0.7
+    ```
+    
+    **Quick shortcut:** Type `ip access-list [type] [name] [permit/deny] [IP address]` and press <kbd>Enter</kbd>. Replace **[name]** with a name for your access list, **[permit/deny]** with either `permit` or `deny` depending on whether you want to allow or block the specified IP address, and **[IP address]** with the IP address you want to allow or block.
+
+    For example, to create an access list named **"my-access-list"** that blocks the IP address 10.0.0.1, you would type `ip access-list standard my-access-list deny 10.0.0.1` and press <kbd>Enter</kbd>.
+  
+    ```bash
+    ip access-list standard my-access-list deny 10.0.0.1
+    ```
+
+## Step 5: Apply the access list to the internet interface
+
+To apply the access list to the interface that connects the switch to the internet, follow these steps:
+
+1. At the command prompt, type `interface [interface type] [interface name]` and press <kbd>Enter</kbd>. Replace [interface name] with the name of the interface you want to apply the access list to.
+
+    For example, if the name of the interface that connects the switch to the internet is **"GigabitEthernet 0/1"**, you would type **"interface GigabitEthernet 0/1"** and press <kbd>Enter</kbd>.
+
+    ```bash
+    interface GigabitEthernet 0/1
+    ```
+3. Create an access group by typing `ip access-group [name] [in/out]` and pressing <kbd>Enter</kbd>. Replace **[name]** with the name of the access list you created in **step 4**, and **[in/out]** with either **"in"** or **"out"** depending on whether you want to apply the access list to incoming or outgoing traffic on the interface.
+
+    For example, if the name of the access list you created in **step 4** is **"my-access-list"** and you want to apply it to incoming traffic on the interface, you would type `ip access-group my-access-list in` and press <kbd>Enter</kbd>.
+
+    ```bash
+    ip access-group my-access-list in
+    ```
+
+## Step 6: Save your changes
+
+To save your changes so that the access list remains in place even if the switch is restarted, follow these steps:
+
+1. Exit global configuration mode by typing `exit` and pressing <kbd>Enter</kbd>.
+
+2. At the command prompt, type `write memory` or `copy running-config startup-config` and press <kbd>Enter</kbd>.
+
+3. This will save your changes to the startup configuration of the switch.
+
+## Step 7: Verify that the access list is working
+
+To verify that the access list is working, follow these steps:
+
+1. At the command prompt, type `show access-lists` and press <kbd>Enter</kbd>.
+    ```bash
+    show access-lists
+    ```
+    if set using group then type `show access-group` and press <kbd>Enter</kbd>.
+    ```bash
+    show access-group
+    ```
+
+2. This will display a list of all access lists on the switch, including the one you created in step 4.
+
+
+
+
