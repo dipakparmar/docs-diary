@@ -1,0 +1,79 @@
+---
+id: npm-release-pre-release-version
+title: Releasing pre-release versions of your npm package
+sidebar_label: Releasing pre-release versions of your npm package
+keywords: [
+    NPM Package Management,
+    NPM Package versioning,
+    NPM Package pre-release,
+    NPM Package beta,
+    NPM Package alpha,
+    NPM Package release,
+    NPM Package publish,
+    NPM Package prerelease,
+    NPM Package pre release,
+]
+description: "Releasing pre-release versions of your npm package can be a great way to get feedback on new features or improvements before making a final release. In this article, I'll explain how to create and publish pre-release versions of your package using npm."
+tags: [Web Development, Package Management, npm, Node.js]
+---
+
+Releasing pre-release versions of your npm package can be a great way to get feedback on new features or improvements before making a final release. In this article, I'll explain how to create and publish pre-release versions of your package using npm.
+
+## Creating a pre-release version
+
+To create a prerelease version, first update your package's version number to include a prerelease identifier, such as **"beta"** or **"alpha**. You can use the **premajor**, **preminor**, or **prepatch** commands to increment the version number accordingly. 
+
+For example, if you are currently on version **1.0.0** and want to release a beta version, you would use the preminor command with the `--preid=beta` flag. This will update your version number to `1.1.0-beta.0`. Once your package is ready for release, run the `npm publish` command with the appropriate prerelease tag to make it available for testing.
+
+```bash
+# this will take you to 2.0.0-rc.0
+npm version premajor --preid=rc
+
+# this will take you to 1.1.0-beta.0
+npm version preminor --preid=beta
+
+# this will take you to 1.0.1-alpha.0
+npm version prepatch --preid=alpha
+```
+
+## Bump the prerelease version
+
+If you need to make changes to your package after releasing a pre-release version, you can use the **prerelease** command to bump the prerelease version number. This will increment the prerelease version number by 1, and will also increment the patch version number if the prerelease version number reaches 10.
+
+```bash
+# this will take you to 1.0.1-alpha.1
+npm version prerelease 
+
+# this will take you to 1.0.1-alpha.2
+npm version prerelease
+
+# this will take you to 1.0.1-alpha.3 (and so on)
+npm version prerelease
+```
+
+## Promote the prerelease to a release
+
+Once you have thoroughly tested your prerelease version and are ready to make it available to the general public, you will need to promote it to a release. This involves updating the version number and running the appropriate npm command. 
+
+For example, if you started with a preminor version, you will need to run the `npm version minor` command to promote it to a minor release. This will update the version number and allow the package to be installed without specifying the prerelease tag. 
+
+
+:::caution careful
+
+Make sure to thoroughly test your prerelease versions before promoting them to ensure a smooth transition to the release version.
+
+:::
+
+
+```bash
+# this will take you to 1.1.0
+npm version minor
+
+# this will take you to 1.1.1
+npm version patch
+
+# this will take you to 2.0.0
+npm version major
+```
+
+
