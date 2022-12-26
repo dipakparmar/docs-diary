@@ -5,12 +5,12 @@
  * work well for content-centric websites.
  */
 
+/* Custom font declarations */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Custom font declarations */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
 
 /* You can override the default Infima variables here. */
 :root {
