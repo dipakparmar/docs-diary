@@ -126,10 +126,16 @@ git checkout master
 
 ### Delete
 
-the branch
+the branch with merged changes (safe delete)
 
 ```bash
-git checkout -b [branch name]
+git branch -d [branch name]
+```
+
+the branch with unmerged changes (force delete)
+
+```bash
+git branch -D [branch name]
 ```
 
 ### Push changes
