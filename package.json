@@ -19,7 +19,7 @@
     "yml-to-json": "node scripts/yml-to-json.js"
   },
   "dependencies": {
-    "@dipakparmar/docusaurus-plugin-umami": "2.0.2",
+    "@dipakparmar/docusaurus-plugin-umami": "2.0.4",
     "@docusaurus/core": "2.3.0",
     "@docusaurus/plugin-client-redirects": "2.3.0",
     "@docusaurus/preset-classic": "2.3.0",
