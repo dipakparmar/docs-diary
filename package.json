@@ -21,8 +21,8 @@
   "dependencies": {
     "@dipakparmar/docusaurus-plugin-umami": "2.0.4",
     "@docusaurus/core": "2.3.0",
-    "@docusaurus/plugin-client-redirects": "2.3.0",
-    "@docusaurus/preset-classic": "2.3.0",
+    "@docusaurus/plugin-client-redirects": "2.3.1",
+    "@docusaurus/preset-classic": "2.3.1",
     "@mdx-js/react": "1.6.22",
     "autoprefixer": "10.4.13",
     "clsx": "1.2.1",
