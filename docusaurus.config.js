@@ -86,7 +86,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         },
         footer: {
           style: 'dark',
-          copyright: `Copyright © ${new Date().getFullYear()} Dipak's Docs Diary. Built with Docusaurus.`,
+          copyright: `Copyright © 2020-${new Date().getFullYear()} Dipak's Docs Diary. <a href="https://docusaurus.io/">Built with Docusaurus.</a>`,
         },
         algolia: {
           appId: 'NOKG2EH40V',
