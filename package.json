@@ -21,6 +21,7 @@
     "yml-to-json": "node scripts/yml-to-json.js"
   },
   "dependencies": {
+    "@changesets/changelog-github": "^0.4.8",
     "@dipakparmar/docusaurus-plugin-umami": "2.0.5",
     "@docusaurus/core": "2.3.1",
     "@docusaurus/plugin-client-redirects": "2.3.1",
