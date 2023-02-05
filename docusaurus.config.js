@@ -17,11 +17,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     url: 'https://docs.dipak.tech',
     baseUrl: '/',
     onBrokenLinks: 'throw',
-    onBrokenMarkdownLinks: 'warn',
+    onBrokenMarkdownLinks: 'throw',
     trailingSlash: false,
     favicon: 'img/favicon.ico',
     organizationName: 'dipakparmar',
     projectName: 'docs-diary',
+    i18n: {
+      defaultLocale: 'en',
+      locales: ['en'],
+    },
     scripts: [
       {
         src: 'https://cdn.splitbee.io/sb.js',
@@ -38,7 +42,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         },
         docs: {
           sidebar: {
-            hideable: true,
+            hideable: false,
             autoCollapseCategories: true,
           },
         },
@@ -49,7 +53,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         },
         navbar: {
           title: `Dipak's Docs Diary`,
-          hideOnScroll: true,
+          hideOnScroll: false,
           logo: {
             alt: 'Docs Diary',
             src: 'img/logo.svg',
@@ -62,6 +66,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               position: 'left',
             },
             // Right Navbar items
+            {
+              type: 'search',
+              position: 'right',
+            },
             {
               href: 'https://dipak.to/twitter?utm_source=docs.dipak.tech&utm_medium=nav_link&utm_campaign=dipaks_docs_diary',
               position: 'right',
@@ -81,14 +89,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           darkTheme: darkCodeTheme,
         },
         footer: {
-          style: 'dark',
-          copyright: `Copyright © ${new Date().getFullYear()} Dipak's Docs Diary. Built with Docusaurus.`,
+          // style: 'light',
+          copyright: `Copyright © 2020-${new Date().getFullYear()} Dipak's Docs Diary. <a href="https://docusaurus.io/">Built with Docusaurus.</a>`,
         },
         algolia: {
           appId: 'NOKG2EH40V',
           apiKey: '6711f63fe1e318da1f4bb8b811d59df3',
           indexName: 'dipak',
-          contextualSearch: false,
         },
       }),
     themes: [],
@@ -142,7 +149,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           docs: {
             routeBasePath: '/',
             sidebarPath: require.resolve('./sidebars.js'),
-            // Please change this to your repo.
+            sidebarCollapsible: false,
             editUrl: 'https://github.com/dipakparmar/docs-diary/edit/main/',
             showLastUpdateAuthor: true,
             showLastUpdateTime: true,
