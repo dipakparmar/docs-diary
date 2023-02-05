@@ -99,8 +99,6 @@ html[data-theme='dark'] {
   --ifm-color-info-contrast-background: var(--ifm-color-gray-800);
   --ifm-color-info-dark: var(--ifm-color-gray-400);
   --ifm-alert-border-width: 0;
-
-  --ifm-background-surface-color: var(--ifm-color-gray-900);
 }
 
 /* Main layout */
