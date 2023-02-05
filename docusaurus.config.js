@@ -22,6 +22,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     favicon: 'img/favicon.ico',
     organizationName: 'dipakparmar',
     projectName: 'docs-diary',
+    i18n: {
+      defaultLocale: 'en',
+      locales: ['en'],
+    },
     scripts: [
       {
         src: 'https://cdn.splitbee.io/sb.js',
