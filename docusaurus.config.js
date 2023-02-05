@@ -67,6 +67,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
             // Right Navbar items
             {
+              type: 'search',
+              position: 'right',
+            },
+            {
               href: 'https://dipak.to/twitter?utm_source=docs.dipak.tech&utm_medium=nav_link&utm_campaign=dipaks_docs_diary',
               position: 'right',
               className: 'header-twitter-link',
@@ -85,7 +89,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           darkTheme: darkCodeTheme,
         },
         footer: {
-          style: 'dark',
+          // style: 'light',
           copyright: `Copyright © 2020-${new Date().getFullYear()} Dipak's Docs Diary. <a href="https://docusaurus.io/">Built with Docusaurus.</a>`,
         },
         algolia: {
@@ -145,7 +149,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           docs: {
             routeBasePath: '/',
             sidebarPath: require.resolve('./sidebars.js'),
-            // Please change this to your repo.
+            sidebarCollapsible: false,
             editUrl: 'https://github.com/dipakparmar/docs-diary/edit/main/',
             showLastUpdateAuthor: true,
             showLastUpdateTime: true,
