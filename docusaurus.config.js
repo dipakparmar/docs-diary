@@ -42,7 +42,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         },
         docs: {
           sidebar: {
-            hideable: true,
+            hideable: false,
             autoCollapseCategories: true,
           },
         },
