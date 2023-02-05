@@ -13,7 +13,7 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "ci": "yarn lint && yarn format:diff",
-    "lint": "eslint --cache \"**/*.js\" && stylelint \"**/*.css\"",
+    "lint": "eslint \"**/*.js\" \"**/*.ts\"",
     "format": "prettier --config .prettierrc --write \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
     "format:diff": "prettier --config .prettierrc --list-different \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
     "yml-to-json": "node scripts/yml-to-json.js"
@@ -35,6 +35,8 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.19.1",
+    "@docusaurus/eslint-plugin": "^2.2.0",
+    "@docusaurus/module-type-aliases": "^2.2.0",
     "@giscus/react": "2.2.6",
     "eslint": "8.33.0",
     "eslint-config-airbnb": "19.0.4",
