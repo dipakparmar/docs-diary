@@ -53,7 +53,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         },
         navbar: {
           title: `Dipak's Docs Diary`,
-          hideOnScroll: true,
+          hideOnScroll: false,
           logo: {
             alt: 'Docs Diary',
             src: 'img/logo.svg',
