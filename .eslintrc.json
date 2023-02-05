@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "plugin:@docusaurus/recommended"
+  ],
+  "plugins": [
+    "@docusaurus"
+  ],
+  "parser": "@babel/eslint-parser"
+}
