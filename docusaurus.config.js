@@ -17,7 +17,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     url: 'https://docs.dipak.tech',
     baseUrl: '/',
     onBrokenLinks: 'throw',
-    onBrokenMarkdownLinks: 'warn',
+    onBrokenMarkdownLinks: 'throw',
     trailingSlash: false,
     favicon: 'img/favicon.ico',
     organizationName: 'dipakparmar',
