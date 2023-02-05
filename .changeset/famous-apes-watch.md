@@ -1,5 +1,5 @@
 ---
-"@fake-scope/fake-pkg": patch
+"docs-diary": minor
 ---
 
-style: use tailwind to style the site
+- New look of the site using tailwinds css and [Infima](https://docusaurus.io/docs/styling-layout#styling-your-site-with-infima)
