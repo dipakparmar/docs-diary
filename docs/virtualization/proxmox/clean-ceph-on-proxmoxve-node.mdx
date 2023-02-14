@@ -1,0 +1,69 @@
+---
+id: clean-ceph-on-proxmoxve-node
+title: Clean Ceph from ProxmoxVE Node
+sidebar_label: Clean Ceph from Node
+keywords:
+  [
+    'ProxmoxVE',
+    'Ceph',
+    'Node',
+    'Cleanup',
+    'Services',
+    'Removal',
+    'Storage',
+    'Purge',
+    'Uninstall',
+    'Troubleshooting',
+  ]
+description: 'Learn how to clean Ceph from a ProxmoxVE node with this easy-to-follow guide.'
+tags: [Proxmox, Ceph]
+---
+
+To clean Ceph from a ProxmoxVE node, follow these steps:
+
+1. Stop all remaining Ceph services:
+
+```bash
+systemctl stop ceph-mon.target
+systemctl stop ceph-mgr.target
+systemctl stop ceph-mds.target
+systemctl stop ceph-osd.target
+```
+
+2. Avoid Ceph services being restarted by systemd the next boot by removing the following files:
+
+```bash
+rm -rf /etc/systemd/system/ceph*
+```
+
+2. Be sure that Ceph services are stopped by running the following command:
+
+```bash
+killall -9 ceph-mon ceph-mgr ceph-mds
+```
+
+3. Remove the following directories:
+
+```bash
+rm -rf /var/lib/ceph/mon/
+rm -rf /var/lib/ceph/mgr/
+rm -rf /var/lib/ceph/mds/
+```
+
+3. Retry the Ceph purge:
+
+```bash
+pveceph purge
+```
+
+5. Finally, uninstall Ceph:
+
+```bash
+apt purge ceph-mon ceph-osd ceph-mgr ceph-mds
+```
+
+This completes the process of cleaning Ceph from a ProxmoxVE node.
+
+Reference:
+
+1. https://forum.proxmox.com/threads/how-to-clean-up-a-bad-ceph-config-and-start-from-scratch.68949/
