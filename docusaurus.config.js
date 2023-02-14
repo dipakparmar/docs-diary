@@ -96,6 +96,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           appId: 'NOKG2EH40V',
           apiKey: '6711f63fe1e318da1f4bb8b811d59df3',
           indexName: 'dipak',
+          contextualSearch: true,
         },
       }),
     themes: [],
