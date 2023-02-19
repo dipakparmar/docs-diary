@@ -1,0 +1,199 @@
+---
+id: generate-csr
+title: How to Generate a CSR (Certificate Signing Request)
+sidebar_label: Generate a CSR
+keywords:
+  [
+    CSR,
+    Certificate Signing Request,
+    SSL,
+    TLS,
+    SSL/TLS,
+    OpenSSL,
+    Apache,
+    Nginx,
+    Wildcard Domain,
+    SAN,
+  ]
+description: 'Learn how to generate a CSR for SSL/TLS certificates using OpenSSL or through web servers like Apache and Nginx.'
+tags: [Security, Web Servers, SSL/TLS]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+## Prerequisites
+
+Before you begin, make sure you have OpenSSL installed on your system. You can check if OpenSSL is installed by running the following command:
+
+```bash
+openssl version
+```
+
+If OpenSSL is not installed, you can install it using your system's package manager.
+
+<Tabs groupId="operating-systems">
+  <TabItem value="win" label="Windows">
+    <ol>
+      <li>
+        Download the OpenSSL installer from the{' '}
+        <a
+          href="https://slproweb.com/products/Win32OpenSSL.html"
+          target="_blank">
+          OpenSSL website
+        </a>
+        .
+      </li>
+      <li>
+        Run the installer and follow the prompts to install OpenSSL on your
+        system. You can choose the default options, or customize the
+        installation as needed.
+      </li>
+      <li>
+        Once the installation is complete, you can use the OpenSSL command-line
+        tools in the
+        <b>"bin"</b> directory of the installation directory.
+      </li>
+    </ol>
+  </TabItem>
+  <TabItem value="mac" label="macOS">
+    <ol>
+      <li>Open a terminal window.</li>
+      <li>
+        Install Homebrew package manager by running the following command:
+        <CodeBlock language="bash">
+          /bin/bash -c "$(curl -fsSL
+          https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        </CodeBlock>
+      </li>
+      <li>
+        Once Homebrew is installed, run the following command to install
+        OpenSSL:
+        <CodeBlock language="bash">brew install openssl</CodeBlock>
+      </li>
+      <li>
+        After installation, you can access OpenSSL command-line tools by running
+        the following command:
+        <CodeBlock language="bash">openssl</CodeBlock>
+        or
+        <CodeBlock language="bash">
+          /usr/local/opt/openssl/bin/openssl
+        </CodeBlock>
+      </li>
+    </ol>
+  </TabItem>
+  <TabItem value="linux" label="Linux">
+    <h3>Ubuntu or Debian</h3>
+    <ol>
+      <li>Open a terminal window.</li>
+      <li>
+        Run the following command to install OpenSSL:
+        <CodeBlock language="bash">sudo apt-get install openssl</CodeBlock>
+      </li>
+    </ol>
+    <h3> CentOS or Fedora</h3>
+    <ol>
+      <li>Open a terminal window.</li>
+      <li>
+        Run the following command to install OpenSSL:
+        <CodeBlock language="bash">sudo yum install openssl</CodeBlock>
+      </li>
+    </ol>
+    <h3> Arch Linux</h3>
+    <ol>
+      <li>Open a terminal window.</li>
+      <li>
+        Run the following command to install OpenSSL:
+        <CodeBlock language="bash">sudo pacman -S openssl</CodeBlock>
+      </li>
+      <li>
+        After installation, you can access OpenSSL command-line tools by running
+        the following command:
+        <CodeBlock language="bash">openssl</CodeBlock>
+      </li>
+    </ol>
+  </TabItem>
+</Tabs>
+
+That's it! You should now have OpenSSL installed on your system.
+
+## Method 1: Using a configuration file
+
+Create a configuration file with the SANs you want to include in the CSR. For example, let's create a file called san.cnf with the following contents:
+
+```bash
+[req]
+req_extensions = v3_req
+
+[v3_req]
+subjectAltName = DNS:example.com, DNS:*.example.com
+```
+
+This configuration file specifies that the CSR should include the SANs `example.com` and `*.example.com`.
+
+Generate the CSR using the openssl req command, specifying the configuration file with the `-config `option. For example:
+
+```bash
+openssl req -new -newkey rsa:2048 -nodes -out example.csr -keyout example.key -subj "/C=US/ST=California/L=San Francisco/O=Example Inc./CN=example.com" -config san.cnf
+```
+
+This command generates a CSR for example.com with the SANs example.com and \*.example.com.
+
+## Method 2: Using command-line options
+
+Generate the CSR using the openssl req command, specifying the SANs using the -addext option. For example:
+
+```bash
+openssl req -new -newkey rsa:2048 -nodes -out example.csr -keyout example.key -subj "/C=US/ST=California/L=San Francisco/O=Example Inc./CN=example.com" -addext "subjectAltName = DNS:example.com, DNS:*.example.com"
+```
+
+This command generates a CSR for example.com with the SANs `example.com` and `*.example.com`.
+
+:::info
+
+Note that the `-addext` option was added in OpenSSL version 1.1.1. If you're using an older version of OpenSSL, you may need to use a different option such as `-config` to specify the SANs.
+
+:::
+
+## Method 3: Using a combination of configuration file and command-line options
+
+Create a configuration file with the SANs you want to include in the CSR. For example, let's create a file called san.cnf with the following contents:
+
+```bash
+[req]
+req_extensions = v3_req
+
+[v3_req]
+subjectAltName = DNS:example.com, DNS:*.example.com
+```
+
+This configuration file specifies that the CSR should include the SANs `example.com` and `*.example.com`.
+
+Generate the CSR using the openssl req command, specifying the configuration file with the `-config` option and adding additional SANs using the `-addext` option. For example:
+
+```bash
+openssl req -new -newkey rsa:2048 -nodes -out example.csr -keyout example.key -subj "/C=US/ST=California/L=San Francisco/O=Example Inc./CN=example.com" -config san.cnf -addext "subjectAltName = DNS:foo.example.com, IP:192.0.2.1"
+```
+
+This command generates a CSR for example.com with the SANs example.com, `*.example.com`, `foo.example.com`, and `192.0.2.1`. The first two SANs are specified in the `san.cnf` file, and the last two are added using the `-addext` option.
+
+## Method 4: Using OpenSSL configuration file
+
+Edit OpenSSL configuration file `/etc/pki/tls/openssl.cnf` on your server. Under the `[v3_ca]` section, add the following line:
+
+```bash
+subjectAltName = DNS:example.com, DNS:*.example.com
+```
+
+This configuration specifies that the certificate should include the SANs `example.com` and `*.example.com`.
+
+Generate the CSR using the `openssl req` command, specifying the `-config` option and `-new` option, like below:
+
+```bash
+openssl req -new -newkey rsa:2048 -nodes -out example.csr -keyout example.key -subj "/C=US/ST=California/L=San Francisco/O=Example Inc./CN=example.com" -config /etc/pki/tls/openssl.cnf
+```
+
+This command generates a CSR for `example.com` with the SANs example.com and `*.example.com`.
+
+In this guide, I have covered four different methods to generate a CSR with SANs using OpenSSL. Choose the method that works best for your use case, and ensure that you test your configuration before deploying it in a production environment.
