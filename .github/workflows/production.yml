@@ -24,5 +24,5 @@ jobs:
       - name: Build Project Artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
-        run: echo "::set-output name=url::$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})"  
+        run: echo "{url}=$(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }})"  >> $GITHUB_OUTPUT  
         id: deploy      
