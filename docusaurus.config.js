@@ -113,6 +113,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           createRedirects(existingPath) {
             if (existingPath.includes('/')) {
               // Redirect from /docs/X to /X
+              // deepcode ignore GlobalReplacementRegex: Only root level docs are redirected
               return [existingPath.replace('/', '/docs/')];
             }
             return undefined; // Return a falsy value: no redirect created
