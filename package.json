@@ -42,7 +42,7 @@
     "@changesets/changelog-github": "^0.4.8",
     "@docusaurus/eslint-plugin": "^2.2.0",
     "@docusaurus/module-type-aliases": "^2.2.0",
-    "@giscus/react": "2.2.6",
+    "@giscus/react": "2.2.8",
     "eslint": "8.35.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "8.6.0",
