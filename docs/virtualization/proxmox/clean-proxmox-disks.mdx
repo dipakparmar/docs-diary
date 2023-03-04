@@ -1,0 +1,98 @@
+---
+id: proxmox-clean-up-disk
+title: How to Clean up Disk on Proxmox that are Throwing Error "Disk in Use"
+sidebar_label: Clean up Disk on Proxmox
+keywords:
+  [
+    'ProxmoxVE',
+    'Disk in use error',
+    'Ceph',
+    'Node',
+    'Cleanup',
+    'Services',
+    'Removal',
+    'Storage',
+    'Purge',
+    'Uninstall',
+    'Troubleshooting',
+  ]
+description: 'Learn how to clean up the disk on Proxmox that is throwing an error of being in use after a new installation'
+tags: [Proxmox, Ceph, Storage]
+---
+
+
+Proxmox is an open-source virtualization platform that allows you to create and manage virtual machines and containers. One common issue faced by users is the "Disk in Use" error when trying to clean up a disk. This error occurs when a device is still in use by the system, preventing you from removing or modifying it. In this guide, we will show you how to resolve this issue by using a few simple commands.
+
+## Step 1: Check the Physical Volumes
+
+The first step is to check the physical volumes (PVs) of the disks. To do this, open a terminal on your Proxmox server and run the following command:
+
+```bash
+pvs
+```
+
+If there are any physical volumes that are still in use, you will see an error message stating "File descriptor XX (pipe:[XXXXXX]) leaked on pvs invocation." and the output will look like this:
+
+```bash
+  PV         VG               Fmt  Attr PSize PFree
+  /dev/sda3  pve-OLD-2EC01C62 lvm2 a--  1.09t 15.99g
+  /dev/sdg3  pve              lvm2 a--  1.09t 16.00g
+```
+
+:::info
+
+In this example, the disk `"/dev/sda3"` is still in use.
+
+:::
+
+
+## Step 2: Remove the Volume Group
+
+The next step is to remove the volume group <b>(VG)</b> of the disk that is still in use. To do this, run the following command:
+
+```bash
+vgremove <VG name>
+```
+In our example, the command would be:
+
+```bash
+vgremove pve-OLD-2EC01C62
+```
+
+This command will remove the volume group and any logical volumes associated with it. Once this is done, you can proceed to remove the physical volume.
+
+## Step 3: Remove the Logical Volumes
+
+After removing the volume group, you need to remove any logical volumes that are associated with it. To do this, run the following command:
+
+```bash
+dmsetup ls
+```
+This command will list all the logical volumes currently in use. Look for the logical volume that corresponds to the disk you want to remove.
+
+In our example, the output would look like this:
+
+```bash
+ceph--74481fa3--29b6--4637--8e7a--5beb59d19bb4-osd--block--671de3d2--8b37--41df--b614--c0941b8e645a	(253:6)
+ceph--8b821916--8ea6--4391--9e2e--0a40d6edf530-osd--block--8e2e189b--ce22--4c13--a908--911044034f68	(253:0)
+ceph--d3e7bad5--8be0--41bf--b374--19d52750addd-osd--block--e235e5a3--9395--47e9--9460--ecfd35596f9a	(253:8)
+ceph--e6545bfd--8b1f--4bd9--accd--dbae738fd29b-osd--block--c1a01ba3--1062--4b1f--a1a1--b5b5b5b5b5b5	(253:4)
+```
+
+This command lists all active device-mapper devices. In the output, you will see the names of the logical volumes. Identify the logical volumes that belong to the removed VG and remove them using the following command:
+
+```bash
+dmsetup remove LV-name
+```
+Replace `LV-name` with the name of the logical volume that you want to remove. Repeat this command for all LVs that belong to the removed VG.
+
+Once you have removed all the problematic LVs, you can run the pvs command again to check if the issue has been resolved.
+
+## Conclusion
+
+In this guide, we have learned how to clean up the disk on Proxmox that is throwing an error of being in use after a new installation. We identified the problematic VG and removed it, followed by removing all the associated LVs. By following these steps, you should be able to resolve the issue and use your Proxmox installation without any problems.
+
+## Reference
+
+1. https://forum.proxmox.com/threads/sda-has-a-holder.97771/
+
