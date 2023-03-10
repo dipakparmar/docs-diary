@@ -1,0 +1,110 @@
+---
+id: import-disk-to-proxmox-vm
+title: How to Import a Disk on Proxmox VM
+sidebar_label: Importing a Disk on Proxmox VM
+keywords: [Proxmox, VM, import, disk, storage, import disk on proxmox, import disk on proxmox vm]
+description: 'A step-by-step guide on how to import a disk on a Proxmox VM'
+tags: [Proxmox, Virtualization, Storage]
+---
+
+In Proxmox, importing a disk onto a virtual machine (VM) can only be done through the command line interface (CLI). This guide will walk you through the steps on how to import a disk onto a Proxmox VM. Please note that you need access to the command line interface (CLI) of Proxmox and a running virtual machine with the disk that you want to import.
+
+## Prerequisites
+
+Before proceeding with the disk import process, make sure you have the following:
+
+- A Proxmox VE server with at least one VM configured and running
+- Access to the command line interface (CLI) of Proxmox.
+- A disk image file in one of the supported formats, such as qcow2, raw, vmdk, or vhd
+- Sufficient free disk space on the storage where you want to import the disk
+
+## Importing a Disk on Proxmox VM
+
+Follow the steps below to import a disk on a Proxmox VM:
+
+1. Open a shell session on the Proxmox server and log in as root.
+2. Determine the ID of the VM that you want to import the disk onto by running the command below (Skip this step if you already know the VM ID):
+
+   ```bash
+   qm list
+   ```
+
+3. Now Change directory to the directory where the disk image is stored and run the following command to import the disk image:
+
+   ```bash
+   qm disk import VMID disk_name storage_name --format format
+   ```
+
+   :::info
+
+   Replace the following variables in the command above:
+
+   - `VMID` with the ID of the VM that you want to import the disk onto (e.g. 100)
+   - `disk_name` with the name of the disk image file (e.g. disk1.qcow2)
+   - `storage_name` with the name of the storage where you want to import the disk image file (e.g. local, nfs, or ceph)
+   - `format` with the format of the disk image file (e.g. qcow2, raw, vmdk, or vhd)
+
+   :::
+
+   For example, to import a disk named `vm-200-disk-0` from storage `local-lvm` to virtual machine with ID `200`, run the following command:
+
+   ```bash
+   qm disk import 200 vm-200-disk-0 local-lvm --format qcow2
+   ```
+
+4. Verify that the disk has been imported by running the following command:
+
+   ```bash
+   qm config VMID
+   ```
+
+   :::info
+
+   Replace the `VMID` variable in the command above with the ID of the VM that you want to import the disk onto (e.g. 100)
+
+   :::
+
+   For example, to verify that the disk has been imported on VM with ID `200`, run the following command:
+
+   ```bash
+   qm config 200
+   ```
+
+   The output of the command above should show the disk that you just imported:
+
+   ```bash
+   ...
+   scsi1: local-lvm:vm-200-disk-0,size=8G
+   ...
+   ```
+
+🎊 Congratulations! You have successfully imported a disk onto a Proxmox virtual machine.
+
+## Attach the Disk to the VM
+
+To attach the disk to the VM, follow the steps below:
+
+1. Open a shell session on the Proxmox server and log in as root.
+
+3. Run the following command to attach the disk to the VM:
+
+   ```bash
+    qm set VMID --scsihw SCSI-HW --scsi0 STORAGE_TYPE:DISK-NAME,size=DISK-SIZE
+   ```
+
+   :::info
+
+   Replace the following variables in the command above:
+
+    - `VMID` with the ID of the VM that you want to import the disk onto (e.g. 100)
+    - `SCSI-HW` with the SCSI hardware type of the VM (e.g. lsi | lsi53c810 | megasas | pvscsi | virtio-scsi-pci | virtio-scsi-single> (default = lsi))
+    - `STORAGE_TYPE` with the type of storage where you want to import the disk image file (e.g. local, nfs, or ceph)
+    - `DISK-NAME` with the name of the disk image file (e.g. vm-200-disk-0)
+    - `DISK-SIZE` with the size of the disk image file (e.g. 8G)
+   :::
+
+   You can also attach the disk using the Proxmox web interface. 
+
+## References
+
+- [Proxmox VE Documentation - qm(1)](https://pve.proxmox.com/pve-docs/qm.1.html)
