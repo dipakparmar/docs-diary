@@ -19,9 +19,16 @@ jobs:
       - name: Install deps and build
         run: yarn
 
+      - name: Setup Git
+        run: |
+          git config --global user.email ${{ secrets.GITHUB_EMAIL }}
+          git config --global user.name ${{ secrets.GITHUB_USER }}
+
       - name: Create Release Pull Request
-        uses:  changesets/action@v1
+        uses: changesets/action@v1
         with:
           publish: yarn release
+          createGithubReleases: true
+          setupGitUser: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
