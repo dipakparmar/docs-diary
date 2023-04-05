@@ -5,7 +5,7 @@
       { "repo": "dipakparmar/docs-diary" }
     ],
     "baseBranch": "main",
-    "commit": false,
+    "commit": true,
     "access": "public",
     "updateInternalDependencies": "patch",
     "snapshot": {
