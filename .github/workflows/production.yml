@@ -6,6 +6,15 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - README.md
+      - LICENSE
+      - .github/**
+      - .vscode/**
+      - .vercel/**
+      - .next/**
+      - .docusaurus/**
+      - .changeset/**
 jobs:
   deploy:
     runs-on: ubuntu-latest
