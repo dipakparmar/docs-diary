@@ -1,5 +1,19 @@
 # docs-diary
 
+## 1.2.2
+
+### Patch Changes
+
+- [#202](https://github.com/dipakparmar/docs-diary/pull/202) [`be6dc86`](https://github.com/dipakparmar/docs-diary/commit/be6dc86623e494989f72a78048000893a0bad87d) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgrade prettier from 2.8.5 to 2.8.7
+
+- [#199](https://github.com/dipakparmar/docs-diary/pull/199) [`58ebe75`](https://github.com/dipakparmar/docs-diary/commit/58ebe75ec5f82afbbd81f8b6ae79746e7ff4854c) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgrade tailwindcss from 3.2.7 to 3.3.1
+
+- [#200](https://github.com/dipakparmar/docs-diary/pull/200) [`de12d75`](https://github.com/dipakparmar/docs-diary/commit/de12d75bccfc137b80b6640a0fd4af20b424f37a) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgrade eslint from 8.36.0 to 8.37.0
+
+- [#201](https://github.com/dipakparmar/docs-diary/pull/201) [`c9ef6bf`](https://github.com/dipakparmar/docs-diary/commit/c9ef6bf4dd8c936bc72e5ee827e05f6f23f845e7) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgrade @docusaurus/core from 2.3.1 to 2.4.0
+
+- [#198](https://github.com/dipakparmar/docs-diary/pull/198) [`f52ccf7`](https://github.com/dipakparmar/docs-diary/commit/f52ccf716bff92d738996b34809c58a65f662931) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgrade @changesets/cli from version 2.26.0 to 2.26.1
+
 ## 1.2.1
 
 ### Patch Changes
