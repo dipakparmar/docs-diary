@@ -25,10 +25,13 @@ jobs:
           git config --global user.name ${{ secrets.RELEASE_USER }}
 
       - name: Create Release Pull Request
+        id: changesets
         uses: changesets/action@v1
         with:
           publish: yarn release
           createGithubReleases: true
           setupGitUser: false
+          commit: 'chore: update versions'
+          title: 'chore: update versions'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
