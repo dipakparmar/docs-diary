@@ -52,7 +52,7 @@
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "prettier": "2.8.7",
-    "stylelint": "15.3.0"
+    "stylelint": "15.6.0"
   },
   "resolutions": {
     "nth-check": "2.0.1",
