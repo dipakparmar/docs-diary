@@ -1,5 +1,11 @@
 # docs-diary
 
+## 1.3.0
+
+### Minor Changes
+
+- [#215](https://github.com/dipakparmar/docs-diary/pull/215) [`c243589`](https://github.com/dipakparmar/docs-diary/commit/c243589269c09eb7eb74948c168cb4b846f0f6e8) Thanks [@dipakparmar](https://github.com/dipakparmar)! - Fix Prism themes import after upgrade
+
 ## 1.2.3
 
 ### Patch Changes
