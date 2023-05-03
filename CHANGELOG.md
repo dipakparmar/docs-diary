@@ -1,5 +1,19 @@
 # docs-diary
 
+## 1.2.3
+
+### Patch Changes
+
+- [#212](https://github.com/dipakparmar/docs-diary/pull/212) [`a99314a`](https://github.com/dipakparmar/docs-diary/commit/a99314aa3614926ea896e8952d996058c7cd2019) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgrade eslint from 8.37.0 to 8.39.0
+
+- [`1d233fe`](https://github.com/dipakparmar/docs-diary/commit/1d233fe6b92a6e188e19bd496b6c6a0a20310364) Thanks [@dipakparmar](https://github.com/dipakparmar)! - Upgrade postcss from 8.4.21 to 8.4.23
+
+- [#206](https://github.com/dipakparmar/docs-diary/pull/206) [`d37151b`](https://github.com/dipakparmar/docs-diary/commit/d37151b0c14bb6392891447248e7648948acea33) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgrade @dipakparmar/docusaurus-plugin-umami from 2.0.5 to 2.0.6
+
+- [#213](https://github.com/dipakparmar/docs-diary/pull/213) [`322e3da`](https://github.com/dipakparmar/docs-diary/commit/322e3da055b031d543bc3b5ac8c37ee9a085ebdc) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgrade prism-react-renderer from 1.3.5 to 2.0.3
+
+- [#210](https://github.com/dipakparmar/docs-diary/pull/210) [`8ea51e4`](https://github.com/dipakparmar/docs-diary/commit/8ea51e4fd6de7fe921c68cc5315987c8e65bf3cd) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgrade stylelint from 15.3.0 to 15.6.0
+
 ## 1.2.2
 
 ### Patch Changes
