@@ -1,5 +1,19 @@
 # docs-diary
 
+## 1.3.1
+
+### Patch Changes
+
+- [#217](https://github.com/dipakparmar/docs-diary/pull/217) [`4b8153e`](https://github.com/dipakparmar/docs-diary/commit/4b8153e36ca8f70ad7edf415a2049389f0ae258f) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated Eslint from 8.39.0 to 8.40.0
+
+- [#221](https://github.com/dipakparmar/docs-diary/pull/221) [`d5324a8`](https://github.com/dipakparmar/docs-diary/commit/d5324a85a94641e70ec89cef5c28f39d0bc02e56) Thanks [@dependabot](https://github.com/apps/dependabot)! - Update prism-react-renderer from 2.0.3 to 2.0.4
+
+- [#219](https://github.com/dipakparmar/docs-diary/pull/219) [`3047115`](https://github.com/dipakparmar/docs-diary/commit/3047115fe1b121701c6be605cf56119e76325f46) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated prettier from 2.8.7 to 2.8.8
+
+- [#218](https://github.com/dipakparmar/docs-diary/pull/218) [`cb06c5e`](https://github.com/dipakparmar/docs-diary/commit/cb06c5ea2dfa99acc0eb837d972f5d4d98633942) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated tailwindcss from 3.3.1 to 3.3.2
+
+- [#220](https://github.com/dipakparmar/docs-diary/pull/220) [`f111fb5`](https://github.com/dipakparmar/docs-diary/commit/f111fb52052188feb5784766cf9a4f84dae67d23) Thanks [@dependabot](https://github.com/apps/dependabot)! - Update @babel/eslint-parser from 7.21.3 to 7.21.8
+
 ## 1.3.0
 
 ### Minor Changes
