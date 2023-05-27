@@ -1,5 +1,11 @@
 # docs-diary
 
+## 1.4.0
+
+### Minor Changes
+
+- [#228](https://github.com/dipakparmar/docs-diary/pull/228) [`5f5fe0c`](https://github.com/dipakparmar/docs-diary/commit/5f5fe0c083821145661e9eec1eb957d201c8756a) Thanks [@dipakparmar](https://github.com/dipakparmar)! - Improved typescript support for docusuarus
+
 ## 1.3.1
 
 ### Patch Changes
