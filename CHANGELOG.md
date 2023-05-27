@@ -1,5 +1,17 @@
 # docs-diary
 
+## 1.4.0
+
+### Minor Changes
+
+- [#228](https://github.com/dipakparmar/docs-diary/pull/228) [`5f5fe0c`](https://github.com/dipakparmar/docs-diary/commit/5f5fe0c083821145661e9eec1eb957d201c8756a) Thanks [@dipakparmar](https://github.com/dipakparmar)! - Improved typescript support for docusuarus
+
+### Patch Changes
+
+- [#226](https://github.com/dipakparmar/docs-diary/pull/226) [`96af5ba`](https://github.com/dipakparmar/docs-diary/commit/96af5ba71de1272de06b44e9020b46b609a7a511) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated @docusaurus/preset-classic from 2.4.0 to 2.4.1 
+- [#225](https://github.com/dipakparmar/docs-diary/pull/225) [`5e0e831`](https://github.com/dipakparmar/docs-diary/commit/5e0e831160ffa03d17ec38d34add6adefbb48154) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated @dipakparmar/docusaurus-plugin-umami from 2.0.6 to 2.1.0
+- [#223](https://github.com/dipakparmar/docs-diary/pull/223) [`c86bcbe`](https://github.com/dipakparmar/docs-diary/commit/c86bcbec003366d30be5ded423450bf4d3837305) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated stylelint from 15.6.0 to 15.6.2 
+
 ## 1.3.1
 
 ### Patch Changes
