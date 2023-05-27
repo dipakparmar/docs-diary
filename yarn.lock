@@ -1491,14 +1491,14 @@
   resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-2.2.0.tgz#2cbcf822bf3764c9658c4d2e568bd0c0cb748016"
   integrity sha512-+OJ9konv95ClSTOJCmMZqpd5+YGsB2S+x6w3E1oaM8UuR5j8nTNHYSz8c9BEPGDOCMQYIEEGlVPj/VY64iTbGw==
 
-"@dipakparmar/docusaurus-plugin-umami@2.0.6":
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/@dipakparmar/docusaurus-plugin-umami/-/docusaurus-plugin-umami-2.0.6.tgz#d8fd04233c28908e6d410f86d5080c92063d4ab8"
-  integrity sha512-NRPKKP7nceJalbqWjMpRUFM2ifBzQHlPeswE2HilDH/nwTs8DA/8DfDIUwzXh2/d4hDjnmEXIdJEXZMniyE5lg==
+"@dipakparmar/docusaurus-plugin-umami@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@dipakparmar/docusaurus-plugin-umami/-/docusaurus-plugin-umami-2.1.0.tgz#03393926eb5c0fba01e4fbf8f426034012bdc274"
+  integrity sha512-qMwQ1MfSluUKsToXnbe00TFxbPZEomL4MyJo3Mn3vQWSGyoU821S5MvF+vjEqT7IQYD6PiNzA1gyO0TrwV8pRw==
   dependencies:
-    "@docusaurus/core" "2.4.0"
-    "@docusaurus/types" "2.4.0"
-    "@docusaurus/utils-validation" "2.4.0"
+    "@docusaurus/core" "2.4.1"
+    "@docusaurus/types" "2.4.1"
+    "@docusaurus/utils-validation" "2.4.1"
     tslib "^2.4.0"
 
 "@discoveryjs/json-ext@0.5.7":
@@ -2018,20 +2018,6 @@
   dependencies:
     fs-extra "^10.1.0"
     tslib "^2.4.0"
-
-"@docusaurus/types@2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@docusaurus/types/-/types-2.4.0.tgz#f94f89a0253778b617c5d40ac6f16b17ec55ce41"
-  integrity sha512-xaBXr+KIPDkIaef06c+i2HeTqVNixB7yFut5fBXPGI2f1rrmEV2vLMznNGsFwvZ5XmA3Quuefd4OGRkdo97Dhw==
-  dependencies:
-    "@types/history" "^4.7.11"
-    "@types/react" "*"
-    commander "^5.1.0"
-    joi "^17.6.0"
-    react-helmet-async "^1.3.0"
-    utility-types "^3.10.0"
-    webpack "^5.73.0"
-    webpack-merge "^5.8.0"
 
 "@docusaurus/types@2.4.1":
   version "2.4.1"
