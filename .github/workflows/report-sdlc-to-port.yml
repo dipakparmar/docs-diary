@@ -1,0 +1,88 @@
+name: Report SDLC to Port
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  report-to-port:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Get workflow conclusion"
+        id: get-conclusion
+        uses: technote-space/workflow-conclusion-action@v3
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: true
+          fetch-depth: 2
+      - name: "Extract packages"
+        id: extract-packages
+        run: |
+          if [ -f requirements.txt ]; then
+            echo "packages=[$(cat requirements.txt | awk -F '==' '{print "{\"properties\":{\"version\":\""$2"\",\"name\":\""$1"\", \"language\":\"Python\" },\"identifier\":\""$1"@"$2"\", \"title\":\""$1"@"$2"\", \"blueprint\": \"package\"}"}' | paste -sd, -)]" >> "$GITHUB_OUTPUT"
+          elif [ -f package.json ]; then
+            echo "packages=$(cat package.json | jq --compact-output -r '[.dependencies | to_entries[] | {properties: {name: .key, version: .value, language: "Node" }, blueprint: "package", identifier: ((.key + "@" + .value) | gsub("[/.^]"; "-")), title: (.key + "@" + .value)}]')" >> "$GITHUB_OUTPUT"
+          else
+            echo "packages=[]" >> "$GITHUB_OUTPUT"
+          fi
+      - name: "Readme content"
+        id: readme
+        run: |
+          echo "readme=$(awk '{printf("%s\n", $0)}' README.md | tr '\n' '|' | sed 's/|/\\n/g')" >> "$GITHUB_OUTPUT"
+      - name: "Report package to port"
+        if: ${{ always() }}
+        uses: port-labs/port-github-action@v1
+        with:
+          clientId: ${{ secrets.PORT_CLIENT_ID }}
+          clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
+          operation: BULK_UPSERT
+          entities: ${{ steps.extract-packages.outputs.packages }}
+      - name: "Extract packages identifiers from json using JQ"
+        id: extract-packages-identifiers
+        run: |
+          echo "identifiers=$(echo '${{steps.extract-packages.outputs.packages}}' | jq --compact-output -r '[.[] | .identifier]')" >> "$GITHUB_OUTPUT"
+      - name: "Report service to port"
+        if: ${{ always() }}
+        uses: port-labs/port-github-action@v1
+        with:
+          clientId: ${{ secrets.PORT_CLIENT_ID }}
+          clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
+          identifier: ${{ github.event.repository.name }}
+          title: ${{ github.event.repository.name }}
+          blueprint: service
+          properties: |
+            {
+              "name": "${{ github.event.repository.name }}",
+              "url": "${{ github.server_url }}/${{ github.repository }}",
+              "README": "${{ steps.readme.outputs.readme }}",
+              "about": "${{ github.event.repository.description }}"
+            }
+          relations: |
+            {
+              "packages": ${{ steps.extract-packages-identifiers.outputs.identifiers }}
+            }
+      - name: "Report deployment to Port 🚢"
+        if: ${{ always() }}
+        uses: port-labs/port-github-action@v1
+        with:
+          clientId: ${{ secrets.PORT_CLIENT_ID }}
+          clientSecret: ${{ secrets.PORT_CLIENT_SECRET }}
+          identifier: ${{ inputs.SHA_SHORT }}
+          title: ${{ inputs.SHA_SHORT }}
+          blueprint: deployment
+          properties: |
+            {
+                "triggeringActor": "${{ github.actor }}",
+                "link": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
+                "commitSha": "${{ github.sha }}",
+                "status": "${{ env.WORKFLOW_CONCLUSION }}",
+                "deployBranchUrl": "${{ github.server_url }}/${{ github.repository }}/tree/${{ github.ref_name }}",
+                "deployBranch": "${{ github.ref_name }}"
+            }
+          relations: |
+            {
+                "service": "${{ github.event.repository.name }}"
+            }
+            
