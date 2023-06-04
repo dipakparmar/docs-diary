@@ -1,5 +1,21 @@
 # docs-diary
 
+## 1.4.1
+
+### Patch Changes
+
+- [#235](https://github.com/dipakparmar/docs-diary/pull/235) [`9a7173c`](https://github.com/dipakparmar/docs-diary/commit/9a7173c9203b21b14b141abb0031c5bcd658425f) Thanks [@dipakparmar](https://github.com/dipakparmar)! - Added Support for Port SDLC Reporting
+
+- [#234](https://github.com/dipakparmar/docs-diary/pull/234) [`2b377b7`](https://github.com/dipakparmar/docs-diary/commit/2b377b79571546a84ca6e9fb03a0517c6c20e489) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @docusaurus/core from 2.4.0 to 2.4.1
+
+- [#238](https://github.com/dipakparmar/docs-diary/pull/238) [`1f8c81b`](https://github.com/dipakparmar/docs-diary/commit/1f8c81b8f4394579da06bdb1edcc8e1ad04fad8f) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded typescript from 4.7.4 to 5.1.3
+
+- [#237](https://github.com/dipakparmar/docs-diary/pull/237) [`1ac8d28`](https://github.com/dipakparmar/docs-diary/commit/1ac8d28defb6604bda995848f03e6bbbde273f01) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint from 8.40.0 to 8.42.0
+
+- [#231](https://github.com/dipakparmar/docs-diary/pull/231) [`8372755`](https://github.com/dipakparmar/docs-diary/commit/83727556287aaae085fd256862ebd6baefca955f) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @tsconfig/docusaurus from 1.0.5 to 1.0.7
+
+- [#233](https://github.com/dipakparmar/docs-diary/pull/233) [`f2aaaeb`](https://github.com/dipakparmar/docs-diary/commit/f2aaaebe516bb5526eaa00d03df3742b5509b73d) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @docusaurus/plugin-client-redirects from 2.4.0 to 2.4.1
+
 ## 1.4.0
 
 ### Minor Changes
@@ -8,9 +24,9 @@
 
 ### Patch Changes
 
-- [#226](https://github.com/dipakparmar/docs-diary/pull/226) [`96af5ba`](https://github.com/dipakparmar/docs-diary/commit/96af5ba71de1272de06b44e9020b46b609a7a511) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated @docusaurus/preset-classic from 2.4.0 to 2.4.1 
+- [#226](https://github.com/dipakparmar/docs-diary/pull/226) [`96af5ba`](https://github.com/dipakparmar/docs-diary/commit/96af5ba71de1272de06b44e9020b46b609a7a511) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated @docusaurus/preset-classic from 2.4.0 to 2.4.1
 - [#225](https://github.com/dipakparmar/docs-diary/pull/225) [`5e0e831`](https://github.com/dipakparmar/docs-diary/commit/5e0e831160ffa03d17ec38d34add6adefbb48154) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated @dipakparmar/docusaurus-plugin-umami from 2.0.6 to 2.1.0
-- [#223](https://github.com/dipakparmar/docs-diary/pull/223) [`c86bcbe`](https://github.com/dipakparmar/docs-diary/commit/c86bcbec003366d30be5ded423450bf4d3837305) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated stylelint from 15.6.0 to 15.6.2 
+- [#223](https://github.com/dipakparmar/docs-diary/pull/223) [`c86bcbe`](https://github.com/dipakparmar/docs-diary/commit/c86bcbec003366d30be5ded423450bf4d3837305) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated stylelint from 15.6.0 to 15.6.2
 
 ## 1.3.1
 
