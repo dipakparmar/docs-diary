@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://docs.dipak.tech/sitemap.xml
