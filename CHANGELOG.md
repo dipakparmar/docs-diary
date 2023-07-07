@@ -1,5 +1,21 @@
 # docs-diary
 
+## 1.4.2
+
+### Patch Changes
+
+- [#251](https://github.com/dipakparmar/docs-diary/pull/251) [`74ff6d5`](https://github.com/dipakparmar/docs-diary/commit/74ff6d53539f95e35fba49b31b2833e272c2fe5b) Thanks [@dependabot](https://github.com/apps/dependabot)! - upgraded stylelint from 15.6.2 to 15.10.1
+
+- [#248](https://github.com/dipakparmar/docs-diary/pull/248) [`61e13e1`](https://github.com/dipakparmar/docs-diary/commit/61e13e140fbd36d86157e990186efd4a18ec9ae9) Thanks [@dependabot](https://github.com/apps/dependabot)! - upgraded prism-react-renderer from 2.0.4 to 2.0.6
+
+- [#245](https://github.com/dipakparmar/docs-diary/pull/245) [`0799c2b`](https://github.com/dipakparmar/docs-diary/commit/0799c2b4d863d6bb571e491fe0e22b41ba5e903d) Thanks [@dependabot](https://github.com/apps/dependabot)! - upgraded @babel/eslint-parser from 7.21.8 to 7.22.5
+
+- [#239](https://github.com/dipakparmar/docs-diary/pull/239) [`6669a11`](https://github.com/dipakparmar/docs-diary/commit/6669a113679f54430f7cebba4aa14676c27dce1e) Thanks [@dependabot](https://github.com/apps/dependabot)! - upgraded postcss from 8.4.23 to 8.4.24
+
+- [#241](https://github.com/dipakparmar/docs-diary/pull/241) [`227042d`](https://github.com/dipakparmar/docs-diary/commit/227042dcf6349e263570536108d759327e5b94a4) Thanks [@dipakparmar](https://github.com/dipakparmar)! - add robots.txt
+
+- [#250](https://github.com/dipakparmar/docs-diary/pull/250) [`8ed9503`](https://github.com/dipakparmar/docs-diary/commit/8ed950303c19df3b3c1c23ff3546394b728add3d) Thanks [@dependabot](https://github.com/apps/dependabot)! - upgraded eslint from 8.42.0 to 8.44.0
+
 ## 1.4.1
 
 ### Patch Changes
