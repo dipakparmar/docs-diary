@@ -1,0 +1,108 @@
+---
+id: docker-api-proxy
+title: Accessing Docker Engine API Using a Proxy Container
+sidebar_label: Docker API Proxy
+keywords:
+  - docker api
+  - docker remote api
+  - docker socket proxy
+  - docker port 2375
+  - docker api security
+  - access docker remotely
+  - expose synology docker api
+description: A guide on using tecnativa/docker-socket-proxy to securely access the Docker API remotely over port 2375 through a proxy container.
+tags:
+  - Docker
+  - Docker API
+  - Docker Compose
+  - Proxy
+  - Containerization
+  - Security
+---
+
+# How to Set Up a Docker Proxy Using tecnativa/docker-socket-proxy
+
+## Introduction
+
+When running Docker in production, you typically don't want to expose the Docker daemon socket to external networks. This poses a challenge for tools and apps that need access to the Docker API.
+
+One solution is to set up a proxy that controls and secures access to the Docker API. In this guide, we'll use the open source [tecnativa/docker-socket-proxy](https://github.com/Tecnativa/docker-socket-proxy) project to set up a proxy for the Docker socket.
+
+## Prerequisites
+
+Before we begin, you'll need:
+
+- Docker installed and running on the host machine
+- Docker Compose installed
+
+This guide assumes you have a basic understanding of Docker and Docker Compose. If not quick refresh your knowledge with [docker basics](./docker-basics.mdx)
+
+## Step 1 - Create Compose File
+
+First, we'll create a `docker-compose.yml` file to run the proxy:
+
+```yaml
+version: '3.8'
+
+services:
+  proxy:
+    image: tecnativa/docker-socket-proxy
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+    environment:
+      - LOG_LEVEL=info # debug,info,notice,warning,err,crit,alert,emerg
+      - CONTAINERS: 1
+      - SERVICES: 1
+      - IAMGES: 1
+      - INF0: 1
+      - NETWORKS: 1
+      - TASKS: 1
+      - NODES: 0
+```
+
+This runs the `tecnativa/docker-socket-proxy` image and mounts the host Docker socket into the container.
+
+:::info
+
+The `environment` section specifies access controls - we've allowed access to containers, services, iamges, info, tasks and networks API endpoints. **(0 = no access, 1 = access) **
+
+:::
+
+
+See the tecnativa/docker-socket-proxy [README](https://github.com/Tecnativa/docker-socket-proxy/blob/master/README.md) for full options.
+
+## Step 2 - Run the Proxy
+
+Run the proxy with:
+
+```bash
+docker-compose up -d
+```
+
+The proxy is now running in the background, proxying requests to the Docker socket!
+
+## Step 3 - Test the Proxy
+
+We can test it by accessing the proxy API:
+
+```bash
+curl http://localhost:2375/version
+```
+
+This should return the Docker version, confirming the proxy is working correctly.
+
+## Step 4 - Secure the Proxy
+
+For production deployments, you'll want to add authentication and SSL encryption to secure the proxy.
+
+The tecnativa/docker-socket-proxy project supports this via environment variables. See the project [README](https://github.com/Tecnativa/docker-socket-proxy/blob/master/README.md) for details on:
+
+- Basic auth
+
+## Wrap Up
+
+That's it! With a few simple steps we have a Docker socket proxy set up to securely manage API access.
+
+The docker-socket-proxy container provides secure access to the Docker API from outside the host. This is useful for tools that need access to remotely control Docker, like CI/CD pipelines. The proxy container method is more secure than opening the port directly.
+
+Let me know in the comments if you have any other tips for accessing Docker remotely!
