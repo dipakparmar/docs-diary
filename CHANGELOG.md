@@ -1,5 +1,31 @@
 # docs-diary
 
+## 1.4.3
+
+### Patch Changes
+
+- [#259](https://github.com/dipakparmar/docs-diary/pull/259) [`5c81f3f`](https://github.com/dipakparmar/docs-diary/commit/5c81f3f98b6b874a9677f96aa329be5d569b8010) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint from 8.44.0 to 8.45.0
+
+- [#256](https://github.com/dipakparmar/docs-diary/pull/256) [`07dae8b`](https://github.com/dipakparmar/docs-diary/commit/07dae8b12d5ac7ab2e832e111d74b74c8bbd9816) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @babel/eslint-parser from 7.22.5 to 7.22.7
+
+- [#252](https://github.com/dipakparmar/docs-diary/pull/252) [`bc0c9d0`](https://github.com/dipakparmar/docs-diary/commit/bc0c9d0115ccb4a91062b6d71ec7ace690a7e330) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @tsconfig/docusaurus from 1.0.7 to 2.0.0
+
+- [#253](https://github.com/dipakparmar/docs-diary/pull/253) [`838deea`](https://github.com/dipakparmar/docs-diary/commit/838deea244b1605c208d2fbe26e2915ff79a17cd) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @changesets/cli from 2.26.1 to 2.26.2
+
+- [#261](https://github.com/dipakparmar/docs-diary/pull/261) [`1b68e0d`](https://github.com/dipakparmar/docs-diary/commit/1b68e0d31449eff0d0db3cf0d8f7e4a940968b6e) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded prettier from 2.8.8 to 3.0.0
+
+- [#255](https://github.com/dipakparmar/docs-diary/pull/255) [`50e944f`](https://github.com/dipakparmar/docs-diary/commit/50e944f05f816e5abf57ec21bcadd342aaa3e7f0) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded postcss from 8.4.24 to 8.4.25
+
+- [`2cce55d`](https://github.com/dipakparmar/docs-diary/commit/2cce55d31a4479e3523b43271df9aba1044d3bae) Thanks [@dipakparmar](https://github.com/dipakparmar)! - Upgraded typescript from 5.1.3 to 5.1.6
+
+- [#262](https://github.com/dipakparmar/docs-diary/pull/262) [`bc3f93d`](https://github.com/dipakparmar/docs-diary/commit/bc3f93d79fba9b6e39200c761a9693dd1313d25b) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded clsx from 1.2.1 to 2.0.0
+
+- [#257](https://github.com/dipakparmar/docs-diary/pull/257) [`9a1f016`](https://github.com/dipakparmar/docs-diary/commit/9a1f0162ee3d4b40af393fd846a9bccca997d1c1) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded semver from 5.7.1 to 5.7.2
+
+- [#260](https://github.com/dipakparmar/docs-diary/pull/260) [`b92a1d4`](https://github.com/dipakparmar/docs-diary/commit/b92a1d46f927b97fdab124eb4fca3fcb7f846d51) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded prettier from 2.8.8 to 3.0.0
+
+- [#263](https://github.com/dipakparmar/docs-diary/pull/263) [`94598f5`](https://github.com/dipakparmar/docs-diary/commit/94598f5443dbd0e3d7e79433514c3e111a229318) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded tailwindcss from 3.3.2 to 3.3.3
+
 ## 1.4.2
 
 ### Patch Changes
