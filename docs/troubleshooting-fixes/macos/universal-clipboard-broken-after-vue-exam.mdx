@@ -1,0 +1,48 @@
+---
+id: fix-universal-clipboard-issue-after-onvue-proctoring-tool-installation
+title: Fixing Universal Clipboard Issue after OnVUE Proctoring Tool Installation
+sidebar_label: Fixing Universal Clipboard Issue
+keywords:
+  [
+    fix universal clipboard issue,
+    fix universal clipboard,
+    universal clipboard,
+    universal clipboard issue,
+    onvue proctoring tool,
+    onvue,
+    onvue proctoring,
+    onvue proctoring tool break universal clipboard
+  ]
+tags: [macOS, Troubleshooting, Universal Clipboard, Apple EcoSystem]
+description: Fixing Universal Clipboard Issue after OnVUE Proctoring Tool Installation on macOS.
+---
+
+## Issue
+
+After installing the OnVUE proctoring tool for the AWS Pearson Vue exam on macOS Ventura 13.5 (22G74), the Universal Clipboard (copy-paste functionality between Mac <=> iPhone) stops working. Even after uninstalling the OnVUE tool, the Universal Clipboard remains non-functional.
+
+## Solution
+
+Follow the steps below to resolve the Universal Clipboard issue:
+
+1. Ensure that you're **logged in** to iCloud with the **same account** on both the Mac and iPhone.
+2. Verify that **Handoff** is enabled in the system preferences.
+3. Open the **Terminal** application on your Mac.
+4. Enter and run the following command:
+
+```bash
+defaults delete ~/Library/Preferences/com.apple.coreservices.useractivityd.plist ClipboardSharingEnabled
+```
+
+After that, enter and run the subsequent command:
+
+```bash
+defaults write ~/Library/Preferences/com.apple.coreservices.useractivityd.plist ClipboardSharingEnabled 1
+```
+
+The Universal Clipboard functionality should now be restored.
+
+### Reference
+
+- [https://discussions.apple.com/thread/253274114](https://discussions.apple.com/thread/253274114)
+
