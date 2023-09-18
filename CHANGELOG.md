@@ -1,5 +1,39 @@
 # docs-diary
 
+## 1.4.4
+
+### Patch Changes
+
+- [#281](https://github.com/dipakparmar/docs-diary/pull/281) [`d10884a`](https://github.com/dipakparmar/docs-diary/commit/d10884ae9065028a3d86fccb6236cb96ae0c69b5) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint from 8.45.0 to 8.49.0
+
+- [#285](https://github.com/dipakparmar/docs-diary/pull/285) [`44e53bf`](https://github.com/dipakparmar/docs-diary/commit/44e53bfaca6ed4f6481de7c31da7b2693bf83404) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded postcss from 8.4.27 to 8.4.29
+
+- [#286](https://github.com/dipakparmar/docs-diary/pull/286) [`257eec6`](https://github.com/dipakparmar/docs-diary/commit/257eec628da0a22e89e604bb1c5e73af75302f5f) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded stylelint from 15.10.2 to 15.10.3
+
+- [#264](https://github.com/dipakparmar/docs-diary/pull/264) [`c7a2cdc`](https://github.com/dipakparmar/docs-diary/commit/c7a2cdceacec46d274785ca3bde1c1b1dc3c2a58) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @giscus/react from 2.2.8 to 2.3.0
+
+- [#266](https://github.com/dipakparmar/docs-diary/pull/266) [`3c431b0`](https://github.com/dipakparmar/docs-diary/commit/3c431b03866042c3edf1b2524f6f358b6cec3e16) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded postcss from 8.4.26 to 8.4.27
+
+- [#265](https://github.com/dipakparmar/docs-diary/pull/265) [`45e9a44`](https://github.com/dipakparmar/docs-diary/commit/45e9a4437f4effda95a78bb52a6c1a7484bf67d1) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded stylelint from 15.10.1 to 15.10.2
+
+- [#283](https://github.com/dipakparmar/docs-diary/pull/283) [`c5f9b17`](https://github.com/dipakparmar/docs-diary/commit/c5f9b1767d429684abd728af9267733c02a2b9b2) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @babel/eslint-parser from 7.22.9 to 7.22.15
+
+- [#277](https://github.com/dipakparmar/docs-diary/pull/277) [`8d00233`](https://github.com/dipakparmar/docs-diary/commit/8d00233dbf521b541a2377e8ec00bc25c6ad3480) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint-plugin-import from 2.27.5 to 2.28.1
+
+- [#280](https://github.com/dipakparmar/docs-diary/pull/280) [`39bd992`](https://github.com/dipakparmar/docs-diary/commit/39bd99245b9d40751dcfa28fdf20fa75acc7312d) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded prettier from 3.0.0 to 3.0.3
+
+- [#269](https://github.com/dipakparmar/docs-diary/pull/269) [`5f5bd6b`](https://github.com/dipakparmar/docs-diary/commit/5f5bd6b012f8a79216c13b889a762f4f1dae8e9f) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint-plugin-react from 7.32.2 to 7.33.1
+
+- [#282](https://github.com/dipakparmar/docs-diary/pull/282) [`74b53db`](https://github.com/dipakparmar/docs-diary/commit/74b53dbd044af2dacee6260191c7f8f74c79cfd8) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @tsconfig/docusaurus from 2.0.0 to 2.0.1
+
+- [#284](https://github.com/dipakparmar/docs-diary/pull/284) [`ddb9211`](https://github.com/dipakparmar/docs-diary/commit/ddb921183ccb8de3f44a217478ffe2e2444eff76) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint-plugin-react from 7.33.1 to 7.33.2
+
+- [`bb0215c`](https://github.com/dipakparmar/docs-diary/commit/bb0215c7aea6b4de0a7c6b25ffd13dbc536ae0f3) Thanks [@dipakparmar](https://github.com/dipakparmar)! - Upgraded eslint-config-prettier from 8.8.0 to 9.0.0
+
+- [#268](https://github.com/dipakparmar/docs-diary/pull/268) [`ead8765`](https://github.com/dipakparmar/docs-diary/commit/ead876565fff5b7ebe155f251143056cc9cdb13b) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @babel/eslint-parser from 7.22.7 to 7.22.9
+
+- [#275](https://github.com/dipakparmar/docs-diary/pull/275) [`dca5d8a`](https://github.com/dipakparmar/docs-diary/commit/dca5d8ac78731ad9e8ea1f673547147dc3987dde) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded autoprefixer from 10.4.14 to 10.4.15
+
 ## 1.4.3
 
 ### Patch Changes
