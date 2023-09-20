@@ -14,33 +14,29 @@ description: 'Learn git basics, incluing branching, resetting the commits, check
 slug: /
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
 ## Installing Git
 
-### Windows
-
-Download from [git-scm](https://git-scm.com/download/win) and Install.
-
-### Mac
-
-Install with homebrew package manager
-
-```bash
-brew install git
-```
-
-### Linux
-
-For RPM based os like fedora or cent-os
-
-```bash
-sudo dnf install git-all
-```
-
-For debian based like ubuntu
-
-```bash
-sudo apt install git-all
-```
+<Tabs groupId="operating-systems">
+  <TabItem value="win" label="Windows">
+    Download from <a href="https://git-scm.com/download/win">git-scm</a> and Install.
+  </TabItem>
+  <TabItem value="mac" label="Mac">
+    Install with homebrew package manager
+    <CodeBlock language="bash">brew install git</CodeBlock>
+  </TabItem>
+  <TabItem value="linux" label="Linux">
+    For debian based like ubuntu
+    <CodeBlock language="bash">sudo apt install git-all</CodeBlock>
+  </TabItem>
+  <TabItem value="rpm" label="RPM based">
+    For RPM based os like fedora or cent-os
+    <CodeBlock language="bash">sudo dnf install git-all</CodeBlock>
+  </TabItem>
+</Tabs>
 
 ## Create a new repository
 
