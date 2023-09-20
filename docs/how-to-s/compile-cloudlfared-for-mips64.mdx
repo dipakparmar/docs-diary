@@ -1,0 +1,121 @@
+---
+id: compile-cloudlfared-for-mips64
+title: Building Cloudflared agent from source on mips64 architecture
+sidebar_label: Building Cloudflared agent for mips64
+keywords:
+  [cloudflare, cloudflared, mips64, edge router, unifi, unifi edge router]
+description: 'Building Cloudflared agent from source on mips64 architecture such as UniFi Edge Router'
+tags: [Cloudflare, DevOps, Edge Router, Unifi, mips64, Ubiquiti, Network, Linux]
+---
+
+Are you trying to set up Cloudflared on your mips64 OS router, such as the UniFi Edge Router?
+
+Unfortunately, Currently Cloudflare does not provide a binary for mips64 architecture. However, you can still build and install the Cloudflared agent from source. This guide will walk you through the steps to build and install Cloudflared on your mips64 router. Let's get started!
+
+## Prerequisites
+
+- [Go](https://go.dev/doc/install) 1.20 or later
+- [Git](../version-control/git/basic.mdx) (optional, if you want to clone the repository)
+- SSH access to your router
+- Cloudflare account with a zone configured
+- Token from [Cloudflare Tunnel page](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/install-and-setup/tunnel-guide/remote/#1-create-a-tunnel)
+
+## Steps
+
+:::info
+
+Replace `[router_username]`, `[router_ip]`, and `[token-from-cloudflare]` with your actual values.
+
+:::
+
+1. Clone the Cloudflared repository:
+
+   ```bash
+   git clone https://github.com/cloudflare/cloudflared.git
+   ```
+
+2. Change to the cloned directory:
+
+   ```bash
+   cd cloudflared
+   ```
+
+3. Build the binary for mips64 architecture:
+
+   ```bash
+   GOOS=linux GOARCH=mips64 go build github.com/cloudflare/cloudflared/cmd/cloudflared
+   ```
+
+   This will create a binary named `cloudflared` in the current directory.
+
+4. Copy the binary to your router:
+
+   ```bash
+   scp cloudflared [router_username]@[router_ip]:/tmp/
+   ```
+
+5. SSH into your router:
+
+   ```bash
+   ssh [router_username]@[router_ip]
+   ```
+
+6. Change to the `/tmp` directory:
+
+   ```bash
+   cd /tmp
+   ```
+
+7. Change the owner of the binary to root:
+
+   ```bash
+   sudo chown root:root cloudflared
+   ```
+
+8. Make the binary executable:
+
+   ```bash
+   sudo chmod +x cloudflared
+   ```
+
+9. Move the binary to a directory in your PATH:
+
+   ```bash
+   sudo mv cloudflared /usr/bin/
+   ```
+
+10. Create the cloudflared config directory:
+
+    ```bash
+    sudo mkdir /etc/cloudflared
+    ```
+
+11. Create the cloudflared config file:
+
+    ```bash
+    sudo vi /etc/cloudflared/config.yml
+    ```
+
+12. Add the following content to `config.yml` file:
+
+    ```yaml title="config.yml"
+    proxy-dns: true
+    proxy-dns-upstream:
+      - https://1.1.1.1/dns-query
+      - https://1.0.0.1/dns-query
+    proxy-dns-port: 8853
+    ```
+
+13. Start the cloudflared service:
+
+    ```bash
+    sudo /usr/bin/cloudflared service install [token-from-cloudflare]
+    ```
+
+That's it! You have successfully installed Cloudflared on your mips64 router. You can now configure your router to use Cloudflare DNS.
+
+:::info
+
+Please note that after every firmware upgrade on your router, you will need to re-install Cloudflared on your router as the firmware upgrade will remove the binary from your router.
+
+:::
