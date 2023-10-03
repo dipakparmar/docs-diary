@@ -1,5 +1,23 @@
 # docs-diary
 
+## 1.4.5
+
+### Patch Changes
+
+- [#298](https://github.com/dipakparmar/docs-diary/pull/298) [`bd76830`](https://github.com/dipakparmar/docs-diary/commit/bd7683019704ec4a93521d9f8e089e67ff07d9fd) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded prism-react-renderer from 2.0.6 to 2.1.0
+
+- [#292](https://github.com/dipakparmar/docs-diary/pull/292) [`84af080`](https://github.com/dipakparmar/docs-diary/commit/84af080ea08677ad1f1e6c5daf5e91600e9b690e) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @docusaurus/\* from 2.4.1 to 2.4.3
+
+- [#294](https://github.com/dipakparmar/docs-diary/pull/294) [`7d6c501`](https://github.com/dipakparmar/docs-diary/commit/7d6c5018b0bfaab53e27fdc66ca03d2eafdaa7f2) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded autoprefixer from 10.4.15 to 10.4.16
+
+- [#295](https://github.com/dipakparmar/docs-diary/pull/295) [`94a0112`](https://github.com/dipakparmar/docs-diary/commit/94a011288ebf0e81ced82a847ede87e0304a3380) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded typescript from 5.1.6 to 5.2.2
+
+- [#297](https://github.com/dipakparmar/docs-diary/pull/297) [`5005004`](https://github.com/dipakparmar/docs-diary/commit/50050040feeb2411e094e7398d2bb54be66cf5e2) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded postcss from 8.4.29 to 8.4.31
+
+- [#291](https://github.com/dipakparmar/docs-diary/pull/291) [`3d6ee1a`](https://github.com/dipakparmar/docs-diary/commit/3d6ee1a00194b362ec1dec5924f62256dc95f385) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint from 8.49.0 to 8.50.0
+
+- [#296](https://github.com/dipakparmar/docs-diary/pull/296) [`e6a4e51`](https://github.com/dipakparmar/docs-diary/commit/e6a4e51192b9d302905e70cfede4159855ebb996) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @dipakparmar/docusaurus-plugin-umami from 2.1.0 to 2.1.1
+
 ## 1.4.4
 
 ### Patch Changes
