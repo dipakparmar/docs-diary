@@ -140,6 +140,7 @@ git branch -D [branch name]
 git push origin [branch name]
 ```
 
+
 ## Merge and update
 
 ### Update
@@ -250,6 +251,12 @@ of command results (works only in local repo.)
 
 ```bash
 git config color.ui true
+```
+
+### Auto setup remote when pushing to new branch
+
+```bash
+git config --global --add --bool push.autoSetupRemote true
 ```
 
 ### .gitignore
