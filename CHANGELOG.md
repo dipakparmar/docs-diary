@@ -1,5 +1,29 @@
 # docs-diary
 
+## 1.4.6
+
+### Patch Changes
+
+- [#310](https://github.com/dipakparmar/docs-diary/pull/310) [`b4936d3`](https://github.com/dipakparmar/docs-diary/commit/b4936d3f65b43e94dfd35030fd6c7b5ae773f8fa) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded prism-react-renderer from 2.1.0 to 2.2.0
+
+- [#303](https://github.com/dipakparmar/docs-diary/pull/303) [`86dfef3`](https://github.com/dipakparmar/docs-diary/commit/86dfef3e4f4445f2bdd91e9704dd39d257bfd63c) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded stylelint from 15.10.3 to 15.11.0
+
+- [#308](https://github.com/dipakparmar/docs-diary/pull/308) [`d592aef`](https://github.com/dipakparmar/docs-diary/commit/d592aef894f2ae53ea1dde1504680429768a86c5) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint from 8.52.0 to 8.53.0
+
+- [#301](https://github.com/dipakparmar/docs-diary/pull/301) [`04e9958`](https://github.com/dipakparmar/docs-diary/commit/04e99587d7c6d7f025ac05895c29380bdd98b91e) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @babel/traverse from 7.22.1 to 7.23.2
+
+- [#300](https://github.com/dipakparmar/docs-diary/pull/300) [`53ed698`](https://github.com/dipakparmar/docs-diary/commit/53ed69887c689109eeba0eb900d5837f42330ced) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @tsconfig/docusaurus from 2.0.1 to 2.0.2
+
+- [#299](https://github.com/dipakparmar/docs-diary/pull/299) [`a947ad5`](https://github.com/dipakparmar/docs-diary/commit/a947ad5bcd59033b9a14f88d584826a99c641335) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint from 8.50.0 to 8.51.0
+
+- [#305](https://github.com/dipakparmar/docs-diary/pull/305) [`8774e50`](https://github.com/dipakparmar/docs-diary/commit/8774e50cf01c71da90e921667a2a6b9a1fd3c6fa) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint from 8.51.0 to 8.52.0
+
+- [#309](https://github.com/dipakparmar/docs-diary/pull/309) [`7454b58`](https://github.com/dipakparmar/docs-diary/commit/7454b58bc431231de8f64a145f07c04676b94b73) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint-plugin-jsx-a11y from 6.7.1 to 6.8.0
+
+- [#306](https://github.com/dipakparmar/docs-diary/pull/306) [`059870c`](https://github.com/dipakparmar/docs-diary/commit/059870c61feb71b290bc3fd258f2f00094242bd5) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded tailwindcss from 3.3.3 to 3.3.5
+
+- [#304](https://github.com/dipakparmar/docs-diary/pull/304) [`62ad150`](https://github.com/dipakparmar/docs-diary/commit/62ad1506caf6ba3770a512f67718ffc2f68229a7) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint-plugin-import from 2.28.1 to 2.29.0
+
 ## 1.4.5
 
 ### Patch Changes
