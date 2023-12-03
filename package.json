@@ -22,7 +22,7 @@
     "yml-to-json": "node scripts/yml-to-json.js"
   },
   "dependencies": {
-    "@dipakparmar/docusaurus-plugin-umami": "2.1.1",
+    "@dipakparmar/docusaurus-plugin-umami": "2.1.2",
     "@docusaurus/core": "3.0.0",
     "@docusaurus/plugin-client-redirects": "3.0.0",
     "@docusaurus/preset-classic": "3.0.0",
@@ -75,6 +75,6 @@
     ]
   },
   "engines": {
-    "node": ">=16.14"
+    "node": ">=18.0"
   }
 }
