@@ -1,5 +1,21 @@
 # docs-diary
 
+## 1.5.0
+
+### Minor Changes
+
+- [#307](https://github.com/dipakparmar/docs-diary/pull/307) [`7473107ac8a169f3c469e578acfd88dbecf1a16a`](https://github.com/dipakparmar/docs-diary/commit/7473107ac8a169f3c469e578acfd88dbecf1a16a) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded to docusaurus from v2.4.3 to v3.0.0
+
+### Patch Changes
+
+- [#316](https://github.com/dipakparmar/docs-diary/pull/316) [`04226ebfb4df00345d416803bfd0b16f8e4b3226`](https://github.com/dipakparmar/docs-diary/commit/04226ebfb4df00345d416803bfd0b16f8e4b3226) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint from 8.53.0 to 8.55.0
+
+- [#313](https://github.com/dipakparmar/docs-diary/pull/313) [`c2056bcd71e90b28c70f78e335c5c4f9c9113fca`](https://github.com/dipakparmar/docs-diary/commit/c2056bcd71e90b28c70f78e335c5c4f9c9113fca) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded prettier from 3.0.3 to 3.1.0
+
+- [#311](https://github.com/dipakparmar/docs-diary/pull/311) [`ddf09dce6511fce05d2690ebb42dae901be16826`](https://github.com/dipakparmar/docs-diary/commit/ddf09dce6511fce05d2690ebb42dae901be16826) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgaded @babel/eslint-parser from 7.22.15 to 7.23.3
+
+- [#314](https://github.com/dipakparmar/docs-diary/pull/314) [`95b03145586b5fed395d2fca2b7d9c47d38130ff`](https://github.com/dipakparmar/docs-diary/commit/95b03145586b5fed395d2fca2b7d9c47d38130ff) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded typescript from 5.2.2 to 5.3.2
+
 ## 1.4.6
 
 ### Patch Changes
