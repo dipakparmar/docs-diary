@@ -22,15 +22,15 @@
     "yml-to-json": "node scripts/yml-to-json.js"
   },
   "dependencies": {
-    "@dipakparmar/docusaurus-plugin-umami": "2.1.1",
-    "@docusaurus/core": "2.4.3",
-    "@docusaurus/plugin-client-redirects": "2.4.3",
-    "@docusaurus/preset-classic": "2.4.3",
-    "@mdx-js/react": "1.6.22",
+    "@dipakparmar/docusaurus-plugin-umami": "2.1.2",
+    "@docusaurus/core": "3.0.0",
+    "@docusaurus/plugin-client-redirects": "3.0.0",
+    "@docusaurus/preset-classic": "3.0.0",
+    "@mdx-js/react": "3.0.0",
     "clsx": "2.0.0",
     "prism-react-renderer": "2.2.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "autoprefixer": "10.4.16",
     "postcss": "8.4.31",
     "react-gist": "1.2.4",
@@ -41,8 +41,8 @@
     "@babel/eslint-parser": "7.23.3",
     "@changesets/cli": "^2.26.2",
     "@changesets/changelog-github": "^0.4.8",
-    "@docusaurus/eslint-plugin": "^2.4.3",
-    "@docusaurus/module-type-aliases": "^2.4.3",
+    "@docusaurus/eslint-plugin": "^3.0.0",
+    "@docusaurus/module-type-aliases": "^3.0.0",
     "@giscus/react": "2.3.0",
     "eslint": "8.55.0",
     "eslint-config-airbnb": "19.0.4",
@@ -54,13 +54,14 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "prettier": "3.1.0",
     "stylelint": "15.11.0",
-    "@tsconfig/docusaurus": "2.0.2",
+    "@docusaurus/tsconfig": "3.0.0",
+    "@types/react": "^18.2.29",
     "typescript": "5.3.2"
   },
   "resolutions": {
     "nth-check": "2.0.1",
     "trim": "0.0.3",
-    "got": "11.8.5"
+    "axios": "1.6.0"
   },
   "browserslist": {
     "production": [
@@ -75,6 +76,6 @@
     ]
   },
   "engines": {
-    "node": ">=16.14"
+    "node": ">=18.0"
   }
 }

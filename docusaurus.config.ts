@@ -1,5 +1,6 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+import type { Config } from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+import { EnumChangefreq } from 'sitemap';
 
 const isDeployPreview =
   process.env.VERCEL_ENV === 'development' ||
@@ -10,9 +11,7 @@ const themes = require('prism-react-renderer').themes;
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
 
-// With JSDoc @type annotations, IDEs can provide config autocompletion
-/** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
   title: `Dipak's Docs Diary`,
   tagline: '',
   favicon: 'img/favicon.ico',
@@ -52,8 +51,7 @@ const config = {
   presets: [
     [
       '@docusaurus/preset-classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
@@ -67,87 +65,85 @@ const config = {
         },
         gtag: !isDeployPreview
           ? {
-            trackingID: 'G-EZ7C3BQQ3J',
-            anonymizeIP: false,
-          }
+              trackingID: 'G-EZ7C3BQQ3J',
+              anonymizeIP: false,
+            }
           : undefined,
         sitemap: {
-          changefreq: 'daily',
+          changefreq: EnumChangefreq.WEEKLY,
           priority: 0.5,
           ignorePatterns: ['/tags/**'],
         },
-      }),
+      } satisfies Preset.Options,
     ],
   ],
 
   // themeConfig is used to configure the look and feel of your site.
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      image:
-        'https://opengraph.githubassets.com/5f64176affcb4de799b0eb3903e8e71e35d89e9022c4953e88f9b879302bead0/dipakparmar/docs-diary',
-      liveCodeBlock: {
-        playgroundPosition: 'bottom',
+  themeConfig: {
+    image:
+      'https://opengraph.githubassets.com/5f64176affcb4de799b0eb3903e8e71e35d89e9022c4953e88f9b879302bead0/dipakparmar/docs-diary',
+    liveCodeBlock: {
+      playgroundPosition: 'bottom',
+    },
+    docs: {
+      sidebar: {
+        hideable: false,
+        autoCollapseCategories: true,
       },
-      docs: {
-        sidebar: {
-          hideable: false,
-          autoCollapseCategories: true,
+    },
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
+    navbar: {
+      title: `Dipak's Docs Diary`,
+      hideOnScroll: false,
+      logo: {
+        alt: 'Docs Diary',
+        src: 'img/logo.svg',
+      },
+      items: [
+        // Left Navbar items
+        {
+          to: '/tags',
+          label: 'Tags',
+          position: 'left',
         },
-      },
-      colorMode: {
-        defaultMode: 'light',
-        disableSwitch: false,
-        respectPrefersColorScheme: true,
-      },
-      navbar: {
-        title: `Dipak's Docs Diary`,
-        hideOnScroll: false,
-        logo: {
-          alt: 'Docs Diary',
-          src: 'img/logo.svg',
+        // Right Navbar items
+        {
+          type: 'search',
+          position: 'right',
         },
-        items: [
-          // Left Navbar items
-          {
-            to: '/tags',
-            label: 'Tags',
-            position: 'left',
-          },
-          // Right Navbar items
-          {
-            type: 'search',
-            position: 'right',
-          },
-          {
-            href: 'https://dipak.to/twitter?utm_source=docs.dipak.tech&utm_medium=nav_link&utm_campaign=dipaks_docs_diary',
-            position: 'right',
-            className: 'header-twitter-link',
-            'aria-label': 'Twitter',
-          },
-          {
-            href: 'https://github.com/dipakparmar/docs-diary?utm_source=docs.dipak.tech&utm_medium=nav_link',
-            position: 'right',
-            className: 'header-github-link',
-            'aria-label': 'GitHub repository',
-          },
-        ],
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
-      footer: {
-        // style: 'light',
-        copyright: `Copyright © 2020-${new Date().getFullYear()} Dipak's Docs Diary. <a href="https://docusaurus.io/">Built with Docusaurus.</a>`,
-      },
-      algolia: {
-        appId: 'NOKG2EH40V',
-        apiKey: '6711f63fe1e318da1f4bb8b811d59df3',
-        indexName: 'dipak',
-        contextualSearch: true,
-      },
-    }),
+        {
+          href: 'https://dipak.to/twitter?utm_source=docs.dipak.tech&utm_medium=nav_link&utm_campaign=dipaks_docs_diary',
+          position: 'right',
+          className: 'header-twitter-link',
+          'aria-label': 'Twitter',
+        },
+        {
+          href: 'https://github.com/dipakparmar/docs-diary?utm_source=docs.dipak.tech&utm_medium=nav_link',
+          position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
+        },
+      ],
+    },
+    prism: {
+      theme: lightCodeTheme,
+      darkTheme: darkCodeTheme,
+    },
+    footer: {
+      // style: 'light',
+      copyright: `Copyright © 2020-${new Date().getFullYear()} Dipak's Docs Diary. <a href="https://docusaurus.io/">Built with Docusaurus.</a>`,
+    },
+    algolia: {
+      appId: 'NOKG2EH40V',
+      apiKey: '6711f63fe1e318da1f4bb8b811d59df3',
+      indexName: 'dipak',
+      contextualSearch: true,
+    },
+  } satisfies Preset.ThemeConfig,
 
   // Themes are used to customize the colors and styles used by Docusaurus.
   themes: [],
@@ -176,15 +172,15 @@ const config = {
     [
       require.resolve('@dipakparmar/docusaurus-plugin-umami'),
       /** @type {import('@dipakparmar/docusaurus-plugin-umami').Options} */
-      ({
+      {
         websiteID: 'c401b94a-f278-46e3-bc17-72e9494f1375',
         analyticsDomain: 'analytics.dipak.io',
         scriptName: 'ua.js',
         dataDoNotTrack: true,
         dataDomains: 'docs.dipak.tech',
-      }),
+      },
     ],
-    async function tailwindcss(context, options) {
+    async function tailwindcss() {
       return {
         name: 'docusaurus-tailwindcss',
         configurePostCss(postCssOptions) {
@@ -198,5 +194,4 @@ const config = {
   ],
 };
 
-module.exports = config;
-
+export default config;
