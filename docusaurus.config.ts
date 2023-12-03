@@ -180,7 +180,7 @@ const config: Config = {
         dataDomains: 'docs.dipak.tech',
       },
     ],
-    async function tailwindcss(_context, _options) {
+    async function tailwindcss() {
       return {
         name: 'docusaurus-tailwindcss',
         configurePostCss(postCssOptions) {
