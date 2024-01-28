@@ -1,5 +1,33 @@
 # docs-diary
 
+## 1.5.1
+
+### Patch Changes
+
+- [#323](https://github.com/dipakparmar/docs-diary/pull/323) [`e86e87f`](https://github.com/dipakparmar/docs-diary/commit/e86e87f1214d926d65c6115c69816eaca3885ec3) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded typescript from 5.3.2 to 5.3.3
+
+- [#322](https://github.com/dipakparmar/docs-diary/pull/322) [`0aa4f67`](https://github.com/dipakparmar/docs-diary/commit/0aa4f678a38c71241b9801fbb593e375bc2b9dc8) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded prism-react-renderer from 2.2.0 to 2.3.1
+
+- [#325](https://github.com/dipakparmar/docs-diary/pull/325) [`67ecdcd`](https://github.com/dipakparmar/docs-diary/commit/67ecdcd3ba22bbe038f88be3735f9b344bd861c8) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded docusaurus from 3.0.0 to 3.1.0
+
+- [#330](https://github.com/dipakparmar/docs-diary/pull/330) [`d5c1b86`](https://github.com/dipakparmar/docs-diary/commit/d5c1b8630e6585acf1eace1934cd92365818b34c) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint-plugin-import from 2.29.0 to 2.29.1
+
+- [#332](https://github.com/dipakparmar/docs-diary/pull/332) [`b55fb9f`](https://github.com/dipakparmar/docs-diary/commit/b55fb9fa59073329275fe9957005a347b6d5bae7) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint from 8.55.0 to 8.56.0
+
+- [#329](https://github.com/dipakparmar/docs-diary/pull/329) [`1c08f50`](https://github.com/dipakparmar/docs-diary/commit/1c08f50877b8400b3a0804cfdea95ae297a4dd8b) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @dipakparmar/docusaurus-plugin-umami from 2.1.2 to 2.1.3
+
+- [#318](https://github.com/dipakparmar/docs-diary/pull/318) [`3582c8e`](https://github.com/dipakparmar/docs-diary/commit/3582c8e01cb8c15a3d827ff43542917709179536) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @changesets/changelog-github from 0.4.8 to 0.5.0
+
+- [#320](https://github.com/dipakparmar/docs-diary/pull/320) [`e152268`](https://github.com/dipakparmar/docs-diary/commit/e152268de4df97d54d8bb1a667142ff3ebe8c981) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint-config-prettier from 9.0.0 to 9.1.0
+
+- [#326](https://github.com/dipakparmar/docs-diary/pull/326) [`f118d45`](https://github.com/dipakparmar/docs-diary/commit/f118d451885ada678fe6f33eed31278dc396b299) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded follow-redirects from 1.15.3 to 1.15.4
+
+- [#328](https://github.com/dipakparmar/docs-diary/pull/328) [`513bbd8`](https://github.com/dipakparmar/docs-diary/commit/513bbd8eff60343d1a1c03c80c79cdf55266f81e) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded autoprefixer from 10.4.16 to 10.4.17
+
+- [#331](https://github.com/dipakparmar/docs-diary/pull/331) [`b580286`](https://github.com/dipakparmar/docs-diary/commit/b58028628fd939fb7144d706730edf97004bcd61) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded tailwindcss from 3.3.5 to 3.4.1
+
+- [#324](https://github.com/dipakparmar/docs-diary/pull/324) [`6b987cb`](https://github.com/dipakparmar/docs-diary/commit/6b987cb6de55d68756fc959164c4702ded0c9973) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded postcss from 8.4.31 to 8.4.33
+
 ## 1.5.0
 
 ### Minor Changes
