@@ -76,3 +76,12 @@ git commit -S -a -m "Test a signed commit"
 ```
 git config --global commit.gpgsign true
 ```
+
+### If your GPG Key has a passphrase
+
+Add this to your `~/.bashrc` or `~/.zshrc` or `powerlevel10k` config file
+
+```
+export GPG_TTY=$(tty) 
+```
+Ref: https://github.com/keybase/keybase-issues/issues/2798
