@@ -1,5 +1,21 @@
 # docs-diary
 
+## 1.6.0
+
+### Minor Changes
+
+- [#333](https://github.com/dipakparmar/docs-diary/pull/333) [`38de6d5`](https://github.com/dipakparmar/docs-diary/commit/38de6d55e9bdda62f42aefcede75210fd3bdd3e5) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded to docusaurus from v3.1.0 to v3.1.1
+
+### Patch Changes
+
+- [#336](https://github.com/dipakparmar/docs-diary/pull/336) [`d577202`](https://github.com/dipakparmar/docs-diary/commit/d577202c092cfd78f09aaceb60d0e55193ea48e1) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @giscus/react from 2.3.0 to 2.4.0
+
+- [#339](https://github.com/dipakparmar/docs-diary/pull/339) [`0bb0cd7`](https://github.com/dipakparmar/docs-diary/commit/0bb0cd7fbd5a5f5bc6b67feb0c13ae48016b0bfe) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded stylelint from 15.11.0 to 16.2.1
+
+- [#338](https://github.com/dipakparmar/docs-diary/pull/338) [`7d34022`](https://github.com/dipakparmar/docs-diary/commit/7d34022bbce322635d88d8b410c46801b167b68a) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded prettier from 3.1.0 to 3.2.5
+
+- [#340](https://github.com/dipakparmar/docs-diary/pull/340) [`a65e153`](https://github.com/dipakparmar/docs-diary/commit/a65e153a0da989da9a032aa684935b855adb5d77) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @babel/eslint-parser from 7.23.3 to 7.23.10
+
 ## 1.5.1
 
 ### Patch Changes
