@@ -32,7 +32,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "autoprefixer": "10.4.17",
-    "postcss": "8.4.33",
+    "postcss": "8.4.35",
     "react-gist": "1.2.4",
     "reading-time": "1.5.0",
     "tailwindcss": "3.4.1"
