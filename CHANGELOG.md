@@ -1,5 +1,29 @@
 # docs-diary
 
+## 1.6.1
+
+### Patch Changes
+
+- [#342](https://github.com/dipakparmar/docs-diary/pull/342) [`30ae827`](https://github.com/dipakparmar/docs-diary/commit/30ae8271d7150a65c3b56ebe73c1d6ce4691464d) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @types/react from 18.2.41 to 18.2.55
+
+- [#343](https://github.com/dipakparmar/docs-diary/pull/343) [`3ee40eb`](https://github.com/dipakparmar/docs-diary/commit/3ee40ebf5452ba960703427276f827b24df39a8a) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded clsx from 2.0.0 to 2.1.0
+
+- [#352](https://github.com/dipakparmar/docs-diary/pull/352) [`a778578`](https://github.com/dipakparmar/docs-diary/commit/a778578a1a1e7f09b327d5fd243e612d1ee99067) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint-plugin-react from 7.33.2 to 7.34.0
+
+- [#350](https://github.com/dipakparmar/docs-diary/pull/350) [`775e05e`](https://github.com/dipakparmar/docs-diary/commit/775e05e68c98bb67c5035234e9b7c8774536541e) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint from 8.56.0 to 8.57.0
+
+- [#354](https://github.com/dipakparmar/docs-diary/pull/354) [`77e0e27`](https://github.com/dipakparmar/docs-diary/commit/77e0e27ff4c30219432e03e40907c5ad9af15e55) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @types/react from 18.2.55 to 18.2.64
+
+- [#349](https://github.com/dipakparmar/docs-diary/pull/349) [`fc468ad`](https://github.com/dipakparmar/docs-diary/commit/fc468ad034fc5f55ec9a3168c9eab3ecdda9868e) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @giscus/react from 2.4.0 to 3.0.0
+
+- [#355](https://github.com/dipakparmar/docs-diary/pull/355) [`b529dd0`](https://github.com/dipakparmar/docs-diary/commit/b529dd09424204bd3e33828f892b6c885c16aecc) Thanks [@dipakparmar](https://github.com/dipakparmar)! - Fixed page content area shrinking issue
+
+- [#344](https://github.com/dipakparmar/docs-diary/pull/344) [`6a54851`](https://github.com/dipakparmar/docs-diary/commit/6a54851267cd1ef00e0aee6ad55c38f353d14cba) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded postcss from 8.4.33 to 8.4.35
+
+- [#353](https://github.com/dipakparmar/docs-diary/pull/353) [`b2b8201`](https://github.com/dipakparmar/docs-diary/commit/b2b82013c28f69a000fb992343386f5f690230b9) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded autoprefixer from 10.4.17 to 10.4.18
+
+- [#345](https://github.com/dipakparmar/docs-diary/pull/345) [`66ffccd`](https://github.com/dipakparmar/docs-diary/commit/66ffccdf5004dc500f06401d0a31ff665d37ce5b) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @mdx-js/react from 3.0.0 to 3.0.1
+
 ## 1.6.0
 
 ### Minor Changes
