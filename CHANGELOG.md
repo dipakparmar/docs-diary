@@ -1,5 +1,13 @@
 # docs-diary
 
+## 1.6.2
+
+### Patch Changes
+
+- [#356](https://github.com/dipakparmar/docs-diary/pull/356) [`49a8665`](https://github.com/dipakparmar/docs-diary/commit/49a86659152cf9cd6db1dbd91eadadfadcbfe584) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded follow-redirects from 1.15.4 to 1.15.6
+
+- [#358](https://github.com/dipakparmar/docs-diary/pull/358) [`95adc06`](https://github.com/dipakparmar/docs-diary/commit/95adc06e41a9e825579b6b763bcbbfcc75ed1788) Thanks [@dipakparmar](https://github.com/dipakparmar)! - Removed "silent" property from github object in vercel.json
+
 ## 1.6.1
 
 ### Patch Changes
