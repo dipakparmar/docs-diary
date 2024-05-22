@@ -1,5 +1,27 @@
 # docs-diary
 
+## 1.6.2
+
+### Patch Changes
+
+- [#376](https://github.com/dipakparmar/docs-diary/pull/376) [`a57758b`](https://github.com/dipakparmar/docs-diary/commit/a57758b82ec9716db2ef9d013ee9ef5d2925c48a) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded react and @types/react
+
+- [#356](https://github.com/dipakparmar/docs-diary/pull/356) [`49a8665`](https://github.com/dipakparmar/docs-diary/commit/49a86659152cf9cd6db1dbd91eadadfadcbfe584) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded follow-redirects from 1.15.4 to 1.15.6
+
+- [#366](https://github.com/dipakparmar/docs-diary/pull/366) [`8a11bee`](https://github.com/dipakparmar/docs-diary/commit/8a11bee950e2d0b7b2ec1fad5328db16cd591eb9) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded postcss from 8.4.35 to 8.4.38
+
+- [#371](https://github.com/dipakparmar/docs-diary/pull/371) [`f8a407d`](https://github.com/dipakparmar/docs-diary/commit/f8a407d46828530b72652c9ecd0213ac7161799f) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded typescript from 5.3.3 to 5.4.5
+
+- [#364](https://github.com/dipakparmar/docs-diary/pull/364) [`4d313c5`](https://github.com/dipakparmar/docs-diary/commit/4d313c5261a3d188e7658e13f139c1866f14d808) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded webpack-dev-middleware from 5.3.3 to 5.3.4
+
+- [#365](https://github.com/dipakparmar/docs-diary/pull/365) [`4de92a4`](https://github.com/dipakparmar/docs-diary/commit/4de92a47dfc980f813b3d270a87a2b5ec199458c) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded express from 4.18.2 to 4.19.2
+
+- [#363](https://github.com/dipakparmar/docs-diary/pull/363) [`d36b690`](https://github.com/dipakparmar/docs-diary/commit/d36b690a253b89c5eb7fa0a8d06ec0e35def7f14) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint-plugin-react from 7.34.0 to 7.34.1
+
+- [#358](https://github.com/dipakparmar/docs-diary/pull/358) [`95adc06`](https://github.com/dipakparmar/docs-diary/commit/95adc06e41a9e825579b6b763bcbbfcc75ed1788) Thanks [@dipakparmar](https://github.com/dipakparmar)! - Removed "silent" property from github object in vercel.json
+
+- [#375](https://github.com/dipakparmar/docs-diary/pull/375) [`5c9d80e`](https://github.com/dipakparmar/docs-diary/commit/5c9d80e1cbc52a327bc66c72d5ad3ead4aabcadd) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @dipakparmar/docusaurus-plugin-umami from 2.1.3 to 2.1.5
+
 ## 1.6.1
 
 ### Patch Changes
