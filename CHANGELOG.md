@@ -1,5 +1,33 @@
 # docs-diary
 
+## 1.6.3
+
+### Patch Changes
+
+- [#389](https://github.com/dipakparmar/docs-diary/pull/389) [`8f00832`](https://github.com/dipakparmar/docs-diary/commit/8f008325a9e39d17deda58f240f53d07075c3c52) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded ws from 7.5.9 to 7.5.10
+
+- [#387](https://github.com/dipakparmar/docs-diary/pull/387) [`aa76245`](https://github.com/dipakparmar/docs-diary/commit/aa76245bb2dfc35bd77ccb07a3ba12430d6821b3) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded react-dom from 18.2.0 to 18.3.1
+
+- [#391](https://github.com/dipakparmar/docs-diary/pull/391) [`9e1951b`](https://github.com/dipakparmar/docs-diary/commit/9e1951b895a05bb3b6aed4889ab9582592911d71) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @changesets/cli from 2.27.1 to 2.27.6
+
+- [#377](https://github.com/dipakparmar/docs-diary/pull/377) [`7a6898d`](https://github.com/dipakparmar/docs-diary/commit/7a6898d13d7ed351fbdac0f9f931b8b395a14be4) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded to docusaurus from v3.1.1 to v3.3.2
+
+- [#383](https://github.com/dipakparmar/docs-diary/pull/383) [`020b2e8`](https://github.com/dipakparmar/docs-diary/commit/020b2e8ba5c65fea3205503fedecccdebe7e70b1) Thanks [@dependabot](https://github.com/apps/dependabot)! - Updated @docusaurus/\* from 3.3.2 to 3.4.0
+
+- [#379](https://github.com/dipakparmar/docs-diary/pull/379) [`60ac958`](https://github.com/dipakparmar/docs-diary/commit/60ac9585a36f337e9499d5bb908658498c31c010) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @types/react from 18.3.2 to 18.3.3
+
+- [#388](https://github.com/dipakparmar/docs-diary/pull/388) [`46134ca`](https://github.com/dipakparmar/docs-diary/commit/46134ca044f3dc3196164702b747a25da12bfd40) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded tailwindcss from 3.4.1 to 3.4.4
+
+- [#381](https://github.com/dipakparmar/docs-diary/pull/381) [`8d65010`](https://github.com/dipakparmar/docs-diary/commit/8d65010594ff7c891df4682ff992f37c09dec03e) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint-plugin-react-hooks from 4.6.0 to 4.6.2
+
+- [#390](https://github.com/dipakparmar/docs-diary/pull/390) [`62ace61`](https://github.com/dipakparmar/docs-diary/commit/62ace61b58350a0e89336cddcf56eed89e046451) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded braces from 3.0.2 to 3.0.3
+
+- [#385](https://github.com/dipakparmar/docs-diary/pull/385) [`f2929db`](https://github.com/dipakparmar/docs-diary/commit/f2929dbd7ba308b230b0d25a037f7b6e9c63ba90) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded stylelint from 16.2.1 to 16.6.1
+
+- [#380](https://github.com/dipakparmar/docs-diary/pull/380) [`3d1d095`](https://github.com/dipakparmar/docs-diary/commit/3d1d095976b208db38dd43e6c067618ebb2d6920) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded clsx from 2.1.0 to 2.1.1
+
+- [#378](https://github.com/dipakparmar/docs-diary/pull/378) [`eb7213b`](https://github.com/dipakparmar/docs-diary/commit/eb7213b2ae597a86e95da00f1d75b345541adc8a) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded autoprefixer from 10.4.18 to 10.4.19
+
 ## 1.6.2
 
 ### Patch Changes
