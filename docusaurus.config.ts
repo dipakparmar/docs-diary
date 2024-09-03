@@ -1,6 +1,7 @@
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import { EnumChangefreq } from 'sitemap';
+import type { Options as UmamiOptions } from '@dipakparmar/docusaurus-plugin-umami';
 
 const isDeployPreview =
   process.env.VERCEL_ENV === 'development' ||
@@ -170,15 +171,14 @@ const config: Config = {
       },
     ],
     [
-      require.resolve('@dipakparmar/docusaurus-plugin-umami'),
-      /** @type {import('@dipakparmar/docusaurus-plugin-umami').Options} */
+      '@dipakparmar/docusaurus-plugin-umami',
       {
-        websiteID: 'c401b94a-f278-46e3-bc17-72e9494f1375',
+        websiteID: 'c401b94a-f278-46e3-bc17-72e9494f13758',
         analyticsDomain: 'analytics.dipak.io',
         scriptName: 'ua.js',
         dataDoNotTrack: true,
         dataDomains: 'docs.dipak.tech',
-      },
+      } as UmamiOptions,
     ],
     async function tailwindcss() {
       return {
