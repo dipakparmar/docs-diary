@@ -1,6 +1,6 @@
 {
   "name": "docs-diary",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
