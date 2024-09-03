@@ -1,5 +1,23 @@
 # docs-diary
 
+## 1.6.4
+
+### Patch Changes
+
+- [#401](https://github.com/dipakparmar/docs-diary/pull/401) [`134be76`](https://github.com/dipakparmar/docs-diary/commit/134be769be8bd490499413b33b3c2b7ea0521730) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded typescript from 5.4.5 to 5.5.4
+
+- [#395](https://github.com/dipakparmar/docs-diary/pull/395) [`4a633ab`](https://github.com/dipakparmar/docs-diary/commit/4a633abeac7c85024674fd8b82dd58c7f405ff5e) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @changesets/cli from 2.27.6 to 2.27.7
+
+- [#392](https://github.com/dipakparmar/docs-diary/pull/392) [`1b5b6bd`](https://github.com/dipakparmar/docs-diary/commit/1b5b6bd45215b222aadf010e7f40aa86be0b9163) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded eslint-plugin-jsx-a11y from 6.8.0 to 6.9.0
+
+- [#404](https://github.com/dipakparmar/docs-diary/pull/404) [`04dac26`](https://github.com/dipakparmar/docs-diary/commit/04dac2682d8e2269d54ac59ab5d5f4360e99e3e9) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded postcss from 8.4.38 to 8.4.44
+
+- [#399](https://github.com/dipakparmar/docs-diary/pull/399) [`ba1629e`](https://github.com/dipakparmar/docs-diary/commit/ba1629e6a3db7e29d98ea9189c8bb779c9d07b3f) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded @babel/eslint-parser from 7.23.10 to 7.25.1
+
+- [#403](https://github.com/dipakparmar/docs-diary/pull/403) [`8f3abbe`](https://github.com/dipakparmar/docs-diary/commit/8f3abbe6c54cb33944b8f72576aeb6d9bbbfb6d4) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded webpack from 5.89.0 to 5.94.0
+
+- [#406](https://github.com/dipakparmar/docs-diary/pull/406) [`362e4fe`](https://github.com/dipakparmar/docs-diary/commit/362e4fedf741059d06c9a8f21474ecf8ff13c83c) Thanks [@dependabot](https://github.com/apps/dependabot)! - Upgraded micromatch from 4.0.7 to 4.0.8
+
 ## 1.6.3
 
 ### Patch Changes
