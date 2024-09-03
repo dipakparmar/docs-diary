@@ -18,11 +18,13 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
+
 ## Installing Git
 
 <Tabs groupId="operating-systems">
   <TabItem value="win" label="Windows">
-    Download from <a href="https://git-scm.com/download/win">git-scm</a> and Install.
+    Download from <a href="https://git-scm.com/download/win">git-scm</a> and
+    Install.
   </TabItem>
   <TabItem value="mac" label="Mac">
     Install with homebrew package manager
@@ -139,7 +141,6 @@ git branch -D [branch name]
 ```bash
 git push origin [branch name]
 ```
-
 
 ## Merge and update
 
@@ -258,6 +259,36 @@ git config color.ui true
 ```bash
 git config --global --add --bool push.autoSetupRemote true
 ```
+
+### Open repository in browser
+
+#### Prerequisites
+
+Before proceeding with the Git commands and aliases in this guide, ensure you have the following installed:
+
+1. GitHub CLI (gh): Required for some advanced features like opening repositories in the browser.
+
+To install GitHub CLI, visit the official website: [https://cli.github.com/](https://cli.github.com/)
+
+Follow the installation instructions for your operating system. After installation, authenticate with your GitHub account by running:
+
+```bash
+gh auth login
+```
+
+Add a global alias to open the current repository in the browser:
+
+```bash
+git config --global alias.open '!gh repo view -w'
+```
+
+Usage:
+
+```bash
+git open
+```
+
+This command will open the current repository's page in your default web browser. Note that this requires the GitHub CLI (gh) to be installed and authenticated.
 
 ### .gitignore
 
