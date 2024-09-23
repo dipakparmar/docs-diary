@@ -173,7 +173,7 @@ const config: Config = {
     [
       '@dipakparmar/docusaurus-plugin-umami',
       {
-        websiteID: 'c401b94a-f278-46e3-bc17-72e9494f13758',
+        websiteID: 'c401b94a-f278-46e3-bc17-72e9494f1375',
         analyticsDomain: 'analytics.dipak.io',
         scriptName: 'ua.js',
         dataDoNotTrack: true,
