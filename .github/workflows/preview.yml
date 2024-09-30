@@ -23,11 +23,14 @@ jobs:
       url: ${{ steps.deploy.outputs.url }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - name: Install Vercel CLI
-        run: npm install --global vercel@latest
+        run: pnpm add --global vercel@latest
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build Project Artifacts
