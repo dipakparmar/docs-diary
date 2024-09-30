@@ -20,4 +20,3 @@ updates:
     # Check the GitHub Actions API for updates every day (weekdays)
     schedule:
       interval: "weekly"
-    versioning-strategy: increase-if-necessary
