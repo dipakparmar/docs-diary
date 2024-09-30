@@ -7,7 +7,17 @@ updates:
     # Check the npm registry for updates every day (weekdays)
     schedule:
       interval: "weekly"
+    versioning-strategy: increase-if-necessary
     groups:
       docusaurus:
         patterns:
         - "@docusaurus/*"
+
+  # Enable version updates for GitHub Actions workflows
+  - package-ecosystem: "github-actions"
+    # Look for workflow files in the `.github/workflows` directory
+    directory: ".github/workflows"
+    # Check the GitHub Actions API for updates every day (weekdays)
+    schedule:
+      interval: "weekly"
+    versioning-strategy: increase-if-necessary
