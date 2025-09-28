@@ -31,8 +31,6 @@
     "prism-react-renderer": "2.3.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "autoprefixer": "10.4.21",
-    "postcss": "8.4.44",
     "react-gist": "1.2.4",
     "reading-time": "1.5.0",
     "tailwindcss": "4.1.13"

@@ -183,12 +183,12 @@ const config: Config = {
     async function tailwindcss() {
       return {
         name: 'docusaurus-tailwindcss',
-        configurePostCss(postCssOptions) {
-          // Appends TailwindsCSS and AutoPrefixer
-          postCssOptions.plugins.push(require('tailwindcss'));
-          postCssOptions.plugins.push(require('autoprefixer'));
-          return postCssOptions;
-        },
+        // configurePostCss(postCssOptions) {
+        //   // Appends TailwindsCSS and AutoPrefixer
+        //   postCssOptions.plugins.push(require('tailwindcss'));
+        //   postCssOptions.plugins.push(require('autoprefixer'));
+        //   return postCssOptions;
+        // },
       };
     },
   ],
