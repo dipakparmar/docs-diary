@@ -1,5 +1,25 @@
 # docs-diary
 
+## 1.7.0
+
+### Minor Changes
+
+- [#429](https://github.com/dipakparmar/docs-diary/pull/429) [`1a5758f`](https://github.com/dipakparmar/docs-diary/commit/1a5758f541de64e3605e0e149d3bd093329b4daa) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps): bump the docusaurus from 3.4.0 to 3.6.3
+
+### Patch Changes
+
+- [#430](https://github.com/dipakparmar/docs-diary/pull/430) [`1dc9c1f`](https://github.com/dipakparmar/docs-diary/commit/1dc9c1f1a9363a588f17958ef8344002190192ef) Thanks [@dipakparmar](https://github.com/dipakparmar)! - fix: fix broken links and remove theme modifications
+
+- [#407](https://github.com/dipakparmar/docs-diary/pull/407) [`59a53e1`](https://github.com/dipakparmar/docs-diary/commit/59a53e1caf55225a4c60217e1dbec5a8249ae7ce) Thanks [@dipakparmar](https://github.com/dipakparmar)! - feat: use ts types for umami plugin
+
+- [#433](https://github.com/dipakparmar/docs-diary/pull/433) [`8025e74`](https://github.com/dipakparmar/docs-diary/commit/8025e749c0de3f8689fe0e99930ebc4b8abad4bc) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps): bump actions/setup-node from 4 to 5
+
+- [#409](https://github.com/dipakparmar/docs-diary/pull/409) [`4a07499`](https://github.com/dipakparmar/docs-diary/commit/4a07499736083741f1318d8a1f208ef42040aa0e) Thanks [@dipakparmar](https://github.com/dipakparmar)! - docs: update git basics with instructions for the git open alias.
+
+- [#434](https://github.com/dipakparmar/docs-diary/pull/434) [`84901a7`](https://github.com/dipakparmar/docs-diary/commit/84901a777309997b2c2ebc9908909dc2b803d8c8) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps): bump actions/checkout from 4 to 5
+
+- [#421](https://github.com/dipakparmar/docs-diary/pull/421) [`8a67b5e`](https://github.com/dipakparmar/docs-diary/commit/8a67b5e5833bd1856b2be76fd90a20277151adda) Thanks [@dependabot](https://github.com/apps/dependabot)! - chore(deps-dev): bump eslint-plugin-import from 2.29.1 to 2.31.0
+
 ## 1.6.4
 
 ### Patch Changes
