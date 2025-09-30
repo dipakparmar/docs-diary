@@ -1,0 +1,60 @@
+---
+id: enable-serial-terminal-linux
+title: Enable Serial Terminal for Ubuntu/Linux VM
+sidebar_label: Enable Serial Terminal (Ubuntu/Linux)
+keywords: [Ubuntu, Linux, VM, serial, console, terminal, hypervisor, xterm.js]
+description: 'Step-by-step guide to enable serial console access for Ubuntu/Linux virtual machines on any hypervisor'
+tags: [Linux, Ubuntu, Virtualization, Serial]
+---
+
+Enabling a serial terminal for Ubuntu or Linux VMs allows you to access the VM console via a serial port, which is supported by most hypervisors (Proxmox, VMware, VirtualBox, etc.). This guide walks you through the process.
+
+## Prerequisites
+
+- A hypervisor (Proxmox, VMware, VirtualBox, etc.) with an Ubuntu/Linux VM
+- Access to the VM via SSH or Console
+
+## Steps
+
+### 1. Add a Virtual Serial Port
+
+1. Open your hypervisor's management interface.
+2. Select your VM.
+3. Add a **Serial Port** to the VM hardware.
+4. Confirm and restart the VM if required.
+
+### 2. Enable Serial Console in Ubuntu/Linux
+
+1. Log in to your Ubuntu/Linux VM (via SSH or Console).
+2. Enable and start the serial-getty service for the serial port (usually `ttyS0`):
+
+   ```bash
+   sudo systemctl enable serial-getty@ttyS0.service
+   sudo systemctl start serial-getty@ttyS0.service
+   ```
+
+   :::info
+   **Single command alternative:**
+   ```bash
+   sudo systemctl enable --now serial-getty@ttyS0.service
+   ```
+   :::
+
+   If your serial port uses a different device (e.g., `ttyS1`), adjust the command accordingly.
+
+### 3. Access the Serial Terminal
+
+1. Use your hypervisor's console feature (e.g., xterm.js in Proxmox, Serial Console in VMware/VirtualBox).
+2. You should now see the Ubuntu/Linux login prompt via the serial terminal.
+
+## Example: Proxmox VE
+
+If you are using Proxmox VE, follow these steps:
+
+1. Open the Proxmox Web GUI.
+2. Select your VM.
+3. Go to **Hardware**.
+4. Click **Add** → **Serial Port**.
+5. Confirm and restart the VM.
+6. After enabling the serial-getty service as described above, go to **Console** and select **xterm.js**.
+7. You should see the Ubuntu/Linux login prompt via the serial terminal.
