@@ -30,6 +30,7 @@ const config: Config = {
   trailingSlash: false, // Remove trailing slash at the end of url
 
   markdown: {
+    mermaid: true,
     hooks: {
       onBrokenMarkdownLinks: 'throw',
     },
@@ -150,7 +151,8 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
 
   // Themes are used to customize the colors and styles used by Docusaurus.
-  themes: [],
+
+  themes: ['@docusaurus/theme-mermaid'],
 
   // Plugins are used to extend the functionality of Docusaurus.
   plugins: [
