@@ -1,0 +1,161 @@
+---
+id: telus-nah-bypass-part-1
+title: Telus NAH Bypass Exploration (Part 1)
+sidebar_label: SFP Access and Static IP Roadblock - Part 1
+description: Detailed documentation of the successful direct GPON SFP access, configuration dump, and the technical reasons for the Static IP subnet bypass failure.
+keywords: [Telus NAH Bypass, UDM Pro Telus Fibre, Alcatel-Lucent 3FE48541AAFA, Telus Static IP Bypass, GPON SFP, NH20A Bridge Mode, Telus Packet Loss Fix, ritool dump, SLID extraction]
+tags: [Telus, Networking, GPON, UDM Pro, Bypass]
+---
+
+:::warning
+
+⚠️ **Disclaimer:** This documentation is for educational purposes/last resort only. Bypassing ISP-provided hardware may violate your service agreement and could lead to service termination. Proceed at your own risk. As a author i'm not responsible for any consequences resulting from attempting the procedures outlined herein.
+
+:::
+
+## 🤷 Problem Statement: Frustration Driving the Project
+
+This guide chronicles my personal technical journey and exploration into bypassing the **Telus Network Access Hub (NAH)**. This project is fueled by the frustration of persistent network instability, high latency, and intermittent **packet loss** that Telus technicians were consistently unable to diagnose or resolve, repeatedly stating, "everything is good on our end."
+
+My initial residential 1 Gbps plan experienced these issues, which worsened after upgrading to a **Business 1.5 Gbps PureFibre** plan in hopes of better service and support. The core hypothesis is that the root cause of the packet loss and instability lies within the **Telus-provided hardware** (the NAH/NH120/NH20A) and its restricted, proprietary configuration. The ultimate solution is to fully offload all network processing and routing to a dedicated, high-performance solution like the **Ubiquiti Dream Machine Pro (UDM Pro)**.
+
+
+## 🛠️ Phase 1: Direct SFP Access and Configuration Retrieval
+
+The first major hurdle was to prove that the **ONT (Optical Network Terminal)** functionality, which terminates the fibre signal, could be divorced from the NAH. This was achieved by directly accessing the **Alcatel-Lucent 3FE48541AAFA GPON SFP module** and extracting its identity.
+
+### 1.1 Network Topology: Before and After Bypass Attempt
+
+The fundamental change is moving the point of failure from the Telus NAH to the UDM Pro.
+
+#### Current Topology (NAH Required for Static IP)
+
+```mermaid
+graph TD
+    A[Telus OLT/Core] -->|Fibre| B(Telus NAH - NH120/NH20A);
+    B -->|Proprietary Routing| C(NAH Router/NAT Function);
+    C -->|Ethernet| D(UDM Pro WAN Port 9);
+    D --> E(UDM Pro LAN/Internal Network);
+    style B fill:#f9f,stroke:#333
+    style C fill:#9f9,stroke:#333
+````
+
+#### Bypass Topology (Targeted Goal)
+
+```mermaid
+graph TD
+    A[Telus OLT/Core] -->|Fibre| B(Alcatel-Lucent SFP - UDM Pro Port 10);
+    B -->|Ethernet| D(UDM Pro WAN Port 10);
+    D --> E(UDM Pro LAN/Internal Network);
+    style D fill:#9f9,stroke:#333
+```
+
+### 1.2 Physical Connection and Interface Activation
+
+The Telus-supplied SFP module was inserted into the **UDM Pro SFP+ WAN Port (Port 10)**.
+
+**Key Technical Detail:** Since the SFP is a 1 Gbps GPON device and the UDM Pro port is 10 Gbps SFP+, the link speed **must be forced** to ensure a stable connection.
+
+**UDM Pro CLI Command (`eth10` confirmed for Port 10/11 depending on firmware):**
+
+```bash
+# SFP link check confirmed the link state:
+root@UDM-Pro:~# ethtool eth10
+...
+	Speed: 1000Mb/s
+	Duplex: Full
+	Link detected: yes
+```
+
+### 1.3 Gaining SSH Access to the SFP Management OS
+
+The SFP module runs its own embedded operating system (based on OpenWRT/Lantiq) accessible via SSH on a private management IP of **`192.168.1.10`**. To reach this hidden IP from the UDM Pro's standard LAN, temporary routing rules were required.
+
+**UDM Pro CLI Commands for Routing Injection:**
+
+1.  **Assign Temporary IP to SFP Interface:** This places the UDM Pro on the SFP's management subnet.
+    ```bash
+    ip addr add dev eth10 192.168.1.2/24
+    ```
+2.  **Add NAT Rule for Traffic:** Ensures traffic from the UDM Pro's internal network is correctly source-NAT'd when directed to the SFP.
+    ```bash
+    iptables -t nat -A POSTROUTING -o eth10 -d 192.168.1.10 -j MASQUERADE
+    ```
+
+**SFP SSH Connection (Client Mac/Terminal):**
+Modern SSH clients refuse connections due to the SFP's reliance on outdated security algorithms. This was bypassed by explicitly allowing the legacy methods:
+
+```bash
+# Force legacy key exchange and host key algorithms
+ssh -o KexAlgorithms=+diffie-hellman-group1-sha1 -o HostKeyAlgorithms=+ssh-rsa ONTUSER@192.168.1.10
+```
+
+  * **Credentials:** `ONTUSER` / `SUGAR2A041`
+  * **Result:** **Success.** Full command-line access was achieved.
+
+### 1.4 Configuration Dump and Credential Extraction
+
+Once logged in, the `ritool dump` command provided a definitive dump of the device's GPON configuration, officially confirming the authentication parameters.
+
+**Command Output Analysis (`ritool dump`):**
+
+```bash
+ONTUSER@SFP:~# ritool dump
+...
+the G984Serial:fd043625
+the SLID:30303030303030303030303030303030 
+...
+```
+
+| Parameter | Raw Hex Value | Decoded Value | Significance |
+| :--- | :--- | :--- | :--- |
+| **GPON S/N** | `ALCL` + `fd043625` | `ALCLfd043625` | The unique ID of the device registered with the OLT. |
+| **SLID (PLOAM PWD)** | `30...30` (16x) | `0000000000000000` (16x Zeroes) | The password used for service authentication. |
+
+
+## 🛑 Phase 2: The Static IP Roadblock—Identifying the Proprietary Handshake
+
+With the SFP successfully authenticated, the UDM Pro was tested for full bypass capabilities. The results highlighted the core issue:
+
+| Connection Type | Authentication/Configuration | Bypass Status | Conclusion |
+| :--- | :--- | :--- | :--- |
+| **Dynamic IP** | DHCP | **SUCCESS** | SFP's inherent authorization is sufficient for basic service. |
+| **Static IP Subnet** | Static IP Configuration | **FAILURE** | **Proprietary routing protocol is missing.** |
+
+### 2.1 The Technical Limitation
+
+The failure of the Static IP Subnet configuration points to a crucial gap in the bypass:
+
+  * **SFP's Role:** The SFP handles **L1/L2 (Physical and Data Link)** authentication (using the S/N and SLID).
+  * **NAH's Role:** The Telus NAH handles the **L3 (Network)** routing authorization required for the static IP block. This involves a custom, unpublished routing handshake (likely a form of dynamic routing or OMCI command sequence) that tells the Telus core network: "This static subnet is now reachable at this specific physical location."
+  * **The Roadblock:** The UDM Pro cannot replicate this proprietary protocol. Therefore, Telus's backbone routers never correctly update their routing tables to send the static subnet traffic to your fibre line, resulting in a silent failure.
+
+### 2.2 The Challenge Ahead
+
+The only way to achieve a complete, *unrestricted* bypass is to understand and replicate this proprietary protocol.
+
+
+## 🔜 Future Exploration: Figuring out the Protocol (Part 2)
+
+**The core goal of the subsequent documentation will be to solve the Static IP Subnet routing failure.**
+
+**Part 2 of this guide will document the experimental steps to:**
+
+1.  **Network Monitoring Setup:** Implement a dedicated monitoring solution (e.g., Man-in-the-Middle configuration or dedicated managed switch mirroring) to capture all traffic between the NAH and the wider network when the Static IP service is initialized.
+2.  **Protocol Analysis:** Use tools like Wireshark to analyze the captured packets for non-standard routing protocol traffic (e.g., looking for custom BGP, IS-IS, or specific DHCP option codes) that are unique to the Telus NAH.
+3.  **Replication Attempt:** Utilize the UDM Pro's advanced routing capabilities (e.g., using its internal Linux OS) to attempt to craft and send the necessary packets to successfully advertise the static IP subnet and achieve a true, full bypass.
+
+### References and Citations
+
+The following sources informed the technical details of this exploration:
+
+  * **[1] Alcatel-Lucent G-010S-A SFP Technical Data:** Details on management IP, SSH credentials, and `onu` / `ritool` commands. (Source: https://hack-gpon.org/ont-nokia-g-010s-a)
+  * **[2] UniFi UDM Pro SFP+ Port Behavior:** Confirmation of required link speed settings (1000 FDX) and Linux interface naming (`eth10`). (Source: *Ubiquiti community forums*)
+  * **[3] Telus Static IP Subnet Bypass Consensus:** Documentation of the Static IP bypass failure and the necessity of the proprietary protocol run by the NAH. (Source: *Reddit r/telus and DSLReports forums* https://www.reddit.com/r/telus/comments/1hsbtez/seeking_docs_on_bridging_technicolor_nh20t_so_i/)
+  * **[4]** https://community.ui.com/questions/UFiber-GPON-SFP-on-UDM-Pro/03e052d8-85fd-4444-8910-914384453e48
+  * **[5]** https://github.com/hwti/G-010S-A 
+  * **[6]** https://www.al-enterprise.com/-/media/assets/internet/documents/nokia-ont-g-010s-s-datasheet-en.pdf
+  * **[7]** https://www.reddit.com/r/telus/comments/1hsc6e1/trying_to_bypass_the_telus_gateway_hub_nh20a/
+  * **[8]** https://pon.wiki/category/nh20t/
+  * **[9]** https://www.youtube.com/watch?v=ib0XVeCJanM
+
