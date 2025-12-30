@@ -1,0 +1,373 @@
+---
+id: ubnt-edgerouter-usb-recovery
+title: 'Replacing Failed USB Flash on Ubiquiti EdgeRouter: A Recovery Guide'
+sidebar_label: EdgeRouter USB Recovery
+keywords: 
+  [
+    ubnt,
+    ubnt edgerouter,
+    edgerouter usb recovery,
+    edgerouter flash replacement,
+    edgerouter usb flash failed,
+    edgerouter recovery guide,
+    edgerouter troubleshooting,
+    edgerouter usb repair,
+    edgerouter usb flash recovery,
+    edgerouter usb flash replacement guide,
+    edgerouter usb flash troubleshooting,
+    edgerouter usb flash repair guide
+    edgerouter lite usb recovery
+    edgerouter poe usb recovery
+    edgerouter poe flash replacement
+  ]
+description: 'A step-by-step guide to replacing a failed USB flash drive on Ubiquiti EdgeRouter.'
+tags: [Networking, Ubiquiti, EdgeRouter]
+---
+
+
+*When your EdgeRouter dies silently, it's probably the USB flash. Here's how I recovered from yet another flash failure.*
+
+## The Problem
+
+
+If you're experiencing any of these issues with your Ubiquiti EdgeRouter:
+
+- **Router keeps running** but **fails to boot after a reboot**
+- **Boot loops** or **kernel panic on startup**
+- **System appears to work** but logs errors about missing configuration files
+- **Can't SSH in** after rebooting, but was fine before
+- **DHCP or firewall rules** suddenly not applying after a restart
+
+...your internal USB flash drive has likely failed.
+
+## The Solution
+
+The recovery process involves creating a new bootable USB drive with EdgeOS. While Ubiquiti provides the OS tarball, you can't just extract it to a USB stick – it needs proper partitioning, formatting, and careful placement of the boot files.
+
+Fortunately, **[mkeosimg](https://github.com/deimosfr/mkeosimg)** Orignally by [sowbug](https://github.com/sowbug) exists to automate most of the process. This bash script takes an EdgeOS tarball and produces a ready-to-use disk image.
+
+:::warning
+
+Double-check remote scripts, i'm not affiliated with Ubiquiti or the script author. Use at your own risk. You should always verify the contents of any script before running it with elevated privileges.
+
+:::
+
+
+## What You'll Need
+
+Before you start, make sure you have:
+
+- A **machine** running any Debian/Ubuntu-based Linux distribution
+- An **EdgeOS tarball** (the release image from Ubiquiti) --> you can download it from [Ubiquiti's website](https://ui.com/download)
+- A **USB drive or SD card** (at least 2GB; 4GB+ is safer)
+- **About 4GB of free disk space** on your machine
+- The **mkeosimg script** (or you can clone it from GitHub)
+
+
+## Step 1: Install the Required Tools
+
+The mkeosimg script depends on several command-line utilities. Let's verify they're installed:
+
+```bash
+which losetup parted mkfs.msdos mkfs.ext3 tar dd
+```
+
+You should see paths for all of these commands. If not, install the missing ones:
+
+```bash
+sudo apt update
+sudo apt install -y parted e2fsprogs dosfstools
+```
+
+These packages provide:
+- **parted** – for disk partitioning
+- **e2fsprogs** – includes `mkfs.ext3` for ext3 filesystems
+- **dosfstools** – includes `mkfs.msdos` for FAT32
+- The others (`losetup`, `tar`, `dd`) are part of the base OS
+
+Quick verification:
+
+```bash
+parted --version
+mkfs.msdos -h 2>&1 | head -1
+mkfs.ext3 -h 2>&1 | head -1
+```
+
+## Step 2: Prepare Your EdgeOS Tarball
+
+Get the EdgeOS release image ready:
+
+```bash
+ls -lh *.tar
+```
+
+You should see something like:
+```
+edgeos-v2.1.10-amd64-20250101.tar  (100-500MB typically)
+```
+
+If you have a custom EdgeOS config you want to include:
+
+```bash
+ls -l edgeos_config.tar.gz
+```
+
+If this file exists, the script will apply it when creating the image (and add a `-configured` suffix to the output filename).
+
+
+## Step 3: Identify Your USB Drive (The Critical Part)
+
+This is where you need to be careful. Identifying the wrong device could be destructive.
+
+### List all disks:
+
+```bash
+lsblk
+```
+
+Example output:
+```
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda           8:0    1  14.9G  0 disk 
+├─sda1        8:1    1   512M  0 part 
+└─sda2        8:2    1  14.4G  0 part 
+sdb           8:16   0 931.5G  0 disk 
+├─sdb1        8:17   0   256M  0 part /boot
+└─sdb2        8:18   0 931.2G  0 part /
+```
+
+### How to identify your USB drive:
+
+- **Look for a device in `/dev/sdX`** (where X is a letter like `a`, `b`, `c`)
+- **Check the size** – your USB drive should be smaller than your Pi's main storage
+- **Check RM column** – removable media will show `1`
+- **Check MOUNTPOINT** – USB drives are often unmounted (empty)
+
+In the example above, `/dev/sda` (14.9G) is likely the USB drive, while `/dev/sdb` (931.5G) is the Pi's main storage.
+
+### Verify before proceeding:
+
+```bash
+sudo fdisk -l /dev/sdX
+```
+
+Replace `sdX` with your identified device. Check:
+- The size matches your USB drive
+- It's not your Pi's system drive
+
+**If you're unsure, stop here and double-check.** Writing to the wrong device is irreversible.
+
+
+## Step 4: Run the mkeosimg Script
+
+### Get the script:
+
+You can clone it from GitHub or copy it directly:
+
+```bash
+git clone https://github.com/deimosfr/mkeosimg.git
+cd mkeosimg
+```
+
+Or if you already have it:
+
+```bash
+cd /path/to/mkeosimg
+chmod +x mkeosimg.sh
+```
+
+### Run it with your tarball:
+
+```bash
+sudo ./mkeosimg.sh edgeos-v2.1.10-amd64-20250101.tar
+```
+
+Replace the filename with your actual EdgeOS tarball.
+
+### What it does:
+
+1. **Creates a 2GB disk image** file (`.img`)
+2. **Partitions it** into boot (150MB) and root (1750MB) sections
+3. **Formats the partitions** with FAT32 and ext3
+4. **Extracts the EdgeOS release** into the image
+5. **Verifies checksums** to ensure nothing got corrupted
+6. **Applies your custom config** (if you have one)
+7. **Creates data directories** for EdgeOS's writable files
+
+The whole process takes a few minutes. You'll see output like:
+
+```
+Creating edgeos-v2.1.10-amd64-20250101.img
+2048+0 records in
+2048+0 records out
+...
+Unpacking EdgeOS release image
+Verifying EdgeOS kernel
+Copying EdgeOS kernel to boot partition
+...
+Done.
+```
+
+When you see "Done." at the end, your image is ready.
+
+
+## Step 5: Write the Image to Your USB Drive
+
+Now comes the moment of truth. **Triple-check your device name one more time:**
+
+```bash
+lsblk
+```
+
+### Unmount the USB drive:
+
+```bash
+sudo umount /dev/sdX*
+```
+
+This ensures nothing is locked while we write to it.
+
+### Write the image:
+
+```bash
+sudo dd if=edgeos-v2.1.10-amd64-20250101.img of=/dev/sdX bs=4M status=progress
+```
+
+**Important notes:**
+- `if=` is the input file (your `.img` file)
+- `of=` is the output device (your USB drive—**not a partition number**, just `/dev/sda`, not `/dev/sda1`)
+- `bs=4M` writes in 4MB chunks for speed
+- `status=progress` shows you how far along it is
+
+Wait for it to complete. You'll see something like:
+
+```
+15728640000 bytes (15.7 GB) copied, 45.2 s, 348 MB/s
+```
+
+### Sync to ensure everything is written:
+
+```bash
+sudo sync
+echo "Write complete"
+```
+
+The `sync` command flushes any buffered data to disk. Don't unplug the USB drive until this completes.
+
+
+## Step 6: Replace the Failed USB in Your EdgeRouter
+
+### For EdgeRouter Lite (internal USB):
+
+The original EdgeRouter Lite units have an internal USB flash drive. To replace it:
+
+1. **Power off** the EdgeRouter completely
+2. **Open the case** (remove screws on the bottom)
+3. **Locate the internal USB** (it's a small USB stick plugged into the internal header)
+4. **Remove the dead USB** and **insert your new one**
+5. **Close the case** and power on
+
+The router should boot from the new USB flash drive.
+
+### For external USB recovery:
+
+If you're using this as an external recovery drive:
+
+1. **Eject safely** from your Pi:
+   ```bash
+   sudo eject /dev/sdX
+   ```
+
+2. **Insert the USB** into your EdgeRouter
+
+3. **Power on** and access the boot menu (DEL/F12/ESC depending on model)
+
+4. **Select the USB** as the boot device
+
+5. EdgeOS should load from your new drive
+
+
+## Troubleshooting
+
+### "Must run as root or with sudo"
+
+Make sure you're using `sudo`:
+```bash
+sudo ./mkeosimg.sh your-image.tar
+```
+
+### "parted: command not found"
+
+Install it:
+```bash
+sudo apt install parted
+```
+
+### "mkfs.ext3: No such file or directory"
+
+Install e2fsprogs:
+```bash
+sudo apt install e2fsprogs
+```
+
+### "Kernel in image is corrupted!"
+
+Your EdgeOS tarball is damaged. Try:
+```bash
+md5sum edgeos-v2.1.10*.tar
+```
+
+Compare the checksum with the official EdgeOS release. If it doesn't match, re-download the tarball.
+
+### "Device busy" when writing
+
+The USB drive is still mounted. Unmount it:
+```bash
+sudo umount /dev/sdX*
+```
+
+### Not enough disk space
+
+Free up space on your Pi:
+```bash
+df -h
+sudo apt clean
+rm -rf ~/Downloads/*
+```
+
+## Why Use mkeosimg?
+
+Instead of manually:
+- Creating a disk image with `dd`
+- Partitioning with `parted`
+- Formatting each partition
+- Extracting and positioning kernel and filesystem images
+- Verifying checksums
+- Setting ownership and permissions
+
+...mkeosimg handles all of this in one command. When you're dealing with a failed router at a client site (or in a data center), you want a reliable, tested process—not a series of manual steps where one typo could waste an hour.
+
+
+## Credits
+
+This guide uses the **[mkeosimg](https://github.com/deimosfr/mkeosimg)** script, modified version of the original by [sowbug](https://github.com/sowbug). Huge thanks to both authors for making EdgeRouter recovery easier for all of us.
+
+
+## Next Steps
+
+Once your EdgeRouter is booted with the new USB flash:
+
+1. **Restore your configuration backup** (you have one, right?)
+2. **Update to the latest EdgeOS** version
+3. **Test all network interfaces** and routes
+4. **Verify firewall rules** are working
+5. **Set up automated config backups** to prevent future headaches
+
+If you don't have a config backup, you'll need to reconfigure from scratch. This is a painful lesson learned once—always keep recent backups of your router configs.
+
+
+## Final Thoughts
+
+The EdgeRouter Lite is a solid piece of hardware, but those internal USB flash drives are its Achilles' heel. If you manage multiple EdgeRouter units, keep a few spare USB drives pre-imaged and ready to go. Your future self (or your on-call engineer at 2 AM) will thank you.
+
+
