@@ -7,12 +7,14 @@ keywords:
   [
     opnsense,
     opnsense updates,
-    opnsense air-gapped,
-    opnsense dns whitelist,
-    opnsense firmware updates,
+    which urls to allow for opnsense updates,
+    which ips to allow for opnsense updates,
+    opnsense system updates allowed domains,
+    opnsense firmware updates whitelist,
     opnsense pkg.opnsense.org,
-    opnsense firewall updates,
-    upstream dns filter,
+    opnsense behind dns filter,
+    opnsense restricted internet access,
+    upstream dns filter opnsense,
     opnsense behind router,
   ]
 tags: [Firewall, OPNsense, Network, Security]
@@ -52,7 +54,6 @@ The exact steps depend on what sits upstream of OPNsense:
 | Pi-hole | **Whitelist** under **Domains** |
 | AdGuard Home | **Filters > Custom filtering rules** - add `@@||pkg.opnsense.org^` etc. |
 | Corporate DNS / Umbrella / Zscaler | Domain bypass or exception list in the admin console |
-| OPNsense Unbound acting as recursive resolver (with blocking) | **Services > Unbound DNS > Host Overrides** or allowlist |
 
 ## Local Caching Mirror (Proxy Environments)
 
