@@ -1,0 +1,63 @@
+---
+id: opnsense-update-dns-config
+title: Allowing OPNsense Updates Through an Upstream DNS Filter
+sidebar_label: Update DNS Allowlist (Upstream)
+description: How to configure the upstream router, DNS provider, or blocking gateway above OPNsense to allow firmware and package update traffic.
+keywords:
+  [
+    opnsense,
+    opnsense updates,
+    opnsense air-gapped,
+    opnsense dns whitelist,
+    opnsense firmware updates,
+    opnsense pkg.opnsense.org,
+    opnsense firewall updates,
+    upstream dns filter,
+    opnsense behind router,
+  ]
+tags: [Firewall, OPNsense, Network, Security]
+---
+
+# Allowing OPNsense Updates Through an Upstream DNS Filter
+
+If OPNsense sits behind an upstream router, ISP gateway, or corporate DNS filtering appliance, that upstream device is what must be configured to allow OPNsense update traffic - not OPNsense itself.
+
+This applies to any setup where OPNsense is not the edge device: for example, OPNsense running behind a carrier-grade NAT router, a corporate perimeter firewall, or a blocking gateway such as Pi-hole, AdGuard Home, or a managed DNS provider with domain filtering.
+
+## Domains to Allow on the Upstream Device
+
+OPNsense contacts three domains to fetch firmware and package updates. Add all three to the allowlist on your **upstream router or DNS filter**:
+
+| Domain | Purpose |
+|---|---|
+| `pkg.opnsense.org` | Primary repository for software packages and plugins |
+| `firmware.opnsense.org` | Core base system and kernel updates |
+| `mirror.opnsense.org` | Geo-aware redirector that routes to the fastest available mirror |
+
+If you selected a specific regional mirror under **System > Firmware > Settings**, also add that mirror's domain - the generic `mirror.opnsense.org` redirector will not cover it.
+
+## Why IP Allowlisting Will Not Work
+
+OPNsense uses CDNs and a global network of community mirrors. The IP addresses behind these domains change constantly based on geography and server availability. Hardcoded IP rules on your upstream device will break over time.
+
+Always allowlist by domain name (FQDN), not by IP address.
+
+## Where to Make the Change
+
+The exact steps depend on what sits upstream of OPNsense:
+
+| Upstream device | Where to add the allowlist |
+|---|---|
+| Home/ISP router with DNS filtering | DNS allowlist or parental controls section |
+| Pi-hole | **Whitelist** under **Domains** |
+| AdGuard Home | **Filters > Custom filtering rules** - add `@@||pkg.opnsense.org^` etc. |
+| Corporate DNS / Umbrella / Zscaler | Domain bypass or exception list in the admin console |
+| OPNsense Unbound acting as recursive resolver (with blocking) | **Services > Unbound DNS > Host Overrides** or allowlist |
+
+## Local Caching Mirror (Proxy Environments)
+
+If your network uses an internal caching mirror or HTTP proxy for software downloads, configure the upstream DNS to resolve the OPNsense update domains to your proxy's internal IP instead of the public internet. This is a Host Override at the DNS layer - not a firewall rule - and should be applied on whichever DNS server OPNsense queries for resolution.
+
+## References
+
+- [OPNsense Firmware Updates - official docs](https://docs.opnsense.org/manual/updates.html)
