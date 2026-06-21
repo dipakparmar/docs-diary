@@ -2,6 +2,7 @@
   "name": "docs-diary",
   "version": "1.7.0",
   "private": true,
+  "packageManager": "pnpm@11.5.0",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
