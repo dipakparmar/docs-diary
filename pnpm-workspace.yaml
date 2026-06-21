@@ -1,0 +1,9 @@
+packages:
+  - .
+
+allowBuilds:
+  core-js: false
+  core-js-pure: false
+
+overrides:
+  webpack: 5.101.3

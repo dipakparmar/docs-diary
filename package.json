@@ -2,6 +2,7 @@
   "name": "docs-diary",
   "version": "1.7.0",
   "private": true,
+  "packageManager": "pnpm@11.5.0",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
@@ -22,7 +23,7 @@
     "yml-to-json": "node scripts/yml-to-json.js"
   },
   "dependencies": {
-    "@dipakparmar/docusaurus-plugin-umami": "2.1.5",
+    "@dipakparmar/docusaurus-plugin-umami": "2.4.0",
     "@docusaurus/core": "3.9.1",
     "@docusaurus/plugin-client-redirects": "3.9.1",
     "@docusaurus/preset-classic": "3.9.1",
@@ -76,6 +77,6 @@
     ]
   },
   "engines": {
-    "node": ">=20.0"
+    "node": ">=24.0"
   }
 }
