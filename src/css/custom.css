@@ -434,10 +434,175 @@ nav.navbar:not(.navbar-sidebar--show) {
 nav.menu {
   padding: 22px 20px;
 }
-.navbar {
-  border-bottom: 1px solid var(--ifm-toc-border-color);
-  box-shadow: none;
+/* Top navbar removed — the Dock is the only chrome (blog style). Collapse the
+   bar to zero height (no ghost sticky strip on scroll) but keep the <nav> shell
+   so the mobile sidebar drawer + Algolia search stay mounted (the Dock's Search
+   fires ⌘K; the mobile Menu toggles the drawer). */
+:root {
+  --ifm-navbar-height: 0px;
 }
+.navbar__inner {
+  display: none;
+}
+.navbar {
+  height: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  backdrop-filter: none;
+  overflow: visible;
+}
+/* Breathing room at the top now that the bar is gone (blog-like) */
+.main-wrapper {
+  padding-top: 2.5rem;
+}
+html {
+  scroll-padding-top: 2rem;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Clean, borderless columns — drop the framing dividers (blog layout, not
+   Docusaurus's boxy three-column chrome) */
+.theme-doc-sidebar-container {
+  border-right: 0 !important;
+}
+.table-of-contents {
+  border-left: 0;
+  font-size: 0.8125rem;
+}
+.table-of-contents__link {
+  color: var(--ifm-color-gray-500);
+}
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--ifm-heading-color);
+  font-weight: 500;
+}
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+}
+
+/* Tabs — clean text tabs (medium weight, thin underline) instead of the
+   default bold 16px with a 3px underline. */
+.tabs {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+.tabs__item {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ifm-color-gray-500);
+  padding: 0.5rem 0;
+  margin-right: 1.5rem;
+  margin-bottom: -1px;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+.tabs__item:hover {
+  background: transparent;
+  color: var(--ifm-heading-color);
+  border-bottom-color: var(--ifm-toc-border-color);
+}
+.tabs__item--active {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  border-bottom-color: var(--ifm-color-primary);
+}
+.tabs__item--active:hover {
+  color: var(--ifm-color-primary);
+  border-bottom-color: var(--ifm-color-primary);
+}
+
+/* Tags page title — match the article/category title */
+.docs-tags-list-page h1,
+.docs-tags-doc-list-page h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+/* Tag chips — clean rounded pills instead of the ticket shape (rel="tag" is a
+   stable hook; applies on the tags page and in each doc's footer). */
+a[rel='tag'] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ifm-color-gray-600);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.7;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+a[rel='tag']::before,
+a[rel='tag']::after {
+  display: none !important;
+}
+a[rel='tag']:hover {
+  color: var(--ifm-color-primary);
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 45%, transparent);
+  background: color-mix(in srgb, var(--ifm-color-primary) 8%, transparent);
+  text-decoration: none;
+}
+a[rel='tag'] > span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ifm-color-gray-500);
+  background: var(--ifm-hover-overlay);
+  border-radius: 999px;
+  padding: 0 0.35rem;
+  min-width: 1.05rem;
+  text-align: center;
+}
+
+/* Tag detail page — doc list as clean blog-style rows (was bold 24px titles) */
+.docs-tags-doc-list-page article {
+  margin: 0;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+.docs-tags-doc-list-page article:first-of-type {
+  border-top: 1px solid var(--ifm-toc-border-color);
+  margin-top: 1.5rem;
+}
+.docs-tags-doc-list-page article > a {
+  text-decoration: none;
+}
+.docs-tags-doc-list-page article h2 {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+  margin: 0 0 0.3rem;
+  color: var(--ifm-heading-color);
+  transition: color 0.15s ease;
+}
+.docs-tags-doc-list-page article > a:hover h2 {
+  color: var(--ifm-color-primary);
+}
+.docs-tags-doc-list-page article p {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--ifm-color-gray-500);
+  margin: 0;
+}
+
 /* GitHub navbar icon */
 /* Source: https:/Hgithub.com/facebook/docusaurus/blob/mainv/website/src/css/custom.css */
 .header-github-link:hover {
@@ -476,7 +641,7 @@ nav.menu {
 /* Navbar: end */
 
 .rounded {
-  border-radius: 8px;
+  border-radius: 0.625rem;
 }
 
 .bordered {
@@ -507,6 +672,147 @@ nav.menu {
     margin: 10px 0;
   }
   /* Sidebar: end */
+}
+
+/* Pagination — de-boxed into quiet text links (blog style, not cards) */
+.pagination-nav__link {
+  border: 0;
+  border-radius: 0;
+  padding: 0.75rem 0;
+}
+.pagination-nav__link:hover {
+  background: transparent;
+}
+.pagination-nav__sublabel {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ifm-color-gray-500);
+}
+.pagination-nav__label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--ifm-heading-color);
+}
+.pagination-nav__link:hover .pagination-nav__label {
+  color: var(--ifm-color-primary);
+}
+
+/* Theme toggle lives in the bottom Dock now — hide the navbar one */
+.navbar [class*='colorModeToggle'] {
+  display: none;
+}
+
+/* Site footer — clean, borderless, centered, muted (blog aesthetic).
+   margin-bottom clears the fixed bottom Dock. */
+.footer {
+  background: transparent;
+  border-top: 0;
+  padding: 2.5rem 1rem;
+  margin-bottom: 4.5rem;
+  text-align: center;
+  --ifm-footer-color: var(--ifm-color-gray-500);
+}
+.footer__copyright {
+  font-size: 0.8125rem;
+  color: var(--ifm-color-gray-500);
+  letter-spacing: -0.005em;
+}
+/* Mute the built-with link — no loud amber in the footer */
+.footer a,
+.footer__link-item {
+  color: var(--ifm-color-gray-500);
+  text-decoration: none;
+}
+.footer a:hover,
+.footer__link-item:hover {
+  color: var(--ifm-heading-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+/* Author name — brand amber, so it stands out in the muted footer */
+.footer a.footer-author,
+.footer a.footer-author:hover {
+  color: var(--ifm-color-primary);
+  font-weight: 500;
+}
+.footer a.footer-author:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+/* Beating heart */
+.footer-heart {
+  display: inline-block;
+  animation: footer-heartbeat 1.8s ease-in-out infinite;
+}
+@keyframes footer-heartbeat {
+  0%,
+  40%,
+  100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.25);
+  }
+  28% {
+    transform: scale(1.1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-heart {
+    animation: none;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Algolia DocSearch modal — rounded, soft, palette-matched.
+   ------------------------------------------------------------------------- */
+:root {
+  --docsearch-highlight-color: var(--ifm-color-primary) !important;
+  --docsearch-modal-background: var(--ifm-background-color) !important;
+  --docsearch-modal-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.35) !important;
+  --docsearch-searchbox-focus-background: var(--ifm-hover-overlay) !important;
+  --docsearch-hit-background: var(--ifm-background-color) !important;
+  --docsearch-hit-color: var(--ifm-font-color-base) !important;
+  --docsearch-hit-active-color: #fff !important;
+  --docsearch-hit-shadow: none !important;
+  --docsearch-footer-background: var(--ifm-background-color) !important;
+  --docsearch-key-gradient: var(--ifm-hover-overlay) !important;
+  --docsearch-key-shadow: none !important;
+}
+.DocSearch-Modal {
+  border-radius: 14px !important;
+  border: 1px solid var(--ifm-toc-border-color);
+  overflow: hidden;
+  /* Fit content instead of a fixed height (kills the empty gap above the
+     footer when there are few results). Long lists scroll inside the dropdown. */
+  height: auto !important;
+  max-height: 85vh !important;
+}
+.DocSearch-Dropdown {
+  height: auto !important;
+  max-height: min(30rem, 60vh) !important;
+}
+.DocSearch-Form {
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  border: 1px solid var(--ifm-toc-border-color);
+}
+.DocSearch-Hit a {
+  border-radius: 10px !important;
+}
+.DocSearch-Hit-source {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ifm-color-gray-500);
+}
+.DocSearch-Reset,
+.DocSearch-Cancel,
+.DocSearch-Close {
+  border-radius: 8px;
 }
 
 .docusaurus-highlight-code-line {
