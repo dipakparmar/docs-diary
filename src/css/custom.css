@@ -245,52 +245,171 @@ code {
   border: 0;
 }
 
-/* Breadcrumbs */
+/* Breadcrumbs — current page: no pill, just quiet emphasis */
 .breadcrumbs__item--active .breadcrumbs__link {
-  color: var(--ifm-font-color-base);
+  color: var(--ifm-heading-color);
+  font-weight: 500;
+  background: none !important;
 }
 
-/* Sidebar */
-/* Section title*/
-.theme-doc-sidebar-menu .menu__list-item-collapsible .menu__link {
-  color: var(--ifm-heading-color);
-  font-size: 14px;
-  padding-left: 12px;
+/* Sidebar — tree view: rounded rows, a liquid hover blob, per-level guides. */
+
+/* Root menu is the positioning context for the gliding hover blob (injected
+   by SidebarMotion). Links sit above it. */
+.theme-doc-sidebar-menu {
+  position: relative;
 }
-/* Section content */
+.theme-doc-sidebar-menu .menu__link,
+.theme-doc-sidebar-menu .menu__list-item-collapsible {
+  position: relative;
+  z-index: 1;
+}
+
+/* The liquid hover blob — a single pill that springs between items */
+.sidebar-blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  border-radius: 8px;
+  background: var(--ifm-hover-overlay);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, width, height;
+  transition:
+    transform 0.42s cubic-bezier(0.34, 1.35, 0.5, 1),
+    width 0.42s cubic-bezier(0.34, 1.35, 0.5, 1),
+    height 0.42s cubic-bezier(0.34, 1.35, 0.5, 1),
+    opacity 0.18s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-blob {
+    transition: opacity 0.18s ease;
+  }
+}
+
+/* Category (folder) row */
+.theme-doc-sidebar-menu .menu__list-item-collapsible {
+  border-radius: 8px;
+}
+.theme-doc-sidebar-menu .menu__list-item-collapsible .menu__link {
+  color: var(--ifm-color-gray-600);
+  font-size: 14px;
+  font-weight: 500;
+  padding-left: 10px;
+  background: transparent;
+}
+.theme-doc-sidebar-menu .menu__list-item-collapsible:hover .menu__link {
+  color: var(--ifm-heading-color);
+  background: transparent;
+}
+
+/* Nested level — one faint hairline guide per level (no heavy elbows). Tight
+   indent so deep trees don't crush the label text. */
 .theme-doc-sidebar-item-category ul.menu__list {
-  margin-top: 0;
-  margin-left: 12px;
-  border-left: solid 1px var(--ifm-toc-border-color);
+  --tree-line: color-mix(in srgb, var(--ifm-color-gray-500) 22%, transparent);
+  margin-top: 1px;
+  margin-left: 7px;
+  padding-left: 13px;
   font-weight: 400;
 }
-.theme-doc-sidebar-item-category .menu__list li.menu__list-item {
-  margin: 8px 0;
+.theme-doc-sidebar-item-category ul.menu__list > li.menu__list-item {
+  position: relative;
+  margin: 0;
 }
-
+/* Soft curved hook branching into each row — no long vertical trunks, so
+   deep nesting never stacks into parallel lines. Just one short curve per row
+   that reaches up-left toward its parent. */
+.theme-doc-sidebar-item-category ul.menu__list > li.menu__list-item::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: -4px;
+  width: 12px;
+  height: 20px;
+  border-left: 1px solid var(--tree-line);
+  border-bottom: 1px solid var(--tree-line);
+  border-bottom-left-radius: 14px;
+  pointer-events: none;
+}
+/* Active branch — one variable turns the whole path's curves amber */
+.theme-doc-sidebar-item-category:has(
+    > .menu__list-item-collapsible > .menu__link--active
+  )
+  > ul.menu__list {
+  --tree-line: color-mix(in srgb, var(--ifm-color-primary) 55%, transparent);
+}
 .theme-doc-sidebar-item-category .menu__list li.menu__list-item svg {
   opacity: 0;
 }
 
-.theme-doc-sidebar-menu .menu__list-item > a.menu__link {
-  border-left: 1px solid transparent;
-  margin-left: -1px;
-  border-radius: 0;
-  padding: 5px 16px;
+/* Leaf (file) links — rounded hover fill; active = soft amber row */
+.theme-doc-sidebar-menu a.menu__link:not(.menu__link--sublist) {
+  border-radius: 7px;
+  padding: 5px 10px;
   font-size: 14px;
-  line-height: 14px;
+  line-height: 1.4;
+  color: var(--ifm-color-gray-600);
+  transition:
+    background-color 0.12s ease,
+    color 0.12s ease;
 }
-.theme-doc-sidebar-menu .menu__list-item > a.menu__link:hover {
-  border-left: 1px solid var(--ifm-font-color-base);
-  color: var(--ifm-font-color-base);
+.theme-doc-sidebar-menu a.menu__link:not(.menu__link--sublist):hover {
+  background: transparent;
+  color: var(--ifm-heading-color);
 }
-.theme-doc-sidebar-menu .menu__list-item > a.menu__link--active {
+/* Let long titles wrap fully instead of clamping to 2 lines + ellipsis */
+.theme-doc-sidebar-menu .menu__link span {
+  overflow: visible;
+  white-space: normal;
+  -webkit-line-clamp: unset;
+}
+/* Current page only (leaf OR category index) — soft amber row. Uses
+   aria-current so ancestor categories of the page aren't all filled amber. */
+.theme-doc-sidebar-menu .menu__link[aria-current='page'] {
   font-weight: 600;
-  border-left: 1px solid var(--ifm-color-primary);
-}
-.theme-doc-sidebar-menu .menu__list-item > a.menu__link--active:hover {
-  border-left: 1px solid var(--ifm-color-primary);
   color: var(--ifm-color-primary);
+}
+.theme-doc-sidebar-menu
+  .menu__link[aria-current='page']:not(.menu__link--sublist) {
+  background: color-mix(in srgb, var(--ifm-color-primary) 12%, transparent);
+}
+.theme-doc-sidebar-menu
+  .menu__link[aria-current='page']:not(.menu__link--sublist):hover {
+  background: color-mix(in srgb, var(--ifm-color-primary) 16%, transparent);
+}
+/* Current page is a category → fill the whole folder row */
+.theme-doc-sidebar-menu
+  .menu__list-item-collapsible:has(> .menu__link[aria-current='page']) {
+  background: color-mix(in srgb, var(--ifm-color-primary) 12%, transparent);
+}
+/* Ancestor categories of the current page — quiet trail, no amber fill */
+.theme-doc-sidebar-menu
+  .menu__link--sublist.menu__link--active:not([aria-current='page']) {
+  color: var(--ifm-heading-color);
+}
+
+/* Sidebar category caret — smaller + muted so it stops grabbing attention.
+   Keep Infima's default icon (correct collapse/expand orientation); just
+   shrink and fade it. Dark mode inverts via Infima's icon filter. */
+.menu__caret::before {
+  width: 1rem;
+  height: 1rem;
+  min-width: 1rem;
+  background-size: 0.8rem 0.8rem;
+  opacity: 0.3;
+  transition:
+    opacity 0.15s ease,
+    transform 0.2s ease;
+}
+.menu__list-item-collapsible:hover .menu__caret::before,
+.menu__caret:hover::before {
+  opacity: 0.7;
+}
+
+/* A touch more air between top-level categories */
+.theme-doc-sidebar-menu > .menu__list > .menu__list-item {
+  margin-top: 2px;
 }
 /* Sidebar: end */
 
