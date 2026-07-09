@@ -1,0 +1,118 @@
+/* Floating bottom dock — visual parity with dipak.tech (v2). */
+
+.dockWrap {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+  pointer-events: none;
+}
+
+/* Soft blur/fade behind the dock so scrolled content dissolves into the edge */
+.dockFade {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  height: 4rem;
+  background: var(--ifm-background-color);
+  backdrop-filter: blur(8px);
+  -webkit-mask-image: linear-gradient(to top, black, transparent);
+  mask-image: linear-gradient(to top, black, transparent);
+}
+
+.dock {
+  pointer-events: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  height: 3.5rem;
+  padding: 0 0.5rem;
+  border-radius: 1rem;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-toc-border-color);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.03),
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 12px 24px rgba(0, 0, 0, 0.05);
+}
+
+:global(html[data-theme='dark']) .dock {
+  box-shadow: 0 -20px 80px -20px #ffffff1f inset;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  color: var(--ifm-font-color-base);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.icon:hover {
+  background: var(--ifm-hover-overlay);
+  color: var(--ifm-font-color-base);
+  transform: translateY(-2px);
+}
+
+.icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.sep {
+  width: 1px;
+  height: 1.75rem;
+  margin: 0 0.25rem;
+  background: var(--ifm-toc-border-color);
+}
+
+/* Menu (mobile sidebar toggle) — only needed where the sidebar is collapsed */
+.mobileOnly {
+  display: none;
+}
+@media (max-width: 996px) {
+  .mobileOnly {
+    display: inline-flex;
+  }
+}
+
+/* Theme icon swap keyed off the html attribute → no hydration flash */
+.sun {
+  display: inline-flex;
+}
+.moon {
+  display: none;
+}
+:global(html[data-theme='dark']) .sun {
+  display: none;
+}
+:global(html[data-theme='dark']) .moon {
+  display: inline-flex;
+}
+
+@media (max-width: 500px) {
+  .dock {
+    height: 3rem;
+    gap: 0.1rem;
+    padding: 0 0.35rem;
+  }
+  .icon {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+  .sep {
+    margin: 0 0.1rem;
+  }
+}
