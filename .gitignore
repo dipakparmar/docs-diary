@@ -20,3 +20,9 @@ yarn-debug.log*
 yarn-error.log*
 .vercel
 .env*.local
+
+# pnpm local store
+.pnpm-store
+
+# Claude Code local config
+.claude
