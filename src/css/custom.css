@@ -365,10 +365,12 @@ code {
   -webkit-line-clamp: unset;
 }
 /* Current page only (leaf OR category index) — soft amber row. Uses
-   aria-current so ancestor categories of the page aren't all filled amber. */
-.theme-doc-sidebar-menu .menu__link[aria-current='page'] {
+   aria-current so ancestor categories of the page aren't all filled amber.
+   Text is heading-colour (not amber) so it stays high-contrast on the amber
+   tint instead of amber-on-amber. */
+.theme-doc-sidebar-menu a.menu__link[aria-current='page'] {
   font-weight: 600;
-  color: var(--ifm-color-primary);
+  color: var(--ifm-heading-color);
 }
 .theme-doc-sidebar-menu
   .menu__link[aria-current='page']:not(.menu__link--sublist) {
@@ -653,25 +655,84 @@ a[rel='tag'] > span {
 
 /* Mobile view */
 @media screen and (max-width: 996px) {
-  div.markdown > h1 {
-    font-size: 1.875rem;
+  /* Smaller title on narrow screens (selector matches the header-wrapped h1) */
+  div.markdown > h1,
+  div.markdown > header > h1,
+  [class*='generatedIndexPage'] h1 {
+    font-size: 1.75rem;
   }
 
-  /* Section content */
-  .theme-doc-sidebar-item-category ul.menu__list {
-    margin-top: 10px;
-    margin-bottom: 10px;
+  /* Hide the "On this page" TOC dropdown on mobile (matches the blog) */
+  .theme-doc-toc-mobile {
+    display: none;
   }
-  .theme-doc-sidebar-menu .menu__list-item > a.menu__link {
-    font-size: 16px;
+
+  /* Mobile sidebar drawer — readable, consistent text; drop the desktop
+     hover blob and curved connectors for a clean touch menu with a plain
+     indent guide. (Specificity matched to beat the desktop leaf/category
+     color rules.) */
+  .navbar-sidebar .menu__list-item-collapsible .menu__link,
+  .navbar-sidebar a.menu__link:not(.menu__link--sublist) {
+    font-size: 15px;
+    color: var(--ifm-font-color-base);
   }
-  .theme-doc-sidebar-menu .menu__list-item-collapsible .menu__link {
-    font-size: 16px;
+  .navbar-sidebar .menu__list-item-collapsible:hover .menu__link {
+    color: var(--ifm-heading-color);
   }
-  .theme-doc-sidebar-item-category .menu__list li.menu__list-item {
-    margin: 10px 0;
+  .navbar-sidebar .sidebar-blob {
+    display: none;
   }
-  /* Sidebar: end */
+  .navbar-sidebar
+    .theme-doc-sidebar-item-category
+    ul.menu__list
+    > li.menu__list-item::before {
+    display: none;
+  }
+  .navbar-sidebar .theme-doc-sidebar-item-category ul.menu__list {
+    margin-top: 4px;
+    margin-left: 8px;
+    padding-left: 12px;
+    border-left: 1px solid var(--ifm-toc-border-color);
+  }
+  .navbar-sidebar
+    .theme-doc-sidebar-item-category
+    ul.menu__list
+    > li.menu__list-item {
+    margin: 3px 0;
+  }
+
+  /* Bigger, clearer expand tap target for categories (was a 16px caret) */
+  .navbar-sidebar .menu__caret {
+    width: 52px;
+    padding: 0 18px 0 16px;
+    justify-content: flex-end;
+  }
+  .navbar-sidebar .menu__caret::before {
+    opacity: 0.55;
+  }
+  .navbar-sidebar .menu__list-item-collapsible {
+    padding: 2px 0;
+  }
+
+  /* Drop the "Back to main menu" row — the primary menu only holds Tags now
+     (Home/Blog/socials/theme all live in the dock), so it's redundant. */
+  .navbar-sidebar__back {
+    display: none;
+  }
+
+  /* Drawer header — the global --ifm-navbar-height: 0 collapsed it to ~16px and
+     cut off the logo. Give it a real height, padding, and room below. */
+  .navbar-sidebar__brand {
+    height: auto;
+    min-height: 3.5rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    box-shadow: none;
+    border-bottom: 1px solid var(--ifm-toc-border-color);
+  }
+  .navbar-sidebar__items {
+    padding-top: 0.25rem;
+  }
 }
 
 /* Pagination — de-boxed into quiet text links (blog style, not cards) */
