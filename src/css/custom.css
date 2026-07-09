@@ -653,25 +653,51 @@ a[rel='tag'] > span {
 
 /* Mobile view */
 @media screen and (max-width: 996px) {
-  div.markdown > h1 {
-    font-size: 1.875rem;
+  /* Smaller title on narrow screens (selector matches the header-wrapped h1) */
+  div.markdown > h1,
+  div.markdown > header > h1,
+  [class*='generatedIndexPage'] h1 {
+    font-size: 1.75rem;
   }
 
-  /* Section content */
-  .theme-doc-sidebar-item-category ul.menu__list {
-    margin-top: 10px;
-    margin-bottom: 10px;
+  /* Hide the "On this page" TOC dropdown on mobile (matches the blog) */
+  .theme-doc-toc-mobile {
+    display: none;
   }
-  .theme-doc-sidebar-menu .menu__list-item > a.menu__link {
-    font-size: 16px;
+
+  /* Mobile sidebar drawer — readable, consistent text; drop the desktop
+     hover blob and curved connectors for a clean touch menu with a plain
+     indent guide. (Specificity matched to beat the desktop leaf/category
+     color rules.) */
+  .navbar-sidebar .menu__list-item-collapsible .menu__link,
+  .navbar-sidebar a.menu__link:not(.menu__link--sublist) {
+    font-size: 15px;
+    color: var(--ifm-font-color-base);
   }
-  .theme-doc-sidebar-menu .menu__list-item-collapsible .menu__link {
-    font-size: 16px;
+  .navbar-sidebar .menu__list-item-collapsible:hover .menu__link {
+    color: var(--ifm-heading-color);
   }
-  .theme-doc-sidebar-item-category .menu__list li.menu__list-item {
-    margin: 10px 0;
+  .navbar-sidebar .sidebar-blob {
+    display: none;
   }
-  /* Sidebar: end */
+  .navbar-sidebar
+    .theme-doc-sidebar-item-category
+    ul.menu__list
+    > li.menu__list-item::before {
+    display: none;
+  }
+  .navbar-sidebar .theme-doc-sidebar-item-category ul.menu__list {
+    margin-top: 4px;
+    margin-left: 8px;
+    padding-left: 12px;
+    border-left: 1px solid var(--ifm-toc-border-color);
+  }
+  .navbar-sidebar
+    .theme-doc-sidebar-item-category
+    ul.menu__list
+    > li.menu__list-item {
+    margin: 3px 0;
+  }
 }
 
 /* Pagination — de-boxed into quiet text links (blog style, not cards) */
