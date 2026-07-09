@@ -126,84 +126,106 @@
   width: 100%;
 }
 
-/* Heading */
-div.markdown > h1 {
-  font-size: 2.25rem;
-  font-family:
-    'Inter',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
+/* Heading — matches dipak.tech: medium weight, tight tracking, quiet.
+   Third selector covers the category/generated-index page title so it matches
+   the article title instead of Docusaurus's default 48px/700. */
+div.markdown > h1,
+div.markdown > header > h1,
+[class*='generatedIndexPage'] h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
   margin-bottom: 8px !important;
 }
-div.markdown > h2 {
-  font-size: 1.5em;
-  font-family:
-    'Inter',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
-  margin: 32px 0 16px;
-  padding-top: 20px;
+/* Descendant (not direct-child) so headings nested inside tabs, admonitions,
+   etc. also get the medium weight instead of falling back to bold. */
+div.markdown h2 {
+  font-size: 1.32em;
+  font-weight: 500;
+  letter-spacing: -0.028em;
+  line-height: 1.25;
+  margin: 42px 0 12px;
+  padding-top: 0;
 }
-div.markdown > h3 {
-  font-size: 1.25em;
-  font-family:
-    'Inter',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
-  margin: 28px 0 12px;
-  padding-top: 20px;
+div.markdown h3 {
+  font-size: 1.1em;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  margin: 32px 0 10px;
+  padding-top: 0;
 }
-div.markdown > h4,
-div.markdown > h5,
-div.markdown > h6 {
+div.markdown h4,
+div.markdown h5,
+div.markdown h6 {
   font-size: 1em;
-  font-family:
-    'Inter',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.012em;
   margin-bottom: 12px;
 }
 
-/* Heading */
-div.markdown > h1 + p {
-  font-size: 1.125rem;
+/* Content body — a touch smaller (≈ blog's 15px measure). em-based headings
+   scale with it; the rem-based h1 stays put. */
+.theme-doc-markdown {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+/* Lede — first paragraph after the title */
+div.markdown > h1 + p,
+div.markdown > header + p {
+  font-size: 1.1875rem;
   margin-bottom: 32px;
+}
+
+/* -------------------------------------------------------------------------
+   Blog-parity reading layout — narrow centered column, airy spacing, quiet
+   meta/footer, to match dipak.tech/blog. The sidebar + right TOC stay (docs
+   need them); only the article column is reshaped into the blog measure.
+   ------------------------------------------------------------------------- */
+
+/* Reading measure ≈ blog's max-w-3xl. Left-aligned to the column start (not
+   centered per-column) so the article page and the category/index page share
+   the exact same left edge — the TOC only ever eats space on the right. */
+.theme-doc-markdown,
+nav.theme-doc-breadcrumbs,
+.theme-doc-footer,
+.pagination-nav,
+.theme-doc-toc-mobile,
+[class*='generatedIndexPage'] {
+  max-width: 48rem;
+  margin-inline: 0 auto;
+}
+
+/* Airy top rhythm like the blog's py-12/py-24 */
+nav.theme-doc-breadcrumbs {
+  padding-top: 1.5rem;
+}
+article > .theme-doc-markdown {
+  padding-bottom: 1.5rem;
+}
+
+/* Quiet breadcrumbs — a small, muted meta line with no backgrounds at all
+   (!important beats Docusaurus's .breadcrumbs__link:any-link:hover) */
+.breadcrumbs__link {
+  font-size: 0.75rem;
+  color: var(--ifm-color-gray-500);
+  padding: 2px 0;
+  border-radius: 0;
+  background: none !important;
+}
+.breadcrumbs__link:hover {
+  color: var(--ifm-heading-color);
+  text-decoration: none;
+}
+.breadcrumbs__item:not(:last-child)::after {
+  opacity: 0.5;
+}
+
+/* Doc footer (tags, edit link, last-updated) — smaller and calmer */
+.theme-doc-footer {
+  font-size: 0.875rem;
 }
 
 .markdown li {
