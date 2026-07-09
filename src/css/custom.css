@@ -698,6 +698,39 @@ a[rel='tag'] > span {
     > li.menu__list-item {
     margin: 3px 0;
   }
+
+  /* Bigger, clearer expand tap target for categories (was a 16px caret) */
+  .navbar-sidebar .menu__caret {
+    width: 52px;
+    padding: 0 18px 0 16px;
+    justify-content: flex-end;
+  }
+  .navbar-sidebar .menu__caret::before {
+    opacity: 0.55;
+  }
+  .navbar-sidebar .menu__list-item-collapsible {
+    padding: 2px 0;
+  }
+
+  /* Drop the "Back to main menu" row — the primary menu only holds Tags now
+     (Home/Blog/socials/theme all live in the dock), so it's redundant. */
+  .navbar-sidebar__back {
+    display: none;
+  }
+
+  /* Drawer header — the global --ifm-navbar-height: 0 collapsed it to ~16px and
+     cut off the logo. Give it a real height, padding, and room below. */
+  .navbar-sidebar__brand {
+    height: auto;
+    min-height: 3.5rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    box-shadow: none;
+    border-bottom: 1px solid var(--ifm-toc-border-color);
+  }
+  .navbar-sidebar__items {
+    padding-top: 0.25rem;
+  }
 }
 
 /* Pagination — de-boxed into quiet text links (blog style, not cards) */
