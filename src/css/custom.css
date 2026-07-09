@@ -365,10 +365,12 @@ code {
   -webkit-line-clamp: unset;
 }
 /* Current page only (leaf OR category index) — soft amber row. Uses
-   aria-current so ancestor categories of the page aren't all filled amber. */
-.theme-doc-sidebar-menu .menu__link[aria-current='page'] {
+   aria-current so ancestor categories of the page aren't all filled amber.
+   Text is heading-colour (not amber) so it stays high-contrast on the amber
+   tint instead of amber-on-amber. */
+.theme-doc-sidebar-menu a.menu__link[aria-current='page'] {
   font-weight: 600;
-  color: var(--ifm-color-primary);
+  color: var(--ifm-heading-color);
 }
 .theme-doc-sidebar-menu
   .menu__link[aria-current='page']:not(.menu__link--sublist) {
