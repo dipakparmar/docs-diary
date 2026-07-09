@@ -1,5 +1,11 @@
 # docs-diary
 
+## 1.8.0
+
+### Minor Changes
+
+- feat(theme): redesign the docs UI to match the dipak.tech blog — amber/neutral palette, blog-style typography and reading measure, a borderless layout, a floating bottom dock (search, socials, theme toggle), ruled category/tag lists, a tree-view sidebar with a liquid hover blob and active-branch trail, smooth-scroll TOC, and restyled tabs, breadcrumbs, footer, and Algolia search modal.
+
 ## 1.7.0
 
 ### Minor Changes

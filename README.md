@@ -1,45 +1,45 @@
-# Website
+# Dipak's Docs Diary
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+My personal knowledge base — notes, guides, and fixes on DevOps, infrastructure,
+networking, and everyday engineering. Live at **[docs.dipak.tech](https://docs.dipak.tech)**.
 
-![GH Pages Build](https://github.com/dipakparmar/docs-diary/workflows/GH%20Pages%20Build/badge.svg)
+Built with [Docusaurus 3](https://docusaurus.io/) + TypeScript and Tailwind,
+with Algolia DocSearch for search. The UI is themed to match
+[dipak.tech](https://dipak.tech).
 
-### Installation
+## Getting started
 
-```
-$ yarn
-```
+Requires [Node.js](https://nodejs.org) 24 (see [`.nvmrc`](.nvmrc)) and
+[pnpm](https://pnpm.io).
 
-### Local Development
-
-```
-$ yarn start
-```
-
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
+```bash
+pnpm install     # install dependencies
+pnpm start       # dev server with live reload → http://localhost:3000
+pnpm build       # build the static site into ./build
+pnpm serve       # preview the production build locally
+pnpm typecheck   # type-check with tsc
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+## Writing content
 
-### Deployment
+Docs live in [`docs/`](docs/), organized by topic (networking, containerization,
+version control, …). Each page is Markdown/MDX with front matter, and the sidebar
+is generated automatically — drop a new `.md`/`.mdx` file into the relevant folder
+and it appears in the nav.
 
-Using SSH:
+## Releasing
 
+Versioning is managed with [Changesets](https://github.com/changesets/changesets).
+For any user-facing change, add a changeset:
+
+```bash
+pnpm changeset
 ```
-$ USE_SSH=true yarn deploy
-```
 
-Not using SSH:
+The version bump and `CHANGELOG.md` entry are applied when changes land on `main`.
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
+## License
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+[MIT](LICENSE) © Dipak Parmar
 
-![Alt](https://repobeats.axiom.co/api/embed/38bd3d5aec7e29ab833432f5b13e99cb04bddc4f.svg 'Repobeats analytics image')
+![Repobeats analytics](https://repobeats.axiom.co/api/embed/38bd3d5aec7e29ab833432f5b13e99cb04bddc4f.svg 'Repobeats analytics image')
