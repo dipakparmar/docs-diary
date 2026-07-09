@@ -1,0 +1,59 @@
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 0.25rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  color: var(--ifm-font-color-base);
+  transition:
+    color 0.15s ease,
+    padding-left 0.15s ease;
+}
+
+.row:hover {
+  text-decoration: none;
+  padding-left: 0.6rem;
+}
+
+.body {
+  min-width: 0;
+}
+
+.title {
+  display: block;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+  color: var(--ifm-heading-color);
+  transition: color 0.15s ease;
+}
+
+.row:hover .title {
+  color: var(--ifm-color-primary);
+}
+
+.desc {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--ifm-color-gray-500);
+}
+
+.arrow {
+  flex-shrink: 0;
+  align-self: center;
+  opacity: 0;
+  color: var(--ifm-color-primary);
+  transform: translateX(-4px);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.row:hover .arrow {
+  opacity: 1;
+  transform: translateX(0);
+}

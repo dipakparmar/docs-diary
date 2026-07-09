@@ -29,27 +29,31 @@
     sans-serif;
 
   --ifm-heading-font-family: inherit;
-  --ifm-color-primary: #834d01;
-  --ifm-color-primary-dark: #764501;
-  --ifm-color-primary-darker: #6f4101;
-  --ifm-color-primary-darkest: #5c3601;
-  --ifm-color-primary-light: #905501;
-  --ifm-color-primary-lighter: #975901;
-  --ifm-color-primary-lightest: #aa6401;
+  --ifm-global-radius: 0.625rem;
+
+  /* Amber accent — matches dipak.tech (oklch chart ramp) */
+  --ifm-color-primary: oklch(0.67 0.16 58);
+  --ifm-color-primary-dark: oklch(0.62 0.15 53);
+  --ifm-color-primary-darker: oklch(0.59 0.15 51);
+  --ifm-color-primary-darkest: oklch(0.52 0.14 48);
+  --ifm-color-primary-light: oklch(0.75 0.16 66);
+  --ifm-color-primary-lighter: oklch(0.82 0.15 78);
+  --ifm-color-primary-lightest: oklch(0.88 0.15 92);
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
-  /* slate-x from Tailwind v3 */
-  --ifm-color-gray-50: #f8fafc;
-  --ifm-color-gray-100: #f1f5f9;
-  --ifm-color-gray-200: #e2e8f0;
-  --ifm-color-gray-300: #cbd5e1;
-  --ifm-color-gray-400: #94a3b8;
-  --ifm-color-gray-500: #64748b;
-  --ifm-color-gray-600: #475569;
-  --ifm-color-gray-700: #334155;
-  --ifm-color-gray-800: #1e293b;
-  --ifm-color-gray-900: #0f172a;
+  /* Neutral ramp (Tailwind neutral) — matches dipak.tech */
+  --ifm-color-gray-50: #fafafa;
+  --ifm-color-gray-100: #f5f5f5;
+  --ifm-color-gray-200: #e5e5e5;
+  --ifm-color-gray-300: #d4d4d4;
+  --ifm-color-gray-400: #a3a3a3;
+  --ifm-color-gray-500: #737373;
+  --ifm-color-gray-600: #525252;
+  --ifm-color-gray-700: #404040;
+  --ifm-color-gray-800: #262626;
+  --ifm-color-gray-900: #171717;
+  --ifm-color-gray-1000: #0a0a0a;
 
   --ifm-code-background: var(--ifm-color-gray-200);
   --ifm-background-color: var(--ifm-color-gray-0);
@@ -83,18 +87,18 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #f4c27c;
-  --ifm-color-primary-dark: #f1b25a;
-  --ifm-color-primary-darker: #f0aa49;
-  --ifm-color-primary-darkest: #eb9316;
-  --ifm-color-primary-light: #f7d29e;
-  --ifm-color-primary-lighter: #f8daaf;
-  --ifm-color-primary-lightest: #fdf1e2;
+  --ifm-color-primary: oklch(0.77 0.16 70);
+  --ifm-color-primary-dark: oklch(0.71 0.16 62);
+  --ifm-color-primary-darker: oklch(0.67 0.16 58);
+  --ifm-color-primary-darkest: oklch(0.6 0.15 52);
+  --ifm-color-primary-light: oklch(0.81 0.16 74);
+  --ifm-color-primary-lighter: oklch(0.85 0.15 80);
+  --ifm-color-primary-lightest: oklch(0.9 0.13 90);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   --ifm-code-background: var(--ifm-color-gray-800);
-  --ifm-background-color: #070c15;
-  --ifm-background-surface-color: var(--ifm-color-gray-1000);
+  --ifm-background-color: #0a0a0a;
+  --ifm-background-surface-color: var(--ifm-color-gray-900);
   --ifm-font-color-base: var(--ifm-color-gray-50);
   --ifm-color-emphasis-800: var(--ifm-color-gray-300);
   --ifm-heading-color: #fff;
@@ -122,84 +126,106 @@
   width: 100%;
 }
 
-/* Heading */
-div.markdown > h1 {
-  font-size: 2.25rem;
-  font-family:
-    'Inter',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
+/* Heading — matches dipak.tech: medium weight, tight tracking, quiet.
+   Third selector covers the category/generated-index page title so it matches
+   the article title instead of Docusaurus's default 48px/700. */
+div.markdown > h1,
+div.markdown > header > h1,
+[class*='generatedIndexPage'] h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
   margin-bottom: 8px !important;
 }
-div.markdown > h2 {
-  font-size: 1.5em;
-  font-family:
-    'Inter',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
-  margin: 32px 0 16px;
-  padding-top: 20px;
+/* Descendant (not direct-child) so headings nested inside tabs, admonitions,
+   etc. also get the medium weight instead of falling back to bold. */
+div.markdown h2 {
+  font-size: 1.32em;
+  font-weight: 500;
+  letter-spacing: -0.028em;
+  line-height: 1.25;
+  margin: 42px 0 12px;
+  padding-top: 0;
 }
-div.markdown > h3 {
-  font-size: 1.25em;
-  font-family:
-    'Inter',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
-  margin: 28px 0 12px;
-  padding-top: 20px;
+div.markdown h3 {
+  font-size: 1.1em;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  margin: 32px 0 10px;
+  padding-top: 0;
 }
-div.markdown > h4,
-div.markdown > h5,
-div.markdown > h6 {
+div.markdown h4,
+div.markdown h5,
+div.markdown h6 {
   font-size: 1em;
-  font-family:
-    'Inter',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.012em;
   margin-bottom: 12px;
 }
 
-/* Heading */
-div.markdown > h1 + p {
-  font-size: 1.125rem;
+/* Content body — a touch smaller (≈ blog's 15px measure). em-based headings
+   scale with it; the rem-based h1 stays put. */
+.theme-doc-markdown {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+/* Lede — first paragraph after the title */
+div.markdown > h1 + p,
+div.markdown > header + p {
+  font-size: 1.1875rem;
   margin-bottom: 32px;
+}
+
+/* -------------------------------------------------------------------------
+   Blog-parity reading layout — narrow centered column, airy spacing, quiet
+   meta/footer, to match dipak.tech/blog. The sidebar + right TOC stay (docs
+   need them); only the article column is reshaped into the blog measure.
+   ------------------------------------------------------------------------- */
+
+/* Reading measure ≈ blog's max-w-3xl. Left-aligned to the column start (not
+   centered per-column) so the article page and the category/index page share
+   the exact same left edge — the TOC only ever eats space on the right. */
+.theme-doc-markdown,
+nav.theme-doc-breadcrumbs,
+.theme-doc-footer,
+.pagination-nav,
+.theme-doc-toc-mobile,
+[class*='generatedIndexPage'] {
+  max-width: 48rem;
+  margin-inline: 0 auto;
+}
+
+/* Airy top rhythm like the blog's py-12/py-24 */
+nav.theme-doc-breadcrumbs {
+  padding-top: 1.5rem;
+}
+article > .theme-doc-markdown {
+  padding-bottom: 1.5rem;
+}
+
+/* Quiet breadcrumbs — a small, muted meta line with no backgrounds at all
+   (!important beats Docusaurus's .breadcrumbs__link:any-link:hover) */
+.breadcrumbs__link {
+  font-size: 0.75rem;
+  color: var(--ifm-color-gray-500);
+  padding: 2px 0;
+  border-radius: 0;
+  background: none !important;
+}
+.breadcrumbs__link:hover {
+  color: var(--ifm-heading-color);
+  text-decoration: none;
+}
+.breadcrumbs__item:not(:last-child)::after {
+  opacity: 0.5;
+}
+
+/* Doc footer (tags, edit link, last-updated) — smaller and calmer */
+.theme-doc-footer {
+  font-size: 0.875rem;
 }
 
 .markdown li {
@@ -219,52 +245,171 @@ code {
   border: 0;
 }
 
-/* Breadcrumbs */
+/* Breadcrumbs — current page: no pill, just quiet emphasis */
 .breadcrumbs__item--active .breadcrumbs__link {
-  color: var(--ifm-font-color-base);
+  color: var(--ifm-heading-color);
+  font-weight: 500;
+  background: none !important;
 }
 
-/* Sidebar */
-/* Section title*/
-.theme-doc-sidebar-menu .menu__list-item-collapsible .menu__link {
-  color: var(--ifm-heading-color);
-  font-size: 14px;
-  padding-left: 12px;
+/* Sidebar — tree view: rounded rows, a liquid hover blob, per-level guides. */
+
+/* Root menu is the positioning context for the gliding hover blob (injected
+   by SidebarMotion). Links sit above it. */
+.theme-doc-sidebar-menu {
+  position: relative;
 }
-/* Section content */
+.theme-doc-sidebar-menu .menu__link,
+.theme-doc-sidebar-menu .menu__list-item-collapsible {
+  position: relative;
+  z-index: 1;
+}
+
+/* The liquid hover blob — a single pill that springs between items */
+.sidebar-blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  border-radius: 8px;
+  background: var(--ifm-hover-overlay);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, width, height;
+  transition:
+    transform 0.42s cubic-bezier(0.34, 1.35, 0.5, 1),
+    width 0.42s cubic-bezier(0.34, 1.35, 0.5, 1),
+    height 0.42s cubic-bezier(0.34, 1.35, 0.5, 1),
+    opacity 0.18s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-blob {
+    transition: opacity 0.18s ease;
+  }
+}
+
+/* Category (folder) row */
+.theme-doc-sidebar-menu .menu__list-item-collapsible {
+  border-radius: 8px;
+}
+.theme-doc-sidebar-menu .menu__list-item-collapsible .menu__link {
+  color: var(--ifm-color-gray-600);
+  font-size: 14px;
+  font-weight: 500;
+  padding-left: 10px;
+  background: transparent;
+}
+.theme-doc-sidebar-menu .menu__list-item-collapsible:hover .menu__link {
+  color: var(--ifm-heading-color);
+  background: transparent;
+}
+
+/* Nested level — one faint hairline guide per level (no heavy elbows). Tight
+   indent so deep trees don't crush the label text. */
 .theme-doc-sidebar-item-category ul.menu__list {
-  margin-top: 0;
-  margin-left: 12px;
-  border-left: solid 1px var(--ifm-toc-border-color);
+  --tree-line: color-mix(in srgb, var(--ifm-color-gray-500) 22%, transparent);
+  margin-top: 1px;
+  margin-left: 7px;
+  padding-left: 13px;
   font-weight: 400;
 }
-.theme-doc-sidebar-item-category .menu__list li.menu__list-item {
-  margin: 8px 0;
+.theme-doc-sidebar-item-category ul.menu__list > li.menu__list-item {
+  position: relative;
+  margin: 0;
 }
-
+/* Soft curved hook branching into each row — no long vertical trunks, so
+   deep nesting never stacks into parallel lines. Just one short curve per row
+   that reaches up-left toward its parent. */
+.theme-doc-sidebar-item-category ul.menu__list > li.menu__list-item::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: -4px;
+  width: 12px;
+  height: 20px;
+  border-left: 1px solid var(--tree-line);
+  border-bottom: 1px solid var(--tree-line);
+  border-bottom-left-radius: 14px;
+  pointer-events: none;
+}
+/* Active branch — one variable turns the whole path's curves amber */
+.theme-doc-sidebar-item-category:has(
+    > .menu__list-item-collapsible > .menu__link--active
+  )
+  > ul.menu__list {
+  --tree-line: color-mix(in srgb, var(--ifm-color-primary) 55%, transparent);
+}
 .theme-doc-sidebar-item-category .menu__list li.menu__list-item svg {
   opacity: 0;
 }
 
-.theme-doc-sidebar-menu .menu__list-item > a.menu__link {
-  border-left: 1px solid transparent;
-  margin-left: -1px;
-  border-radius: 0;
-  padding: 5px 16px;
+/* Leaf (file) links — rounded hover fill; active = soft amber row */
+.theme-doc-sidebar-menu a.menu__link:not(.menu__link--sublist) {
+  border-radius: 7px;
+  padding: 5px 10px;
   font-size: 14px;
-  line-height: 14px;
+  line-height: 1.4;
+  color: var(--ifm-color-gray-600);
+  transition:
+    background-color 0.12s ease,
+    color 0.12s ease;
 }
-.theme-doc-sidebar-menu .menu__list-item > a.menu__link:hover {
-  border-left: 1px solid var(--ifm-font-color-base);
-  color: var(--ifm-font-color-base);
+.theme-doc-sidebar-menu a.menu__link:not(.menu__link--sublist):hover {
+  background: transparent;
+  color: var(--ifm-heading-color);
 }
-.theme-doc-sidebar-menu .menu__list-item > a.menu__link--active {
+/* Let long titles wrap fully instead of clamping to 2 lines + ellipsis */
+.theme-doc-sidebar-menu .menu__link span {
+  overflow: visible;
+  white-space: normal;
+  -webkit-line-clamp: unset;
+}
+/* Current page only (leaf OR category index) — soft amber row. Uses
+   aria-current so ancestor categories of the page aren't all filled amber. */
+.theme-doc-sidebar-menu .menu__link[aria-current='page'] {
   font-weight: 600;
-  border-left: 1px solid var(--ifm-color-primary);
-}
-.theme-doc-sidebar-menu .menu__list-item > a.menu__link--active:hover {
-  border-left: 1px solid var(--ifm-color-primary);
   color: var(--ifm-color-primary);
+}
+.theme-doc-sidebar-menu
+  .menu__link[aria-current='page']:not(.menu__link--sublist) {
+  background: color-mix(in srgb, var(--ifm-color-primary) 12%, transparent);
+}
+.theme-doc-sidebar-menu
+  .menu__link[aria-current='page']:not(.menu__link--sublist):hover {
+  background: color-mix(in srgb, var(--ifm-color-primary) 16%, transparent);
+}
+/* Current page is a category → fill the whole folder row */
+.theme-doc-sidebar-menu
+  .menu__list-item-collapsible:has(> .menu__link[aria-current='page']) {
+  background: color-mix(in srgb, var(--ifm-color-primary) 12%, transparent);
+}
+/* Ancestor categories of the current page — quiet trail, no amber fill */
+.theme-doc-sidebar-menu
+  .menu__link--sublist.menu__link--active:not([aria-current='page']) {
+  color: var(--ifm-heading-color);
+}
+
+/* Sidebar category caret — smaller + muted so it stops grabbing attention.
+   Keep Infima's default icon (correct collapse/expand orientation); just
+   shrink and fade it. Dark mode inverts via Infima's icon filter. */
+.menu__caret::before {
+  width: 1rem;
+  height: 1rem;
+  min-width: 1rem;
+  background-size: 0.8rem 0.8rem;
+  opacity: 0.3;
+  transition:
+    opacity 0.15s ease,
+    transform 0.2s ease;
+}
+.menu__list-item-collapsible:hover .menu__caret::before,
+.menu__caret:hover::before {
+  opacity: 0.7;
+}
+
+/* A touch more air between top-level categories */
+.theme-doc-sidebar-menu > .menu__list > .menu__list-item {
+  margin-top: 2px;
 }
 /* Sidebar: end */
 
@@ -289,10 +434,175 @@ nav.navbar:not(.navbar-sidebar--show) {
 nav.menu {
   padding: 22px 20px;
 }
-.navbar {
-  border-bottom: 1px solid var(--ifm-toc-border-color);
-  box-shadow: none;
+/* Top navbar removed — the Dock is the only chrome (blog style). Collapse the
+   bar to zero height (no ghost sticky strip on scroll) but keep the <nav> shell
+   so the mobile sidebar drawer + Algolia search stay mounted (the Dock's Search
+   fires ⌘K; the mobile Menu toggles the drawer). */
+:root {
+  --ifm-navbar-height: 0px;
 }
+.navbar__inner {
+  display: none;
+}
+.navbar {
+  height: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+  backdrop-filter: none;
+  overflow: visible;
+}
+/* Breathing room at the top now that the bar is gone (blog-like) */
+.main-wrapper {
+  padding-top: 2.5rem;
+}
+html {
+  scroll-padding-top: 2rem;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Clean, borderless columns — drop the framing dividers (blog layout, not
+   Docusaurus's boxy three-column chrome) */
+.theme-doc-sidebar-container {
+  border-right: 0 !important;
+}
+.table-of-contents {
+  border-left: 0;
+  font-size: 0.8125rem;
+}
+.table-of-contents__link {
+  color: var(--ifm-color-gray-500);
+}
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: var(--ifm-heading-color);
+  font-weight: 500;
+}
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+}
+
+/* Tabs — clean text tabs (medium weight, thin underline) instead of the
+   default bold 16px with a 3px underline. */
+.tabs {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+.tabs__item {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ifm-color-gray-500);
+  padding: 0.5rem 0;
+  margin-right: 1.5rem;
+  margin-bottom: -1px;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+.tabs__item:hover {
+  background: transparent;
+  color: var(--ifm-heading-color);
+  border-bottom-color: var(--ifm-toc-border-color);
+}
+.tabs__item--active {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  border-bottom-color: var(--ifm-color-primary);
+}
+.tabs__item--active:hover {
+  color: var(--ifm-color-primary);
+  border-bottom-color: var(--ifm-color-primary);
+}
+
+/* Tags page title — match the article/category title */
+.docs-tags-list-page h1,
+.docs-tags-doc-list-page h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+/* Tag chips — clean rounded pills instead of the ticket shape (rel="tag" is a
+   stable hook; applies on the tags page and in each doc's footer). */
+a[rel='tag'] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.7rem;
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ifm-color-gray-600);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.7;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+a[rel='tag']::before,
+a[rel='tag']::after {
+  display: none !important;
+}
+a[rel='tag']:hover {
+  color: var(--ifm-color-primary);
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 45%, transparent);
+  background: color-mix(in srgb, var(--ifm-color-primary) 8%, transparent);
+  text-decoration: none;
+}
+a[rel='tag'] > span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ifm-color-gray-500);
+  background: var(--ifm-hover-overlay);
+  border-radius: 999px;
+  padding: 0 0.35rem;
+  min-width: 1.05rem;
+  text-align: center;
+}
+
+/* Tag detail page — doc list as clean blog-style rows (was bold 24px titles) */
+.docs-tags-doc-list-page article {
+  margin: 0;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+.docs-tags-doc-list-page article:first-of-type {
+  border-top: 1px solid var(--ifm-toc-border-color);
+  margin-top: 1.5rem;
+}
+.docs-tags-doc-list-page article > a {
+  text-decoration: none;
+}
+.docs-tags-doc-list-page article h2 {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+  margin: 0 0 0.3rem;
+  color: var(--ifm-heading-color);
+  transition: color 0.15s ease;
+}
+.docs-tags-doc-list-page article > a:hover h2 {
+  color: var(--ifm-color-primary);
+}
+.docs-tags-doc-list-page article p {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--ifm-color-gray-500);
+  margin: 0;
+}
+
 /* GitHub navbar icon */
 /* Source: https:/Hgithub.com/facebook/docusaurus/blob/mainv/website/src/css/custom.css */
 .header-github-link:hover {
@@ -331,7 +641,7 @@ nav.menu {
 /* Navbar: end */
 
 .rounded {
-  border-radius: 8px;
+  border-radius: 0.625rem;
 }
 
 .bordered {
@@ -362,6 +672,147 @@ nav.menu {
     margin: 10px 0;
   }
   /* Sidebar: end */
+}
+
+/* Pagination — de-boxed into quiet text links (blog style, not cards) */
+.pagination-nav__link {
+  border: 0;
+  border-radius: 0;
+  padding: 0.75rem 0;
+}
+.pagination-nav__link:hover {
+  background: transparent;
+}
+.pagination-nav__sublabel {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ifm-color-gray-500);
+}
+.pagination-nav__label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: var(--ifm-heading-color);
+}
+.pagination-nav__link:hover .pagination-nav__label {
+  color: var(--ifm-color-primary);
+}
+
+/* Theme toggle lives in the bottom Dock now — hide the navbar one */
+.navbar [class*='colorModeToggle'] {
+  display: none;
+}
+
+/* Site footer — clean, borderless, centered, muted (blog aesthetic).
+   margin-bottom clears the fixed bottom Dock. */
+.footer {
+  background: transparent;
+  border-top: 0;
+  padding: 2.5rem 1rem;
+  margin-bottom: 4.5rem;
+  text-align: center;
+  --ifm-footer-color: var(--ifm-color-gray-500);
+}
+.footer__copyright {
+  font-size: 0.8125rem;
+  color: var(--ifm-color-gray-500);
+  letter-spacing: -0.005em;
+}
+/* Mute the built-with link — no loud amber in the footer */
+.footer a,
+.footer__link-item {
+  color: var(--ifm-color-gray-500);
+  text-decoration: none;
+}
+.footer a:hover,
+.footer__link-item:hover {
+  color: var(--ifm-heading-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+/* Author name — brand amber, so it stands out in the muted footer */
+.footer a.footer-author,
+.footer a.footer-author:hover {
+  color: var(--ifm-color-primary);
+  font-weight: 500;
+}
+.footer a.footer-author:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+/* Beating heart */
+.footer-heart {
+  display: inline-block;
+  animation: footer-heartbeat 1.8s ease-in-out infinite;
+}
+@keyframes footer-heartbeat {
+  0%,
+  40%,
+  100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.25);
+  }
+  28% {
+    transform: scale(1.1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-heart {
+    animation: none;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Algolia DocSearch modal — rounded, soft, palette-matched.
+   ------------------------------------------------------------------------- */
+:root {
+  --docsearch-highlight-color: var(--ifm-color-primary) !important;
+  --docsearch-modal-background: var(--ifm-background-color) !important;
+  --docsearch-modal-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.35) !important;
+  --docsearch-searchbox-focus-background: var(--ifm-hover-overlay) !important;
+  --docsearch-hit-background: var(--ifm-background-color) !important;
+  --docsearch-hit-color: var(--ifm-font-color-base) !important;
+  --docsearch-hit-active-color: #fff !important;
+  --docsearch-hit-shadow: none !important;
+  --docsearch-footer-background: var(--ifm-background-color) !important;
+  --docsearch-key-gradient: var(--ifm-hover-overlay) !important;
+  --docsearch-key-shadow: none !important;
+}
+.DocSearch-Modal {
+  border-radius: 14px !important;
+  border: 1px solid var(--ifm-toc-border-color);
+  overflow: hidden;
+  /* Fit content instead of a fixed height (kills the empty gap above the
+     footer when there are few results). Long lists scroll inside the dropdown. */
+  height: auto !important;
+  max-height: 85vh !important;
+}
+.DocSearch-Dropdown {
+  height: auto !important;
+  max-height: min(30rem, 60vh) !important;
+}
+.DocSearch-Form {
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  border: 1px solid var(--ifm-toc-border-color);
+}
+.DocSearch-Hit a {
+  border-radius: 10px !important;
+}
+.DocSearch-Hit-source {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ifm-color-gray-500);
+}
+.DocSearch-Reset,
+.DocSearch-Cancel,
+.DocSearch-Close {
+  border-radius: 8px;
 }
 
 .docusaurus-highlight-code-line {

@@ -120,18 +120,7 @@ const config: Config = {
           type: 'search',
           position: 'right',
         },
-        {
-          href: 'https://dipak.to/twitter?utm_source=docs.dipak.tech&utm_medium=nav_link&utm_campaign=dipaks_docs_diary',
-          position: 'right',
-          className: 'header-twitter-link',
-          'aria-label': 'Twitter',
-        },
-        {
-          href: 'https://github.com/dipakparmar/docs-diary?utm_source=docs.dipak.tech&utm_medium=nav_link',
-          position: 'right',
-          className: 'header-github-link',
-          'aria-label': 'GitHub repository',
-        },
+        // Social + theme links now live in the bottom Dock (matches dipak.tech).
       ],
     },
     prism: {
@@ -140,7 +129,7 @@ const config: Config = {
     },
     footer: {
       // style: 'light',
-      copyright: `Copyright © 2020-${new Date().getFullYear()} Dipak's Docs Diary. <a href="https://docusaurus.io/">Built with Docusaurus.</a>`,
+      copyright: `Copyright © 2020-${new Date().getFullYear()} <a class="footer-author" href="https://dipak.tech?utm_source=docs.dipak.tech&amp;utm_medium=footer&amp;utm_campaign=copyright">Dipak Parmar</a>. Built with <span class="footer-heart" role="img" aria-label="love">❤️</span> using <a href="https://docusaurus.io/?utm_source=docs.dipak.tech&amp;utm_medium=footer&amp;utm_campaign=built_with">Docusaurus</a>.`,
     },
     algolia: {
       appId: 'NOKG2EH40V',
