@@ -172,12 +172,9 @@ div.markdown h6 {
   line-height: 1.7;
 }
 
-/* Lede — first paragraph after the title */
-div.markdown > h1 + p,
-div.markdown > header + p {
-  font-size: 1.1875rem;
-  margin-bottom: 32px;
-}
+/* First paragraph after the title keeps the normal body size — docs pages have
+   no designed subtitle/lede (unlike the blog), so enlarging it just makes the
+   opening line look inconsistent with the rest of the page. */
 
 /* -------------------------------------------------------------------------
    Blog-parity reading layout — narrow centered column, airy spacing, quiet
