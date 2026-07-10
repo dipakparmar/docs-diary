@@ -5,8 +5,9 @@
  * work well for content-centric websites.
  */
 
-/* Custom font declarations */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+/* Inter is loaded via a <link> in docusaurus.config.ts headTags, not @import —
+   a CSS @import here is only discovered after this stylesheet itself loads,
+   which delayed first text paint (was the dominant LCP cost on this site). */
 
 @tailwind base;
 @tailwind components;

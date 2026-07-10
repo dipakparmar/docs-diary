@@ -45,6 +45,27 @@ const config: Config = {
     locales: ['en'],
   },
 
+  // Inter as a real <link> (not a CSS @import in custom.css) so the browser's
+  // preload scanner discovers it immediately instead of after the stylesheet
+  // loads — this was the dominant cost behind a ~8.4s LCP.
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    },
+    {
+      tagName: 'link',
+      attributes: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap',
+      },
+    },
+  ],
+
   // Presets are sets of config and plugins for a particular type of Docusaurus site.
   presets: [
     [
@@ -104,6 +125,8 @@ const config: Config = {
       logo: {
         alt: 'Docs Diary',
         src: 'img/logo.svg',
+        width: 32,
+        height: 32,
       },
       items: [
         // Left Navbar items
