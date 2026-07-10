@@ -15,7 +15,8 @@ const darkCodeTheme = themes.vsDark;
 const config: Config = {
   title: `Dipak's Docs Diary`,
   tagline: '',
-  favicon: 'img/favicon.ico',
+  // Same avatar dipak.tech uses as its favicon (see ../v2 src/app/layout.tsx).
+  favicon: 'https://github.com/dipakparmar.png?size=96',
 
   // Set the production url of your site here
   url: 'https://docs.dipak.tech',
@@ -44,14 +45,6 @@ const config: Config = {
     locales: ['en'],
   },
 
-  // Scripts to be injected into <head></head>
-  scripts: [
-    {
-      src: 'https://cdn.splitbee.io/sb.js',
-      async: true,
-    },
-  ],
-
   // Presets are sets of config and plugins for a particular type of Docusaurus site.
   presets: [
     [
@@ -64,6 +57,10 @@ const config: Config = {
           editUrl: 'https://github.com/dipakparmar/docs-diary/edit/main/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
+          // Auto-fixes block elements (CodeBlock, Callout, <pre>/<div>/<ol>/etc.)
+          // that MDX folded into a paragraph because of a missing blank line —
+          // see src/plugins/rehype/unwrap-block-jsx.js for why this matters.
+          beforeDefaultRehypePlugins: [require('./src/plugins/rehype/unwrap-block-jsx.js')],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
