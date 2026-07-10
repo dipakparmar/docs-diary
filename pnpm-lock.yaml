@@ -53,6 +53,9 @@ importers:
       reading-time:
         specifier: 1.5.0
         version: 1.5.0
+      roughjs:
+        specifier: ^4.6.6
+        version: 4.6.6
       tailwindcss:
         specifier: 4.1.13
         version: 4.1.13
