@@ -4,6 +4,9 @@ packages:
 allowBuilds:
   core-js: false
   core-js-pure: false
+  esbuild: true
+  sharp: true
+  workerd: true
 
 overrides:
   webpack: 5.101.3

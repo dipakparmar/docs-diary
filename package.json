@@ -9,6 +9,7 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
+    "deploy:cf": "docusaurus build && wrangler deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "changeset": "changeset",
@@ -60,7 +61,8 @@
     "eslint-plugin-react-hooks": "4.6.2",
     "prettier": "3.2.5",
     "stylelint": "16.6.1",
-    "typescript": "5.5.4"
+    "typescript": "5.5.4",
+    "wrangler": "^4.107.1"
   },
   "resolutions": {
     "nth-check": "2.0.1",
