@@ -214,17 +214,6 @@ const config: Config = {
         dataDomains: 'docs.dipak.tech',
       } as UmamiOptions,
     ],
-    async function tailwindcss() {
-      return {
-        name: 'docusaurus-tailwindcss',
-        // configurePostCss(postCssOptions) {
-        //   // Appends TailwindsCSS and AutoPrefixer
-        //   postCssOptions.plugins.push(require('tailwindcss'));
-        //   postCssOptions.plugins.push(require('autoprefixer'));
-        //   return postCssOptions;
-        // },
-      };
-    },
   ],
 };
 
