@@ -15,7 +15,8 @@ const darkCodeTheme = themes.vsDark;
 const config: Config = {
   title: `Dipak's Docs Diary`,
   tagline: '',
-  favicon: 'img/favicon.ico',
+  // Same avatar dipak.tech uses as its favicon (see ../v2 src/app/layout.tsx).
+  favicon: 'https://github.com/dipakparmar.png?size=96',
 
   // Set the production url of your site here
   url: 'https://docs.dipak.tech',
@@ -43,14 +44,6 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
-  // Scripts to be injected into <head></head>
-  scripts: [
-    {
-      src: 'https://cdn.splitbee.io/sb.js',
-      async: true,
-    },
-  ],
 
   // Presets are sets of config and plugins for a particular type of Docusaurus site.
   presets: [
