@@ -90,7 +90,7 @@ export default function Callout({
   children,
 }: {
   type?: CalloutType;
-  title?: string;
+  title?: ReactNode;
   children: ReactNode;
 }): React.JSX.Element {
   const rootRef = useRef<HTMLDivElement>(null);

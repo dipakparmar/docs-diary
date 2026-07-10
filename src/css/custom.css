@@ -1015,6 +1015,12 @@ a[rel='tag'] > span {
 .theme-code-block.language-mermaid::before { content: 'Mermaid'; }
 .theme-code-block.language-text::before,
 .theme-code-block.language-none::before { content: 'Text'; }
+/* When a fence sets title="…", suppress the language badge entirely so it
+   doesn't leak on top of the title header (the language-specific ::before rules
+   above aren't guarded like the generic one). */
+.theme-code-block:has([class*='codeBlockTitle'])::before {
+  content: none !important;
+}
 
 /* Explicit title header — match the language-header styling */
 [class*='codeBlockTitle'] {

@@ -20,12 +20,10 @@ const TYPE_MAP: Record<string, CalloutType> = {
 
 export default function Admonition(props: Props): React.JSX.Element {
   const type = TYPE_MAP[props.type ?? 'note'] ?? 'note';
-  // Docusaurus passes `title` as a node when the author wrote `:::tip[Title]`;
-  // fall back to the Callout's default label otherwise.
-  const title =
-    typeof props.title === 'string' ? props.title : undefined;
+  // Pass `title` straight through — it may be a ReactNode (e.g. `:::tip[**Bold**]`);
+  // Callout falls back to its default label when it's undefined.
   return (
-    <Callout type={type} title={title}>
+    <Callout type={type} title={props.title}>
       {props.children}
     </Callout>
   );

@@ -26,7 +26,7 @@ export interface RoughAnnotationConfig extends RoughAnnotationConfigBase {
 
 export interface RoughAnnotationConfigBase {
   animate?: boolean; // defaults to true
-  animationDuration?: number; // defaulst to 1000ms
+  animationDuration?: number; // defaults to 800ms
   color?: string; // defaults to currentColor
   strokeWidth?: number; // default based on type
   padding?: RoughPadding; // defaults to 5px
