@@ -64,6 +64,10 @@ const config: Config = {
           editUrl: 'https://github.com/dipakparmar/docs-diary/edit/main/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
+          // Auto-fixes block elements (CodeBlock, Callout, <pre>/<div>/<ol>/etc.)
+          // that MDX folded into a paragraph because of a missing blank line —
+          // see src/plugins/rehype/unwrap-block-jsx.js for why this matters.
+          beforeDefaultRehypePlugins: [require('./src/plugins/rehype/unwrap-block-jsx.js')],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
