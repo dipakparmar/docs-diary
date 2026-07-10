@@ -164,6 +164,7 @@ const config: Config = {
 
   // Plugins are used to extend the functionality of Docusaurus.
   plugins: [
+    require.resolve('./src/plugins/llms-txt'),
     [
       require.resolve('@docusaurus/plugin-client-redirects'),
       {
