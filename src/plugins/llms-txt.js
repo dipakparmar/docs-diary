@@ -31,10 +31,13 @@ async function postBuild({ outDir, siteConfig, plugins }) {
   // which some static hosts refuse to serve — use index.md there instead.
   const mdPath = (route) => (route === '/' ? '/index.md' : `${route}.md`);
 
+  // So an agent reading a single page can discover the rest of the site.
+  const footer = `\n\n---\n\nFull site index: ${siteConfig.url}/llms.txt\nFull site content: ${siteConfig.url}/llms-full.txt\n`;
+
   for (const page of pages) {
     const dest = path.join(outDir, mdPath(page.route));
     fs.mkdirSync(path.dirname(dest), { recursive: true });
-    fs.writeFileSync(dest, page.body);
+    fs.writeFileSync(dest, page.body + footer);
   }
 
   const index = [
