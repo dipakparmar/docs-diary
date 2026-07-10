@@ -9,10 +9,6 @@
    a CSS @import here is only discovered after this stylesheet itself loads,
    which delayed first text paint (was the dominant LCP cost on this site). */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* You can override the default Infima variables here. */
 :root {
   font-family:
