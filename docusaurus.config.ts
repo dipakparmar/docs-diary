@@ -10,7 +10,7 @@ const isDeployPreview =
 const themes = require('prism-react-renderer').themes;
 
 const lightCodeTheme = themes.github;
-const darkCodeTheme = themes.dracula;
+const darkCodeTheme = themes.vsDark;
 
 const config: Config = {
   title: `Dipak's Docs Diary`,
@@ -126,6 +126,25 @@ const config: Config = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
+      // Prism only bundles a few languages; enable the ones the docs use so
+      // bash/sql/etc. actually highlight (they were rendering monochrome).
+      additionalLanguages: [
+        'bash',
+        'shell-session',
+        'sql',
+        'php',
+        'yaml',
+        'json',
+        'ini',
+        'toml',
+        'nginx',
+        'docker',
+        'diff',
+        'powershell',
+      ],
+      // Most unlabelled code fences (```) in the docs are shell commands, so
+      // default them to bash instead of leaving them unhighlighted.
+      defaultLanguage: 'bash',
     },
     footer: {
       // style: 'light',

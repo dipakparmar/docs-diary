@@ -83,11 +83,17 @@
 
   --ifm-alert-padding-horizontal: 25px;
   --ifm-alert-padding-vertical: 14px;
+
+  /* Code-block surfaces (neutral, distinct from the page) */
+  --code-bg: #f6f7f9;
+  --code-header-bg: #eceef1;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: oklch(0.77 0.16 70);
+  --code-bg: #141414;
+  --code-header-bg: #1c1c1c;
   --ifm-color-primary-dark: oklch(0.71 0.16 62);
   --ifm-color-primary-darker: oklch(0.67 0.16 58);
   --ifm-color-primary-darkest: oklch(0.6 0.15 52);
@@ -132,7 +138,9 @@
 div.markdown > h1,
 div.markdown > header > h1,
 [class*='generatedIndexPage'] h1 {
-  font-size: 2.5rem;
+  /* Fluid: scales smoothly from ~28px on phones to 40px on desktop (reaches
+     the 2.5rem cap around ~1000px) instead of a hard breakpoint jump. */
+  font-size: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
   font-weight: 500;
   letter-spacing: -0.035em;
   line-height: 1.1;
@@ -525,7 +533,7 @@ html {
 /* Tags page title — match the article/category title */
 .docs-tags-list-page h1,
 .docs-tags-doc-list-page h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
   font-weight: 500;
   letter-spacing: -0.035em;
   line-height: 1.1;
@@ -652,12 +660,7 @@ a[rel='tag'] > span {
 
 /* Mobile view */
 @media screen and (max-width: 996px) {
-  /* Smaller title on narrow screens (selector matches the header-wrapped h1) */
-  div.markdown > h1,
-  div.markdown > header > h1,
-  [class*='generatedIndexPage'] h1 {
-    font-size: 1.75rem;
-  }
+  /* (Title size is now fluid via clamp() — no breakpoint override needed.) */
 
   /* Hide the "On this page" TOC dropdown on mobile (matches the blog) */
   .theme-doc-toc-mobile {
@@ -878,4 +881,208 @@ a[rel='tag'] > span {
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
+}
+
+/* -------------------------------------------------------------------------
+   Rough-notation callouts — Docusaurus admonitions (:::note/:::tip/:::info/
+   :::warning/:::danger) render as hand-drawn boxes (see src/theme/Admonition).
+   Ported from dipak.tech; dark mode flattened to [data-theme='dark'].
+   ------------------------------------------------------------------------- */
+.mdx-callout {
+  --co-color: oklch(50% 0.18 250);
+  --co-bg: oklch(50% 0.18 250 / 0.07);
+  position: relative;
+  color: var(--co-color); /* currentColor → rough-notation SVG stroke */
+  background: var(--co-bg);
+  border-radius: 0.35rem;
+  padding: 0.875rem 1.125rem;
+  margin: 1.5rem 0;
+}
+.mdx-callout__rough-anchor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.mdx-callout > svg.rough-annotation {
+  pointer-events: none;
+}
+
+/* Variant colours (light) */
+.mdx-callout[data-type='note'] { --co-color: oklch(50% 0.18 250); --co-bg: oklch(50% 0.18 250 / 0.07); }
+.mdx-callout[data-type='info'] { --co-color: oklch(54% 0.13 230); --co-bg: oklch(54% 0.13 230 / 0.07); }
+.mdx-callout[data-type='tip'] { --co-color: oklch(48% 0.17 155); --co-bg: oklch(48% 0.17 155 / 0.07); }
+.mdx-callout[data-type='important'] { --co-color: oklch(50% 0.22 300); --co-bg: oklch(50% 0.22 300 / 0.07); }
+.mdx-callout[data-type='warning'] { --co-color: oklch(58% 0.16 75); --co-bg: oklch(58% 0.16 75 / 0.07); }
+.mdx-callout[data-type='danger'],
+.mdx-callout[data-type='caution'] { --co-color: oklch(50% 0.22 25); --co-bg: oklch(50% 0.22 25 / 0.07); }
+
+/* Variant colours (dark) */
+[data-theme='dark'] .mdx-callout[data-type='note'] { --co-color: oklch(68% 0.18 250); --co-bg: oklch(68% 0.18 250 / 0.09); }
+[data-theme='dark'] .mdx-callout[data-type='info'] { --co-color: oklch(72% 0.13 230); --co-bg: oklch(72% 0.13 230 / 0.09); }
+[data-theme='dark'] .mdx-callout[data-type='tip'] { --co-color: oklch(65% 0.17 155); --co-bg: oklch(65% 0.17 155 / 0.09); }
+[data-theme='dark'] .mdx-callout[data-type='important'] { --co-color: oklch(68% 0.22 300); --co-bg: oklch(68% 0.22 300 / 0.09); }
+[data-theme='dark'] .mdx-callout[data-type='warning'] { --co-color: oklch(74% 0.16 75); --co-bg: oklch(74% 0.16 75 / 0.09); }
+[data-theme='dark'] .mdx-callout[data-type='danger'],
+[data-theme='dark'] .mdx-callout[data-type='caution'] { --co-color: oklch(68% 0.22 25); --co-bg: oklch(68% 0.22 25 / 0.09); }
+
+.mdx-callout__header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+  color: var(--co-color);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.01em;
+}
+.mdx-callout__body {
+  position: relative;
+  z-index: 1;
+  color: var(--ifm-font-color-base);
+}
+.mdx-callout__body > :first-child { margin-top: 0; }
+.mdx-callout__body > :last-child { margin-bottom: 0; }
+
+/* -------------------------------------------------------------------------
+   Code blocks — bordered wrapper on a neutral surface with a small language
+   header, matching the site palette (Prism theme keeps the token colours).
+   (--code-bg / --code-header-bg are defined in the :root / dark blocks above.)
+   ------------------------------------------------------------------------- */
+
+.theme-code-block {
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: none !important;
+  /* !important so the Prism theme's own container background (e.g. dracula's
+     #282a36) can't leak around the <pre> */
+  background: var(--code-bg) !important;
+}
+.theme-code-block pre {
+  background: var(--code-bg) !important;
+  border-radius: 0;
+  padding: 0.9rem 1rem;
+  font-size: 0.82rem;
+}
+
+/* Language header — shown when the fence has no explicit title="…" */
+.theme-code-block:not(:has([class*='codeBlockTitle']))::before {
+  content: 'Code';
+  display: block;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  color: var(--ifm-color-gray-500);
+  background: var(--code-header-bg);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+.theme-code-block.language-bash::before { content: 'Bash'; }
+.theme-code-block.language-sh::before,
+.theme-code-block.language-shell::before,
+.theme-code-block.language-shell-session::before { content: 'Shell'; }
+.theme-code-block.language-sql::before { content: 'SQL'; }
+.theme-code-block.language-php::before { content: 'PHP'; }
+.theme-code-block.language-yaml::before { content: 'YAML'; }
+.theme-code-block.language-json::before { content: 'JSON'; }
+.theme-code-block.language-ini::before { content: 'INI'; }
+.theme-code-block.language-toml::before { content: 'TOML'; }
+.theme-code-block.language-nginx::before { content: 'Nginx'; }
+.theme-code-block.language-docker::before,
+.theme-code-block.language-dockerfile::before { content: 'Dockerfile'; }
+.theme-code-block.language-diff::before { content: 'Diff'; }
+.theme-code-block.language-powershell::before { content: 'PowerShell'; }
+.theme-code-block.language-js::before,
+.theme-code-block.language-javascript::before { content: 'JavaScript'; }
+.theme-code-block.language-ts::before,
+.theme-code-block.language-typescript::before { content: 'TypeScript'; }
+.theme-code-block.language-xml::before,
+.theme-code-block.language-markup::before,
+.theme-code-block.language-plist::before { content: 'XML'; }
+.theme-code-block.language-html::before { content: 'HTML'; }
+.theme-code-block.language-css::before { content: 'CSS'; }
+.theme-code-block.language-python::before,
+.theme-code-block.language-py::before { content: 'Python'; }
+.theme-code-block.language-go::before { content: 'Go'; }
+.theme-code-block.language-rust::before { content: 'Rust'; }
+.theme-code-block.language-mermaid::before { content: 'Mermaid'; }
+.theme-code-block.language-text::before,
+.theme-code-block.language-none::before { content: 'Text'; }
+/* When a fence sets title="…", suppress the language badge entirely so it
+   doesn't leak on top of the title header (the language-specific ::before rules
+   above aren't guarded like the generic one). */
+.theme-code-block:has([class*='codeBlockTitle'])::before {
+  content: none !important;
+}
+
+/* Explicit title header — match the language-header styling */
+[class*='codeBlockTitle'] {
+  background: var(--code-header-bg) !important;
+  border-bottom: 1px solid var(--ifm-toc-border-color) !important;
+  font-size: 0.7rem;
+  color: var(--ifm-color-gray-500);
+}
+
+/* Copy button — sits quietly in the header row */
+.theme-code-block [class*='buttonGroup'] {
+  top: 0.25rem;
+  right: 0.4rem;
+}
+
+/* -------------------------------------------------------------------------
+   Tables — clean, blog-style: hairline row rules, no cell borders/stripes.
+   ------------------------------------------------------------------------- */
+.theme-doc-markdown table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+  border: 0;
+}
+.theme-doc-markdown table thead {
+  background: transparent;
+}
+.theme-doc-markdown table thead tr {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+.theme-doc-markdown table th {
+  font-weight: 600;
+  text-align: left;
+  color: var(--ifm-heading-color);
+  padding: 0.55rem 0.9rem;
+  border: 0;
+  background: transparent;
+}
+.theme-doc-markdown table td {
+  padding: 0.55rem 0.9rem;
+  border: 0;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  vertical-align: top;
+}
+/* No zebra striping — keep it quiet like the blog */
+.theme-doc-markdown table tr:nth-child(2n) {
+  background: transparent;
+}
+.theme-doc-markdown table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Line-numbered code blocks: the number gutter kept the Prism theme's own
+   background (a lighter shade), showing as a vertical strip against our neutral
+   --code-bg. Match it so the surface is uniform. */
+.theme-code-block [class*='codeLineNumber'] {
+  background: var(--code-bg) !important;
+}
+
+/* vsDark colours the XML prolog/doctype near-black (#000080) — unreadable on
+   the dark surface. Recolour the markup meta tokens to a readable muted tone. */
+[data-theme='dark'] .theme-code-block .token.prolog,
+[data-theme='dark'] .theme-code-block .token.doctype,
+[data-theme='dark'] .theme-code-block .token.cdata {
+  color: #6a9955 !important;
 }
