@@ -83,11 +83,17 @@
 
   --ifm-alert-padding-horizontal: 25px;
   --ifm-alert-padding-vertical: 14px;
+
+  /* Code-block surfaces (neutral, distinct from the page) */
+  --code-bg: #f6f7f9;
+  --code-header-bg: #eceef1;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: oklch(0.77 0.16 70);
+  --code-bg: #141414;
+  --code-header-bg: #1c1c1c;
   --ifm-color-primary-dark: oklch(0.71 0.16 62);
   --ifm-color-primary-darker: oklch(0.67 0.16 58);
   --ifm-color-primary-darkest: oklch(0.6 0.15 52);
@@ -945,15 +951,8 @@ a[rel='tag'] > span {
 /* -------------------------------------------------------------------------
    Code blocks — bordered wrapper on a neutral surface with a small language
    header, matching the site palette (Prism theme keeps the token colours).
+   (--code-bg / --code-header-bg are defined in the :root / dark blocks above.)
    ------------------------------------------------------------------------- */
-:root {
-  --code-bg: #f6f7f9;
-  --code-header-bg: #eceef1;
-}
-[data-theme='dark'] {
-  --code-bg: #141414;
-  --code-header-bg: #1c1c1c;
-}
 
 .theme-code-block {
   border: 1px solid var(--ifm-toc-border-color);
