@@ -1,5 +1,43 @@
 # docs-diary
 
+## 1.9.0
+
+### Minor Changes
+
+- [#457](https://github.com/dipakparmar/docs-diary/pull/457) [`2d8db2a`](https://github.com/dipakparmar/docs-diary/commit/2d8db2a5ac6b4724445b86cedd632318fe762378) Thanks [@dipakparmar](https://github.com/dipakparmar)! - feat: generate `llms.txt`, `llms-full.txt`, and a raw `*.md` copy of every doc page (in both `pnpm start` and `pnpm build`), and add an "Open" toolbar on each doc page for opening the page in GitHub, ChatGPT, or Claude.
+
+- [#456](https://github.com/dipakparmar/docs-diary/pull/456) [`237345e`](https://github.com/dipakparmar/docs-diary/commit/237345e515453494bdd32cc34a77f3a0abbc7d3c) Thanks [@dipakparmar](https://github.com/dipakparmar)! - feat: hand-drawn (rough-notation) callouts, better code blocks, cleaner tables, and fluid titles
+
+  - Docusaurus admonitions (`:::note` / `:::tip` / `:::info` / `:::warning` / `:::danger`) now render as hand-drawn rough-notation callouts, with a `<Callout>` component also available in MDX.
+  - Code blocks: syntax highlighting enabled for the languages the docs use (bash, sql, yaml, …) with unlabelled fences defaulting to bash; switched the dark theme off dracula to a neutral palette; bordered blocks on a neutral surface with a language badge, readable line numbers, and a readable XML prolog in dark mode.
+  - Tables restyled to clean, blog-style ruled rows.
+  - Page titles are now fluid (`clamp()`), scaling smoothly from phone to desktop instead of a hard breakpoint.
+
+### Patch Changes
+
+- [#458](https://github.com/dipakparmar/docs-diary/pull/458) [`427033f`](https://github.com/dipakparmar/docs-diary/commit/427033fcc7940daefdc1fc5e20c3751abca81a62) Thanks [@dipakparmar](https://github.com/dipakparmar)! - fix: prevent hydration errors from block elements folded into paragraphs
+
+  - Added a rehype plugin that promotes a `CodeBlock`, `Callout`/`Admonition`, or raw `<pre>`/`<div>`/`<ol>`/etc. out of a paragraph whenever MDX had folded it in (missing blank line, or an indented `:::info` inside a list item). That invalid nesting was causing React error #418 on hydration.
+  - Removed the dead Splitbee analytics script (the service shut down).
+  - Favicon now points at the same GitHub avatar dipak.tech uses, instead of a stale local `.ico`.
+
+- [#459](https://github.com/dipakparmar/docs-diary/pull/459) [`108accc`](https://github.com/dipakparmar/docs-diary/commit/108acccebc8668bdf1b5a2cfdf4c32cad7b2208a) Thanks [@dipakparmar](https://github.com/dipakparmar)! - perf: fix Lighthouse-flagged render-blocking font, image dimensions, cache headers, and legacy JS; add Cloudflare Workers deploy option
+
+  - Inter is now loaded via a `<link>`/`preconnect` in `<head>` instead of a CSS `@import`, removing the dominant cost behind a very slow Largest Contentful Paint.
+  - Navbar logo now has explicit `width`/`height` to avoid layout shift.
+  - Hashed `/assets/*` are cached immutably for a year (`vercel.json`, and the equivalent `static/_headers` for Cloudflare).
+  - Narrowed the production `browserslist` to modern evergreen browsers so the build stops shipping legacy-JS transforms and polyfills.
+  - Added `wrangler.jsonc` and a `deploy:cf` script so the site can also deploy to Cloudflare Workers, alongside the existing Vercel setup.
+
+- [#455](https://github.com/dipakparmar/docs-diary/pull/455) [`8317030`](https://github.com/dipakparmar/docs-diary/commit/83170308e5fd225451e59a47eb6ce6c51bc85137) Thanks [@dipakparmar](https://github.com/dipakparmar)! - fix: the first paragraph of a doc page no longer renders larger than the rest of the body. The blog-style "lede" sizing enlarged every page's opening paragraph, which made it inconsistent on docs pages (where the first paragraph is just content, not a subtitle).
+
+- [#460](https://github.com/dipakparmar/docs-diary/pull/460) [`4dae64a`](https://github.com/dipakparmar/docs-diary/commit/4dae64a99fb576804c8985c3a2946529a89cea3f) Thanks [@dipakparmar](https://github.com/dipakparmar)! - chore: remove dead Tailwind wiring
+
+  - Tailwind was never actually compiled — the PostCSS plugin's `configurePostCss` hook was fully commented out, so the `@tailwind` directives in `custom.css` shipped to the browser as inert dead text.
+  - Removed the `@tailwind` directives, the no-op `tailwindcss()` plugin block, the unused `ReadingTime.js` component (the only file that referenced Tailwind classNames, and it was never imported), and the `tailwindcss` dependency.
+
+- [#453](https://github.com/dipakparmar/docs-diary/pull/453) [`e4b25c5`](https://github.com/dipakparmar/docs-diary/commit/e4b25c56185c11ae4bfac5506bd051f48dde9446) Thanks [@dipakparmar](https://github.com/dipakparmar)! - fix: high-contrast text on the active sidebar row (was low-contrast amber-on-amber), plus mobile drawer polish — readable, consistently-sized items, a larger tap target for the category expand caret, a fixed cut-off logo in the drawer header, a smaller page title on mobile, and the "On this page" TOC dropdown hidden.
+
 ## 1.8.0
 
 ### Minor Changes
