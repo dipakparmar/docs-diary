@@ -1,15 +1,31 @@
 name: Release
+
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  id-token: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   release:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v6
+      - name: Checkout
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Use Node.js
         uses: actions/setup-node@v6
@@ -21,19 +37,12 @@ jobs:
           version: 11.5.0
           run_install: true
 
-      - name: Setup Git
-        run: |
-          git config --global user.email ${{ secrets.RELEASE_USER_EMAIL }}
-          git config --global user.name ${{ secrets.RELEASE_USER }}
-
-      - name: Create Release Pull Request
-        id: changesets
-        uses: changesets/action@v1
-        with:
-          publish: yarn release
-          createGithubReleases: true
-          setupGitUser: false
-          commit: 'chore: update versions'
-          title: 'chore: update versions'
+      - name: Release
+        id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GIT_AUTHOR_NAME: "github-actions[bot]"
+          GIT_AUTHOR_EMAIL: "github-actions[bot]@users.noreply.github.com"
+          GIT_COMMITTER_NAME: "github-actions[bot]"
+          GIT_COMMITTER_EMAIL: "github-actions[bot]@users.noreply.github.com"
+        run: pnpm exec semantic-release
