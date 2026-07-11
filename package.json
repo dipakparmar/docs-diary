@@ -41,7 +41,7 @@
     "roughjs": "^4.6.6"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.25.1",
+    "@babel/eslint-parser": "8.0.1",
     "@docusaurus/eslint-plugin": "^3.4.0",
     "@docusaurus/module-type-aliases": "^3.4.0",
     "@docusaurus/tsconfig": "3.9.1",
