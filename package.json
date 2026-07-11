@@ -2,7 +2,6 @@
   "name": "docs-diary",
   "version": "1.9.0",
   "private": true,
-  "packageManager": "pnpm@11.5.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dipakparmar/docs-diary.git"
@@ -12,14 +11,13 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "deploy:cf": "docusaurus build && wrangler deploy",
+    "deploy": "docusaurus build && wrangler deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "ci": "yarn lint && yarn format:diff",
+    "ci": "bun run lint && bun run format:diff",
     "lint": "eslint \"**/*.js\" \"**/*.ts\"",
     "format": "prettier --config .prettierrc --write \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
     "format:diff": "prettier --config .prettierrc --list-different \"**/*.{js,jsx,ts,tsx,md,mdx}\"",
@@ -69,8 +67,10 @@
   "resolutions": {
     "nth-check": "2.0.1",
     "trim": "0.0.3",
-    "axios": "1.6.0"
+    "axios": "1.6.0",
+    "webpack": "5.101.3"
   },
+  "trustedDependencies": ["esbuild", "sharp", "workerd"],
   "browserslist": {
     "production": [
       "last 2 Chrome versions",
