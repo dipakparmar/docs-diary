@@ -212,6 +212,9 @@ const config: Config = {
         scriptName: 'ua.js',
         dataDoNotTrack: true,
         dataDomains: 'docs.dipak.tech',
+        // Loads recorder.js — powers heatmaps (toggle Heatmaps on for this site
+        // in the Umami dashboard: Websites → Edit → Replays & Heatmaps).
+        enableRecorder: true,
       } as UmamiOptions,
     ],
   ],
