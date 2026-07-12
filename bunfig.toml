@@ -1,3 +1,5 @@
 [install]
 # Only install package versions published at least 3 days ago
 minimumReleaseAge = 259200
+# Own first-party package — no need to gate our own just-published releases
+minimumReleaseAgeExcludes = ["@dipakparmar/docusaurus-plugin-umami"]
