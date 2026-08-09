@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/dipakparmar/docs-diary/compare/v1.9.0...v1.10.0) (2026-08-09)
+
+
+### Features
+
+* **comments:** add giscus to doc pages ([ec1933e](https://github.com/dipakparmar/docs-diary/commit/ec1933e9a413b03787d97212703c8224dfaa2e41))
+
 # docs-diary
 
 ## 1.9.0

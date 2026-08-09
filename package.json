@@ -1,6 +1,6 @@
 {
   "name": "docs-diary",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "private": true,
   "repository": {
     "type": "git",
@@ -70,7 +70,11 @@
     "axios": "1.6.0",
     "webpack": "5.101.3"
   },
-  "trustedDependencies": ["esbuild", "sharp", "workerd"],
+  "trustedDependencies": [
+    "esbuild",
+    "sharp",
+    "workerd"
+  ],
   "browserslist": {
     "production": [
       "last 2 Chrome versions",
