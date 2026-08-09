@@ -757,6 +757,16 @@ a[rel='tag'] > span {
   color: var(--ifm-color-primary);
 }
 
+/* Giscus comments — no divider rule, just breathing room after the pagination. */
+.docs-comments {
+  margin-top: 3rem;
+}
+.docs-comments .giscus,
+.docs-comments .giscus-frame {
+  width: 100%;
+  border: 0;
+}
+
 /* Theme toggle lives in the bottom Dock now — hide the navbar one */
 .navbar [class*='colorModeToggle'] {
   display: none;
