@@ -48,7 +48,7 @@
     "@docusaurus/tsconfig": "3.10.2",
     "@docusaurus/types": "^3.9.1",
     "@semantic-release/changelog": "6.0.3",
-    "@semantic-release/git": "10.0.1",
+    "@semantic-release/git": "11.0.1",
     "@types/react": "^18.3.3",
     "eslint": "8.57.0",
     "eslint-config-airbnb": "19.0.4",
